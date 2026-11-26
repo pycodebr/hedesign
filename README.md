@@ -33,9 +33,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign-fonts.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign-theme.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.1/dist/hedesign-fonts.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.1/dist/hedesign.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.1/dist/hedesign-theme.js"></script>
 </head>
 <body>
   <main class="he-main">
@@ -54,7 +54,7 @@
       <span class="he-who" data-who="ai">com a IA</span>
     </div>
   </main>
-  <script src="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.1/dist/hedesign.min.js"></script>
   <script>
     document.getElementById("revisar").addEventListener("click", function () {
       HE.toast({ text: "Item aprovado.", onUndo: function () { HE.toast("Aprovação desfeita."); } });

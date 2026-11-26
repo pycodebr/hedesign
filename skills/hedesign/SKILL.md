@@ -3,7 +3,7 @@ name: hedesign
 description: 'Use quando pedirem para aplicar, instalar ou usar o hedesign em um projeto, ou para dar a um sistema web o visual de estúdio calmo com IA presente (design system, tokens, tema claro e escuro, dark mode, UI kit, CSS components, layout de aplicativo com menu lateral, campo de pedido à IA). Instala os arquivos, liga o tema, monta a casca e troca a interface para os tokens e componentes he-*, em qualquer stack (HTML puro, Django, Rails, Laravel, React, Next, Vue, Svelte, Tailwind).'
 license: MIT
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   author: PycodeBR (Felipe Azambuja)
 ---
 
@@ -46,7 +46,7 @@ curl -fsSL https://raw.githubusercontent.com/pycodebr/hedesign/main/install.sh |
    atual, e se já existe tema escuro. Liste as telas e o que cada uma faz. Não troque a arquitetura do projeto.
 2. **Ponha os arquivos no projeto.** `hedesign add <pasta-de-estáticos>/hedesign` copia `dist/` e baixa a Inter com
    conferência de sha256. Sem acesso à pasta, use o jsDelivr com a versão fixada
-   (`https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/...`).
+   (`https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.1/dist/...`).
 3. **Ligue no layout base**, nesta ordem: no `<head>`, `hedesign-fonts.css`, `hedesign.css` e `hedesign-theme.js`
    (script comum, sem `defer`, para o tema entrar antes da primeira pintura); antes de `</body>`, `hedesign.js`. O
    `<html>` precisa de `lang` e a página, da meta viewport com `viewport-fit=cover`.

@@ -1,4 +1,4 @@
-/* hedesign 1.0.0: tema do Tailwind v4. Importe depois de dist/hedesign.css (ou tokens/tokens.css).
+/* hedesign 1.0.1: tema do Tailwind v4. Importe depois de dist/hedesign.css (ou tokens/tokens.css).
    Gera utilitários como bg-he-surface, text-he-ink, rounded-he, shadow-he-1 e font-he, nos dois temas. */
 @custom-variant dark (&:where([data-he-theme="dark"], [data-he-theme="dark"] *));
 @theme inline {

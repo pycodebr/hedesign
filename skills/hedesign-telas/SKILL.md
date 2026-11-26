@@ -3,7 +3,7 @@ name: hedesign-telas
 description: 'Use quando pedirem para desenhar, criar ou redesenhar uma tela, um fluxo ou a experiência de um sistema com o hedesign (UI/UX, dashboard, painel, kanban, quadro, calendário, fila de aprovação, tela de detalhe, ajustes, chat com IA, landing page, onboarding, estados vazios, mobile). Parte da tarefa de quem usa, escolhe a receita de tela, encaixa a IA no lugar certo, escreve o texto da interface e entrega a tela pronta nos dois temas e no celular.'
 license: MIT
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   author: PycodeBR (Felipe Azambuja)
 ---
 

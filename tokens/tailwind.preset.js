@@ -1,4 +1,4 @@
-/* hedesign 1.0.0: preset do Tailwind v3. As cores apontam para os tokens CSS, então os dois temas funcionam
+/* hedesign 1.0.1: preset do Tailwind v3. As cores apontam para os tokens CSS, então os dois temas funcionam
    sem variantes dark:. Carregue dist/hedesign.css (ou tokens/tokens.css) na página.
    Uso: module.exports = { presets: [require("./hedesign/tokens/tailwind.preset.js")] } */
 module.exports = {

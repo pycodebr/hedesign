@@ -3,6 +3,15 @@
 Todas as mudanças publicadas do hedesign. O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/)
 e as versões seguem o [SemVer](https://semver.org/lang/pt-BR/).
 
+## 1.0.1 (2026-11-26)
+
+### Corrigido
+
+- `LICENSE` só com o texto padrão da licença MIT. A versão 1.0.0 saiu com um parágrafo a mais no fim, que citava um
+  arquivo que não existe neste repositório e impedia o GitHub de reconhecer a licença. Os componentes de terceiros
+  continuam descritos em `THIRD_PARTY.md`.
+- `tests/check_repo.py` passou a conferir o texto do `LICENSE`.
+
 ## 1.0.0 (2026-11-25)
 
 Primeira versão pública.

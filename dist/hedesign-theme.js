@@ -1,4 +1,4 @@
-/*! hedesign 1.0.0 · MIT · https://github.com/pycodebr/hedesign */
+/*! hedesign 1.0.1 · MIT · https://github.com/pycodebr/hedesign */
 /* hedesign-theme.js
    Aplica o tema antes da primeira pintura. Carregue no <head>, sem defer nem async.
    Preferência em localStorage["he.theme"]: "light", "dark" ou "auto". Sem preferência salva vale "auto",

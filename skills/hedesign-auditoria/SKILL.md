@@ -3,7 +3,7 @@ name: hedesign-auditoria
 description: 'Use quando pedirem para revisar, auditar ou conferir uma interface feita com o hedesign, antes de entregar uma tela, ou quando algo parecer fora do padrão (design review, UI audit, QA visual, contraste, dark mode quebrado, responsivo, acessibilidade). Roda a auditoria estática, tira capturas nos dois temas e em duas larguras, confere teclado e estados, e devolve uma lista de correções em ordem de gravidade.'
 license: MIT
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   author: PycodeBR (Felipe Azambuja)
 ---
 

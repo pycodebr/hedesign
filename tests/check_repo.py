@@ -66,6 +66,14 @@ def check_skills() -> None:
 
 
 # ── versão nas URLs públicas ─────────────────────────────────────────────────
+def check_license() -> None:
+    text = (ROOT / "LICENSE").read_text()
+    if not text.startswith("MIT License\n\nCopyright (c) ") or not text.rstrip().endswith("SOFTWARE."):
+        fail("LICENSE: precisa conter só o texto padrão da licença MIT, para o GitHub reconhecê-la")
+    if len(text.split("\n\n")) != 5:
+        fail("LICENSE: parágrafos a mais ou a menos que o texto padrão da MIT")
+
+
 def check_version_urls() -> None:
     for rel in ["README.md", "llms.txt", "AGENTS.md", "skills/hedesign/SKILL.md", "docs/src/sections/02-instalar.html"]:
         path = ROOT / rel
@@ -214,7 +222,7 @@ def check_audit() -> None:
 
 
 def main() -> int:
-    for step in (check_skills, check_version_urls, check_links, check_text, check_guard, check_audit):
+    for step in (check_skills, check_license, check_version_urls, check_links, check_text, check_guard, check_audit):
         try:
             step()
         except AssertionError as exc:
@@ -223,7 +231,7 @@ def main() -> int:
         print("\n".join(problems))
         print(f"\n{len(problems)} problema(s).")
         return 1
-    print("repositório conferido: skills, versão, links, texto, guarda de publicação e auditoria.")
+    print("repositório conferido: skills, licença, versão, links, texto, guarda de publicação e auditoria.")
     return 0
 
 
