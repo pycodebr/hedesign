@@ -1,0 +1,25 @@
+<!-- nav: Estúdio | Destaque do dia e envio de arquivos -->
+<h3>Destaque do dia</h3>
+<p>A primeira tela responde a uma pergunta: o que precisa de mim agora? O destaque junta o número, um leque com as miniaturas do que espera e o botão que leva à fila. O leque abre um pouco sob o ponteiro.</p>
+<!--demo both-->
+<div class="he-hero" data-tone="orange">
+  <div class="he-fan" aria-hidden="true">
+    <span class="he-fan__card"><img src="examples/media/s1.svg" alt=""></span>
+    <span class="he-fan__card"><img src="examples/media/s6.svg" alt=""></span>
+    <span class="he-fan__card"><img src="examples/media/s10.svg" alt=""></span>
+  </div>
+  <div class="he-hero__main">
+    <div class="he-hero__count"><b>3</b>itens esperam a sua decisão</div>
+    <a class="he-btn he-btn--primary he-btn--lg" href="#destaque">Revisar agora <kbd class="he-kbd" aria-hidden="true">R</kbd></a>
+  </div>
+</div>
+<!--/demo-->
+<h3>Envio de arquivos</h3>
+<p>O progresso aparece na própria linha do item, com o nome e o quanto falta. O erro fica na mesma linha, com o motivo e o botão de tentar de novo. Ao arrastar um arquivo sobre a janela, a área de soltar cobre a tela.</p>
+<!--demo both-->
+<div class="he-stack">
+  <div class="he-upload">{i:video}<span class="he-upload__text">aula-3-bruto.mp4 · 62%</span><span class="he-upload__track"><i style="--p:.62"></i></span><button type="button" class="he-btn he-btn--sm he-btn--ghost">Cancelar</button></div>
+  <div class="he-upload he-upload--error">{i:alert}<span class="he-upload__text">capa.png passou de 20 MB. Reduza a imagem e envie de novo.</span><button type="button" class="he-btn he-btn--sm">Escolher outro</button></div>
+  <div class="he-dropzone he-dropzone--inline"><div class="he-dropzone__box"><span class="he-dropzone__ico">{i:upload}</span><b>Solte os arquivos aqui</b>Imagens e vídeos de até 300 MB. Ou <a class="he-link" href="#destaque">escolha no computador</a>.</div></div>
+</div>
+<!--/demo-->

@@ -1,0 +1,50 @@
+<!-- nav: Componentes | Campos e formulários -->
+<p>Campos têm 40 px, raio de 10 px e contorno forte. No foco a borda fica azul e ganha um anel de 3 px. O rótulo fica acima do campo, nunca dentro dele.</p>
+<!--demo both-->
+<div class="he-grid he-grid--2">
+  <div class="he-field"><label for="f-nome">Nome da campanha</label><input class="he-input" id="f-nome" placeholder="Lançamento de março"></div>
+  <div class="he-field"><label for="f-canal">Canal</label><select class="he-input he-select" id="f-canal"><option>Feed</option><option>Vídeo curto</option><option>Boletim</option></select></div>
+  <div class="he-field"><label for="f-meta">Meta por semana</label><div class="he-suffix"><input class="he-input" id="f-meta" value="5" inputmode="numeric"><span>itens</span></div><span class="he-help">Conta só o que foi publicado.</span></div>
+  <div class="he-field"><label for="f-erro">Endereço</label><input class="he-input" id="f-erro" value="estudio norte" aria-invalid="true" aria-describedby="f-erro-msg"><p class="he-field__error" id="f-erro-msg">O endereço não pode ter espaço. Tente estudio-norte.</p></div>
+</div>
+<div class="he-field" style="margin-top:14px"><label for="f-texto">Descrição</label><textarea class="he-textarea" id="f-texto" placeholder="O que este item precisa dizer"></textarea></div>
+<!--/demo-->
+<h3>Captura rápida</h3>
+<p>Uma linha tracejada que vira campo no foco. Enter guarda e o campo fica pronto para a próxima. Dentro de um elemento com tom, a borda do foco usa o tom.</p>
+<!--demo-->
+<label class="he-quick" data-tone="blue">{i:plus}<input type="text" placeholder="Ideia rápida, Enter guarda" aria-label="Ideia rápida"></label>
+<!--/demo-->
+<h3>Interruptor e opções</h3>
+<!--demo both-->
+<div class="he-stack">
+  <div class="he-toggle"><div class="he-toggle__text"><b>Publicar sozinho depois de aprovado</b><small>O item entra no próximo horário livre da agenda.</small></div><button type="button" class="he-switch" role="switch" aria-checked="true" aria-label="Publicar sozinho depois de aprovado"><span class="he-switch__knob"></span></button></div>
+  <div class="he-toggle"><div class="he-toggle__text"><b>Avisar por e-mail</b><small>Um resumo por dia, às 9h.</small></div><button type="button" class="he-switch" role="switch" aria-checked="false" aria-label="Avisar por e-mail"><span class="he-switch__knob"></span></button></div>
+  <div class="he-row"><label class="he-checkbox"><input type="checkbox" checked>Incluir legendas</label><label class="he-checkbox"><input type="checkbox">Incluir rascunhos</label></div>
+  <div class="he-row" role="radiogroup" aria-label="Quando a IA pode agir fora do sistema"><label class="he-radio"><input type="radio" name="doc-perm" checked>Perguntar sempre</label><label class="he-radio"><input type="radio" name="doc-perm">Permitir o que já aprovei</label></div>
+</div>
+<!--/demo-->
+<h3>Compositor</h3>
+<p>O campo de pedido no padrão dos chats de IA: o texto e a barra de ações ficam dentro do mesmo contorno. A altura acompanha o texto, Enter envia e Shift + Enter quebra a linha. É o mesmo componente do campo fixo do rodapé, de um chat e de um comentário.</p>
+<!--demo both-->
+<form class="he-composer is-empty" data-doc-composer novalidate>
+  <div class="he-composer__box">
+    <textarea class="he-composer__input" rows="1" placeholder="Descreva o que você quer criar" aria-label="Pedido"></textarea>
+    <div class="he-composer__bar">
+      <span class="he-composer__tools">
+        <button type="button" class="he-composer__tool" aria-label="Anexar arquivo">{i:paperclip}</button>
+        <select class="he-composer__pill" aria-label="Formato"><option>Carrossel</option><option>Vídeo curto</option><option>Texto</option></select>
+        <label class="he-composer__check"><input type="checkbox" checked>Usar a biblioteca</label>
+      </span>
+      <span class="he-composer__actions"><button class="he-composer__send" type="submit" aria-label="Enviar"></button></span>
+    </div>
+  </div>
+  <p class="he-composer__hint"><kbd>Enter</kbd> envia · <kbd>Shift</kbd> + <kbd>Enter</kbd> quebra a linha</p>
+</form>
+<!--/demo-->
+<h3>Regras de formulário</h3>
+<ul>
+  <li>Uma coluna. Dois campos lado a lado só quando são curtos e relacionados, como data e hora.</li>
+  <li>O erro aparece abaixo do campo, diz o que aconteceu e como resolver, e o campo leva <code>aria-invalid</code> e <code>aria-describedby</code>.</li>
+  <li>Salvar fica no rodapé da seção, à direita. A seção com mudança por salvar ganha a faixa laranja à esquerda (<code>.he-formsec.is-dirty</code>).</li>
+  <li>O interruptor vale na hora, sem botão de salvar, e o aviso confirma com Desfazer.</li>
+</ul>

@@ -1,0 +1,54 @@
+<!-- nav: Componentes | Quadro, calendário e metas -->
+<h3>Quadro</h3>
+<p>Uma coluna por etapa, cada uma no tom dela: faixa de 3 px no topo, título na cor de texto do tom e fundo levemente tingido. Os cartões são arrastáveis; no celular cada coluna ocupa 84% da largura e a rolagem encaixa.</p>
+<!--demo both-->
+<div class="he-board" data-doc-board>
+  <section class="he-col" data-tone="blue"><div class="he-col__head"><h3 class="he-col__title">Ideia</h3><span class="he-col__n">2</span></div>
+    <div class="he-col__top"><label class="he-quick">{i:plus}<input type="text" placeholder="Ideia rápida" aria-label="Ideia rápida"></label></div>
+    <div class="he-col__list" data-he-drop>
+      <article class="he-card he-card--board" data-tone="blue" data-he-drag><div class="he-card__thumb"><div class="he-card__poster"><span>Mostrar a mesa e o roteiro impresso</span></div><span class="he-card__kind">{i:story}Story</span></div><div class="he-card__body"><h3 class="he-card__title">Bastidores da aula 3</h3><div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div></div></article>
+    </div></section>
+  <section class="he-col" data-tone="violet"><div class="he-col__head"><h3 class="he-col__title">Texto</h3><span class="he-col__n">1</span></div>
+    <div class="he-col__list" data-he-drop>
+      <article class="he-card he-card--board he-glow" data-tone="violet" data-he-drag data-he-glow="IA trabalhando"><div class="he-card__thumb"><div class="he-card__poster"><span>O prompt que mudou meu fluxo</span></div><span class="he-card__kind">{i:carousel}Carrossel</span></div><div class="he-card__body"><h3 class="he-card__title">O prompt que mudou meu fluxo</h3><div class="he-card__meta"><span class="he-card__date">{i:clock}sáb 28/11 · 12h</span></div><div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div></div></article>
+    </div></section>
+  <section class="he-col" data-tone="orange"><div class="he-col__head"><h3 class="he-col__title">Aprovação</h3><span class="he-col__n">1</span></div>
+    <div class="he-col__list" data-he-drop>
+      <article class="he-card he-card--board" data-tone="orange" data-he-drag><div class="he-card__thumb"><img src="examples/media/s1.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}Carrossel</span></div><div class="he-card__body"><h3 class="he-card__title">5 erros no seu primeiro agente</h3><div class="he-card__meta"><span class="he-card__date">{i:clock}qui 26/11 · 18h</span></div><div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div></div></article>
+    </div></section>
+  <section class="he-col is-locked" data-tone="green"><div class="he-col__head"><h3 class="he-col__title">Publicado</h3><span class="he-col__n">0</span></div>
+    <div class="he-col__list"></div></section>
+</div>
+<!--/demo-->
+<!--code-->
+HE.dnd(document.querySelector(".he-board"), {
+  item: "[data-he-drag]",
+  zone: "[data-he-drop]",
+  onDrop(ctx) {
+    // ctx.item, ctx.from, ctx.to, ctx.index e ctx.revert()
+    salvar(ctx).catch(() => ctx.revert());
+    HE.toast({ text: "Movido para Aprovação.", onUndo: () => ctx.revert() });
+  }
+});
+<!--/code-->
+<h3>Calendário</h3>
+<p>Semana em sete colunas; abaixo de 900 px vira agenda, um dia por linha. O dia de hoje tem o número em tinta. Dia vazio mostra o convite tracejado na cor da IA.</p>
+<!--demo-->
+<div class="he-cal">
+  <div class="he-cal__day"><div class="he-cal__head"><span class="he-cal__num">23</span>seg</div><div class="he-cal__list"><article class="he-card he-card--cal" data-tone="green"><div class="he-card__thumb"><span class="he-card__kind">{i:carousel}</span></div><div class="he-card__body"><h3 class="he-card__title">Erro 2</h3><div class="he-card__meta"><span class="he-card__date">12h</span></div></div></article></div></div>
+  <div class="he-cal__day is-empty"><div class="he-cal__head"><span class="he-cal__num">24</span>ter</div><div class="he-cal__list"></div><button type="button" class="he-cal__add">{i:sparkles}Sugerir</button></div>
+  <div class="he-cal__day is-today"><div class="he-cal__head"><span class="he-cal__num">25</span>qua</div><div class="he-cal__list"><article class="he-card he-card--cal" data-tone="teal"><div class="he-card__thumb"><span class="he-card__kind">{i:story}</span></div><div class="he-card__body"><h3 class="he-card__title">Bastidores</h3><div class="he-card__meta"><span class="he-card__date">20h</span></div></div></article></div></div>
+  <div class="he-cal__day"><div class="he-cal__head"><span class="he-cal__num">26</span>qui</div><div class="he-cal__list"><article class="he-card he-card--cal" data-tone="orange"><div class="he-card__thumb"><span class="he-card__kind">{i:carousel}</span></div><div class="he-card__body"><h3 class="he-card__title">5 erros no seu primeiro agente</h3><div class="he-card__meta"><span class="he-card__date">18h</span></div></div></article></div></div>
+  <div class="he-cal__day"><div class="he-cal__head"><span class="he-cal__num">27</span>sex</div><div class="he-cal__list"><article class="he-card he-card--cal" data-tone="pink"><div class="he-card__thumb"><span class="he-card__kind">{i:reel}</span></div><div class="he-card__body"><h3 class="he-card__title">Python em 30 segundos</h3><div class="he-card__meta"><span class="he-card__date">18h</span></div></div></article></div></div>
+  <div class="he-cal__day"><div class="he-cal__head"><span class="he-cal__num">28</span>sáb</div><div class="he-cal__list"><article class="he-card he-card--cal is-suggestion" data-tone="violet"><div class="he-card__thumb"><span class="he-card__kind">{i:image}</span></div><div class="he-card__body"><h3 class="he-card__title">Depoimento</h3><div class="he-card__meta"><span class="he-card__date">12h</span></div></div></article></div></div>
+  <div class="he-cal__day is-empty"><div class="he-cal__head"><span class="he-cal__num">29</span>dom</div><div class="he-cal__list"></div><button type="button" class="he-cal__add">{i:sparkles}Sugerir</button></div>
+</div>
+<!--/demo-->
+<h3>Metas do período</h3>
+<!--demo both-->
+<div class="he-goals">
+  <span class="he-goal is-done">{i:check}Carrosséis <b>3 de 3</b></span>
+  <span class="he-goal">{i:reel}Vídeos <b>1 de 2</b></span>
+  <span class="he-goal">{i:story}Stories <b>4 de 7</b></span>
+</div>
+<!--/demo-->

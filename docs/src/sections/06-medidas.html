@@ -1,0 +1,44 @@
+<!-- nav: Fundamentos | Espaço, forma e elevação -->
+<h3>Espaço</h3>
+<p>Escala de base 4. Dentro de um componente os saltos são de 4 e 8; entre blocos de uma tela, 24 e 32.</p>
+<!--demo nocode-->
+<div class="doc-scale">
+  <div class="doc-scale__row"><span>--he-s-1</span><span>4px</span><i style="--w:4px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-2</span><span>8px</span><i style="--w:8px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-3</span><span>12px</span><i style="--w:12px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-4</span><span>16px</span><i style="--w:16px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-5</span><span>24px</span><i style="--w:24px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-6</span><span>32px</span><i style="--w:32px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-7</span><span>48px</span><i style="--w:48px"></i></div>
+  <div class="doc-scale__row"><span>--he-s-8</span><span>64px</span><i style="--w:64px"></i></div>
+</div>
+<!--/demo-->
+<h3>Forma</h3>
+<p>Tudo o que se clica é pílula: botões, chips, abas da barra, selos. Superfícies que guardam conteúdo usam raio de 14 ou 20 px. O raio pequeno fica para campos e itens de menu.</p>
+<!--demo both nocode-->
+<div class="doc-boxes">
+  <div class="doc-box" style="border-radius:var(--he-r-xs);box-shadow:inset 0 0 0 1px var(--he-line-strong)"><b>6px</b>--he-r-xs<br>etiqueta, tecla</div>
+  <div class="doc-box" style="border-radius:var(--he-r-sm);box-shadow:inset 0 0 0 1px var(--he-line-strong)"><b>10px</b>--he-r-sm<br>campo, item de menu</div>
+  <div class="doc-box" style="border-radius:var(--he-r);box-shadow:inset 0 0 0 1px var(--he-line-strong)"><b>14px</b>--he-r<br>cartão, aviso</div>
+  <div class="doc-box" style="border-radius:var(--he-r-lg);box-shadow:inset 0 0 0 1px var(--he-line-strong)"><b>20px</b>--he-r-lg<br>painel, coluna, folha</div>
+  <div class="doc-box" style="border-radius:var(--he-r-full);box-shadow:inset 0 0 0 1px var(--he-line-strong)"><b>999px</b>--he-r-full<br>botão, chip, selo</div>
+</div>
+<!--/demo-->
+<h3>Elevação</h3>
+<p>Quatro níveis. O que está parado na página tem só o contorno interno de 1 px. A sombra aparece quando algo responde ao ponteiro ou flutua sobre a tela.</p>
+<!--demo both nocode-->
+<div class="doc-boxes">
+  <div class="doc-box" style="border-radius:var(--he-r);box-shadow:inset 0 0 0 1px var(--he-line)"><b>Contorno</b>inset 0 0 0 1px<br>painel parado</div>
+  <div class="doc-box" style="border-radius:var(--he-r);box-shadow:0 0 0 1px var(--he-line),var(--he-shadow-1)"><b>Nível 1</b>--he-shadow-1<br>cartão, item ativo</div>
+  <div class="doc-box" style="border-radius:var(--he-r);box-shadow:0 0 0 1px var(--he-line-strong),var(--he-shadow-2)"><b>Nível 2</b>--he-shadow-2<br>cartão sob o ponteiro</div>
+  <div class="doc-box" style="border-radius:var(--he-r);box-shadow:var(--he-shadow-pop)"><b>Flutuante</b>--he-shadow-pop<br>menu, paleta, gaveta</div>
+  <div class="doc-box" style="border-radius:26px;box-shadow:var(--he-shadow-ai)"><b>IA</b>--he-shadow-ai<br>campo de pedido</div>
+</div>
+<!--/demo-->
+<h3>Alvos de toque e larguras</h3>
+<ul>
+  <li>Todo controle tem 40 px de altura no mínimo. O botão pequeno (32 px) volta para 40 px no celular.</li>
+  <li>Controles menores que isso ganham área invisível com <code>::after</code>, como o "x" das etiquetas de contexto.</li>
+  <li>A página tem até 1320 px (<code>.he-page</code>), 860 px para leitura (<code>.he-page--narrow</code>) ou a largura toda (<code>.he-page--full</code>).</li>
+  <li>Os pontos de quebra são 1023 px (o menu lateral vira gaveta), 900 px (colunas viram pilha) e 760 px (modo celular: barra inferior, folhas que sobem de baixo).</li>
+</ul>

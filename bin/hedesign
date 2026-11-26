@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# hedesign: comando único do design system.
+#   hedesign add <pasta>        copia dist/ para a pasta do projeto e baixa as fontes para lá
+#   hedesign audit <caminho>    confere HTML, CSS e componentes contra as regras do sistema
+#   hedesign docs               mostra onde está a documentação e a referência para agentes
+#   hedesign doctor             confere a instalação
+#   hedesign update             atualiza o código-fonte instalado
+#   hedesign version
+set -euo pipefail
+SELF="${BASH_SOURCE[0]}"
+while [ -L "$SELF" ]; do DIR="$(cd "$(dirname "$SELF")" && pwd)"; SELF="$(readlink "$SELF")"; case "$SELF" in /*) ;; *) SELF="$DIR/$SELF" ;; esac; done
+ROOT="$(cd "$(dirname "$SELF")/.." && pwd)"
+say() { printf '[hedesign] %s\n' "$*"; }
+py() { for c in python3 python; do if command -v "$c" >/dev/null 2>&1; then echo "$c"; return 0; fi; done; return 1; }
+
+cmd="${1:-help}"; [ $# -gt 0 ] && shift
+case "$cmd" in
+  add)
+    DEST="${1:?informe a pasta de destino, por exemplo: hedesign add static/hedesign}"; NOFONTS=0; [ "${2:-}" = "--no-fonts" ] && NOFONTS=1
+    mkdir -p "$DEST"
+    cp "$ROOT"/dist/hedesign.css "$ROOT"/dist/hedesign.min.css "$ROOT"/dist/hedesign.js "$ROOT"/dist/hedesign-theme.js "$ROOT"/dist/hedesign-sprite.svg "$DEST"/
+    [ -f "$ROOT/dist/hedesign.min.js" ] && cp "$ROOT/dist/hedesign.min.js" "$DEST"/
+    cp "$ROOT/LICENSE" "$DEST/LICENSE-hedesign.txt"
+    if [ "$NOFONTS" = 1 ]; then cp "$ROOT/dist/hedesign-fonts.css" "$DEST"/; say "fontes pelo CDN (hedesign-fonts.css aponta para o jsDelivr)"
+    elif ! bash "$ROOT/scripts/fonts.sh" "$DEST"; then cp "$ROOT/dist/hedesign-fonts.css" "$DEST"/; say "aviso: não consegui baixar as fontes; hedesign-fonts.css ficou apontando para o jsDelivr"; fi
+    say "arquivos em $DEST (versão $(cat "$ROOT/VERSION"))"
+    say "no <head>: hedesign-fonts.css, hedesign.css e hedesign-theme.js; antes de </body>: hedesign.js"
+    ;;
+  audit)
+    P="$(py)" || { say "o comando audit precisa do Python 3"; exit 1; }
+    exec "$P" "$ROOT/skills/hedesign-auditoria/scripts/audit.py" "$@"
+    ;;
+  docs)
+    say "documentação viva:   $ROOT/docs/index.html (abra no navegador)"
+    say "especificação:       $ROOT/DESIGN.md"
+    say "para agentes:        $ROOT/llms.txt e a seção \"Para agentes de IA\" do $ROOT/README.md"
+    say "API do JavaScript:   $ROOT/docs/api-js.md"
+    say "na web:              https://pycodebr.github.io/hedesign/docs/"
+    ;;
+  doctor)
+    ok=0
+    for f in dist/hedesign.css dist/hedesign.js dist/hedesign-theme.js dist/hedesign-fonts.css DESIGN.md llms.txt skills/hedesign/SKILL.md skills/hedesign-telas/SKILL.md skills/hedesign-auditoria/SKILL.md; do
+      if [ -f "$ROOT/$f" ]; then say "ok      $f"; else say "FALTA   $f"; ok=1; fi
+    done
+    if py >/dev/null; then say "ok      python3 (para o comando audit)"; else say "aviso   sem python3: o comando audit não roda"; fi
+    say "versão  $(cat "$ROOT/VERSION")"
+    exit $ok
+    ;;
+  update)
+    if [ -d "$ROOT/.git" ]; then git -C "$ROOT" pull --ff-only -q && say "atualizado para $(cat "$ROOT/VERSION")"
+    else say "esta instalação não veio do git; rode o instalador de novo: curl -fsSL https://raw.githubusercontent.com/pycodebr/hedesign/main/install.sh | bash"; fi
+    ;;
+  version|--version|-v) cat "$ROOT/VERSION" ;;
+  *) sed -n '2,9p' "$SELF" | sed 's/^# \{0,1\}//' ;;
+esac

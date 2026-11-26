@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR" class="{{html_class}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>{{title}} · exemplo do hedesign</title>
+<meta name="theme-color" content="#f4f2ee">
+<link rel="stylesheet" href="../../dist/hedesign-fonts.css">
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<link rel="stylesheet" href="assets/example.css">
+<script src="../../dist/hedesign-theme.js"></script>
+</head>
+<body class="he-tips">
+<aside class="he-sidebar" id="he-sidebar">
+  <div class="he-sidebar__head">
+    <a class="he-brand" href="painel.html" aria-label="Estúdio Norte, início"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+  </div>
+  <nav class="he-side" aria-label="Seções do sistema">
+{{side_nav}}
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Recolher menu"><span class="he-side__icon">{i:list}</span><span class="he-side__text">Recolher menu</span></button>
+    <div class="he-sidebar__note"><a href="../index.html">Documentação do hedesign</a></div>
+  </div>
+</aside>
+<header class="he-topbar">
+  <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu" aria-controls="he-sidebar">{i:list}</button>
+  <nav class="he-crumbs" aria-label="Você está em"><a href="index.html">Exemplos</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current">{{title}}</span></nav>
+  <div class="he-topbar__actions">
+    <button type="button" class="he-iconbtn" data-he-palette-open aria-label="Buscar (Ctrl K)">{i:search}</button>
+    <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro">{i:moon}</button>
+    <button type="button" class="he-topbar__btn" aria-label="Conta de Ana"><span class="he-avatar">A</span><span class="he-wide">ana</span></button>
+  </div>
+</header>
+<div class="he-scrim-nav" aria-hidden="true"></div>
+<main class="he-main" id="conteudo">
+  <div class="he-page {{page}}">
+{{content}}
+  </div>
+</main>
+<script src="../../dist/hedesign.js"></script>
+<script src="assets/example.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR" class="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Entrar · exemplo do hedesign</title>
+<meta name="theme-color" content="#f4f2ee">
+<link rel="stylesheet" href="../../dist/hedesign-fonts.css">
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<link rel="stylesheet" href="assets/example.css">
+<script src="../../dist/hedesign-theme.js"></script>
+</head>
+<body class="he-tips">
+<style>
+.ex-entrar-card { padding: 28px; }
+.ex-entrar-card .he-brand { flex: 0 1 auto; margin-left: -8px; }
+.ex-entrar-foot { margin: -8px -12px -10px; }
+@media (max-width: 480px) { .ex-entrar-card { padding: 22px 18px; } }
+</style>
+<main class="ex-center">
+  <div class="ex-narrow he-stack he-in-rise">
+    <form class="he-panel ex-entrar-card he-stack he-stack--lg" id="ex-entrar-form" novalidate>
+      <div class="he-row he-row--between he-row--nowrap">
+        <a class="he-brand" href="pagina.html" aria-label="Estúdio Norte, página de apresentação"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+        <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-moon"/></svg></button>
+      </div>
+      <div class="he-stack he-stack--sm">
+        <h1 class="he-h2">Entrar no Estúdio Norte</h1>
+        <p class="he-text he-muted">Use o e-mail e a senha da sua conta.</p>
+      </div>
+      <div class="he-stack">
+        <div class="he-field">
+          <label for="ex-entrar-email">E-mail</label>
+          <input class="he-input" id="ex-entrar-email" name="email" type="email" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="ana@exemplo.com" aria-describedby="ex-entrar-email-erro">
+          <p class="he-field__error" id="ex-entrar-email-erro" hidden></p>
+        </div>
+        <div class="he-field">
+          <label for="ex-entrar-senha">Senha</label>
+          <input class="he-input" id="ex-entrar-senha" name="senha" type="password" autocomplete="current-password" aria-describedby="ex-entrar-senha-erro">
+          <p class="he-field__error" id="ex-entrar-senha-erro" hidden></p>
+        </div>
+      </div>
+      <button type="submit" class="he-btn he-btn--primary he-btn--lg he-btn--block" id="ex-entrar-enviar">Entrar no estúdio</button>
+      <div class="he-row he-row--between ex-entrar-foot">
+        <button type="button" class="he-btn he-btn--ghost he-btn--sm" id="ex-entrar-esqueci">Criar outra senha</button>
+        <a class="he-btn he-btn--ghost he-btn--sm" href="leitura.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-help"/></svg>Abrir a ajuda</a>
+      </div>
+    </form>
+    <p class="he-small he-faint" style="text-align:center">Tela de demonstração. Qualquer e-mail e qualquer senha de 8 caracteres entram, e nada sai desta página.</p>
+  </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var $ = HE.util.$;
+  var form = $("#ex-entrar-form"), email = $("#ex-entrar-email"), senha = $("#ex-entrar-senha"), enviar = $("#ex-entrar-enviar");
+  var busy = false;
+
+  /* Cada regra devolve a frase do erro (a regra e um exemplo) ou nada. */
+  var RULES = {
+    email: function (v) {
+      if (!v) return "Escreva o e-mail da sua conta. Exemplo: ana@exemplo.com.";
+      if (/\s/.test(v)) return "O e-mail não pode ter espaço. Exemplo: ana@exemplo.com.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return "O e-mail precisa de @ e do domínio completo. Exemplo: ana@exemplo.com.";
+      return "";
+    },
+    senha: function (v) {
+      if (!v) return "Escreva a sua senha. Ela tem 8 caracteres ou mais.";
+      if (v.length < 8) return "A senha tem 8 caracteres ou mais. Você escreveu " + v.length + ".";
+      return "";
+    }
+  };
+  function check(field) {
+    var message = RULES[field.name](field.name === "email" ? field.value.trim() : field.value), box = $("#" + field.id + "-erro");
+    if (message) field.setAttribute("aria-invalid", "true"); else field.removeAttribute("aria-invalid");
+    box.textContent = message; box.hidden = !message;
+    return !message;
+  }
+  /* Depois do primeiro erro, o campo é conferido de novo a cada tecla, para o erro sumir assim que a regra for cumprida. */
+  [email, senha].forEach(function (field) {
+    field.addEventListener("input", function () { if (field.hasAttribute("aria-invalid")) check(field); });
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var okEmail = check(email), okSenha = check(senha);
+    if (!okEmail) { email.focus(); return; }
+    if (!okSenha) { senha.focus(); return; }
+    busy = true;
+    enviar.setAttribute("aria-busy", "true");
+    enviar.innerHTML = '<span class="he-dots3" aria-hidden="true"><i></i><i></i><i></i></span>Entrando';
+    HE.say("Entrando no estúdio");
+    window.setTimeout(function () { window.location.href = "painel.html"; }, 1100);
+  });
+
+  $("#ex-entrar-esqueci").addEventListener("click", function () {
+    if (!check(email)) { email.focus(); return; }
+    HE.toast({ kind: "ok", text: "Link para criar outra senha enviado.", sub: email.value.trim() });
+  });
+});
+</script>
+
+<script src="../../dist/hedesign.js"></script>
+<script src="assets/example.js"></script>
+</body>
+</html>

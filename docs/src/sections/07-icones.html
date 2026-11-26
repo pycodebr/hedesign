@@ -1,0 +1,20 @@
+<!-- nav: Fundamentos | Ícones -->
+<p>Oitenta e dois ícones de traço, em grade de 24 px, com pontas arredondadas e espessura de 1,9. O tamanho segue o <code>font-size</code> e a cor segue o texto. O sprite já vem dentro do <code>hedesign.js</code> e entra na página sozinho. Clique em um ícone para copiar a marcação.</p>
+<!--demo nocode-->
+<div class="doc-icons" data-doc-icons></div>
+<!--/demo-->
+<!--code-->
+<svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-check"/></svg>
+
+<!-- tamanhos e variações -->
+<svg class="he-i he-i--sm">…</svg>   <!-- 14px -->
+<svg class="he-i he-i--lg">…</svg>   <!-- 22px -->
+<svg class="he-i he-i--xl">…</svg>   <!-- 28px -->
+<svg class="he-i he-i--bold">…</svg> <!-- traço 2,8 -->
+<svg class="he-i he-i--fill">…</svg> <!-- preenchido -->
+<!--/code-->
+<!--code-->
+HE.icon("check");                 // devolve a marcação do ícone
+HE.icon("check", "he-i--sm");
+<!--/code-->
+<p>Sem JavaScript, inclua o conteúdo de <code>dist/hedesign-sprite.svg</code> no começo do <code>&lt;body&gt;</code>. Ícone que acompanha texto é decorativo e leva <code>aria-hidden="true"</code>; botão só com ícone leva <code>aria-label</code>.</p>

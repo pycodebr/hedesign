@@ -1,0 +1,45 @@
+<!-- nav: Estúdio | Decisão -->
+<p>Revisar é a tarefa central do sistema, então a decisão cabe em uma barra só: negar, pedir ajuste e aprovar, nessa ordem, com o aprovar em verde e maior. A barra flutua acima do campo de pedido e, no celular, ocupa a largura da tela com alvos de 52 px. Cada botão tem uma tecla.</p>
+<!--demo plain-->
+<div class="doc-decide">
+  <div class="he-decide he-decide--static" data-he-decide-bar role="group" aria-label="Decisão">
+    <button type="button" class="he-decide__btn he-decide__btn--deny" data-he-decide="deny" aria-keyshortcuts="N">{i:x}<span class="he-decide__label">Negar</span><kbd class="he-kbd" aria-hidden="true">N</kbd></button>
+    <button type="button" class="he-decide__btn he-decide__btn--adjust" data-he-decide="adjust" aria-keyshortcuts="J">{i:edit}<span class="he-decide__label">Pedir ajuste</span><kbd class="he-kbd" aria-hidden="true">J</kbd></button>
+    <button type="button" class="he-decide__btn he-decide__btn--approve" data-he-decide="approve" aria-keyshortcuts="A">{i:check}<span class="he-decide__label">Aprovar<span class="he-decide__more"> e agendar</span><small>qui 26/11 às 18h</small></span><kbd class="he-kbd" aria-hidden="true">A</kbd></button>
+    <button type="button" class="he-decide__swap" data-he-decide="swap">Trocar data</button>
+  </div>
+</div>
+<!--/demo-->
+<!--code-->
+HE.decide(document.querySelector("[data-he-decide-bar]"), {
+  onApprove() { /* agenda e avisa com Desfazer */ },
+  onAdjust({ quick, text, pins }) { /* devolve para a IA com os comentários */ },
+  onDeny({ reason }) { /* arquiva */ },
+  onSwap() { /* abre a folha de data */ }
+});
+<!--/code-->
+<h3>Carimbo</h3>
+<p>Depois da decisão, um carimbo aparece no centro da prévia por um instante e o próximo item entra de lado. É a confirmação de que o gesto foi entendido, antes de a tela mudar.</p>
+<!--demo-->
+<div class="he-row" style="align-items:flex-start">
+  <div class="doc-relative" data-doc-stamp-target style="width:220px;border-radius:14px;overflow:hidden"><img src="examples/media/s1.svg" alt="" style="display:block;width:100%"></div>
+  <div class="he-stack">
+    <button type="button" class="he-btn he-btn--ok" data-doc="stamp-ok">{i:check}Aprovar</button>
+    <button type="button" class="he-btn" data-doc="stamp-adjust">Pedir ajuste</button>
+    <button type="button" class="he-btn he-btn--danger" data-doc="stamp-denied">Negar</button>
+  </div>
+</div>
+<!--/demo-->
+<!--code-->
+HE.stamp(previa, { text: "Aprovado", kind: "ok", icon: "check" });
+HE.stamp(previa, { text: "Ajuste pedido", kind: "adjust", icon: "edit" });
+HE.stamp(previa, { text: "Negado", kind: "denied", icon: "x" });
+<!--/code-->
+<h3>Fila de revisão</h3>
+<p>A fila mostra um item por vez, com a prévia no centro e a barra de decisão embaixo. O contador diz quantos faltam, as setas andam entre os itens, e ao terminar aparece o estado de fila zerada com o próximo passo. O exemplo completo está em <a href="examples/fila.html">exemplos / fila</a>.</p>
+<ul>
+  <li>Aprovar não pede confirmação: agenda, mostra o carimbo e avisa com Desfazer.</li>
+  <li>Pedir ajuste abre uma folha com ajustes prontos em chips, os marcadores já feitos e um campo livre.</li>
+  <li>Negar pede o motivo em uma linha, para a IA aprender, e também tem Desfazer.</li>
+  <li>No celular, a barra do rodapé some durante a revisão (<code>html.he-focus</code>) para a prévia ganhar altura.</li>
+</ul>

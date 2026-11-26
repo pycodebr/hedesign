@@ -1,0 +1,61 @@
+<!-- nav: Fundamentos | Movimento -->
+<p>O movimento é curto e explica o que aconteceu: de onde veio, para onde foi e o que está em andamento. Duas durações e uma curva cobrem quase tudo.</p>
+<div class="he-tablewrap"><table class="he-table doc-table">
+<thead><tr><th>Token</th><th>Valor</th><th>Uso</th></tr></thead>
+<tbody>
+<tr><th><code>--he-fast</code></th><td>150 ms</td><td>Resposta ao ponteiro: cor, borda, sombra, escala ao pressionar. Também é a duração de toda saída.</td></tr>
+<tr><th><code>--he-med</code></th><td>220 ms</td><td>Entrada de algo novo: cartão, gaveta, folha, paleta, aviso, marcador.</td></tr>
+<tr><th><code>--he-ease</code></th><td><code>cubic-bezier(.2, .7, .2, 1)</code></td><td>Entradas e deslocamentos. Sai rápido e pousa devagar.</td></tr>
+</tbody></table></div>
+<h3>Entradas e saídas</h3>
+<p>Clique em um quadro para repetir. Quem entra percorre poucos pixels (8 de baixo, 28 de lado, 40 numa folha) e aparece junto com a opacidade. Quem sai faz o caminho de volta em 150 ms.</p>
+<!--demo nocode-->
+<div class="doc-motion">
+  <button class="doc-motion__item" data-doc-anim="he-rise var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Subir<small>he-rise · cartão, sugestão, menu</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-fade var(--he-med) ease both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Surgir<small>he-fade · véu, camada</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-pop var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="doc-motion__dot" style="border-radius:50%"></span></span><span>Saltar<small>he-pop · marcador de comentário</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-slide-in var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Gaveta<small>he-slide-in · vem da direita</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-sheet-in var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Folha<small>he-sheet-in · sobe de baixo</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-in-next var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Próximo<small>he-in-next · item seguinte da fila</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-in-prev var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Anterior<small>he-in-prev · item anterior</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-stamp var(--he-med) var(--he-ease) both"><span class="doc-motion__stage"><span class="he-badge he-badge--solid he-badge--lg" data-tone="green">Aprovado</span></span><span>Carimbo<small>he-stamp · confirma a decisão</small></span></button>
+  <button class="doc-motion__item" data-doc-anim="he-sheet-out var(--he-fast) ease-in both"><span class="doc-motion__stage"><span class="doc-motion__dot"></span></span><span>Sair<small>he-sheet-out · 150 ms, ease-in</small></span></button>
+</div>
+<!--/demo-->
+<h3>Estados em andamento</h3>
+<p>Estes ficam em laço enquanto o estado durar. Todos são da IA ou de carregamento, e nenhum pisca rápido: o mais curto leva 1,1 s.</p>
+<!--demo both nocode-->
+<div class="doc-motion">
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="he-orb he-orb--xl" data-state="idle"></span></span><span>Respirar<small>he-breathe · 4,5 s · IA livre</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="he-orb he-orb--xl" data-state="working"></span></span><span>Girar com halo<small>he-spin + he-halo · IA trabalhando</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="he-orb he-orb--xl" data-state="waiting"></span></span><span>Chamar<small>he-ping · 1,5 s · espera você</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="he-glow" data-he-glow="IA escrevendo" style="width:78%;height:64px;border-radius:14px;background:var(--he-surface)"></span></span><span>Brilho<small>he-glow-run · 2,4 s · contorno</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="doc-motion__line" style="animation:he-scan 1.6s linear infinite"></span><span class="he-dots3" style="color:var(--he-ai-ink)"><i></i><i></i><i></i></span></span><span>Varredura e pontos<small>he-scan · he-blink · tarefa rodando</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage" style="padding:0 14px;display:grid;gap:6px;align-content:center"><span class="he-skel he-skel--title"></span><span class="he-skel he-skel--text"></span><span class="he-skel he-skel--text he-skel--w60"></span></span><span>Esqueleto<small>he-shimmer · 1,4 s · carregando</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="he-live">Tempo real</span></span><span>Ao vivo<small>he-live · 2 s · conexão aberta</small></span></div>
+  <div class="doc-motion__item"><span class="doc-motion__stage"><span class="he-composer__send is-busy" style="position:relative"></span></span><span>Enviando<small>he-spin · .8 s · botão ocupado</small></span></div>
+</div>
+<!--/demo-->
+<h3>Resposta ao toque</h3>
+<!--demo-->
+<div class="he-row">
+  <button class="he-btn he-btn--primary">Pressione: escala .97</button>
+  <a class="he-review" href="#movimento"><span>Passe o ponteiro: sobe 1px</span><span class="he-review__n">3</span></a>
+  <div class="he-views" data-he-views aria-label="Visão"><button type="button" class="he-views__item is-active" data-view="a" aria-pressed="true">O indicador</button><button type="button" class="he-views__item" data-view="b" aria-pressed="false">desliza</button><button type="button" class="he-views__item" data-view="c" aria-pressed="false">entre as opções</button></div>
+</div>
+<!--/demo-->
+<h3>Regras</h3>
+<ul>
+  <li>Anime só <code>transform</code>, <code>opacity</code> e, em contornos, <code>box-shadow</code> e <code>background-position</code>. Nada de animar largura, altura ou margem de conteúdo.</li>
+  <li>Cartão sob o ponteiro sobe 2 px e ganha a sombra de nível 2. Ao pressionar, o botão encolhe para 97%.</li>
+  <li>O que é arrastado gira 2 graus e leva a sombra flutuante; o destino mostra um espaço tracejado na cor do tom.</li>
+  <li>Com <code>prefers-reduced-motion</code>, nenhuma animação roda. Cada estado continua legível sem ela: o orbe ganha um anel fixo, o brilho vira contorno liso e a contagem do aviso fica parada.</li>
+  <li>Laço infinito só para estado em andamento. Decoração que se move sem motivo não entra.</li>
+</ul>
+<!--code-->
+/* classes prontas para o que acabou de chegar à tela */
+<div class="he-in-rise">…</div>
+<div class="he-in-fade">…</div>
+<div class="he-in-pop">…</div>
+<ul class="he-stagger"><li>…</li><li>…</li><li>…</li></ul>   <!-- filhos em sequência, 40 ms de distância -->
+<!--/code-->

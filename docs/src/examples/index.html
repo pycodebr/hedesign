@@ -1,0 +1,101 @@
+<!-- example: Exemplos | active: index | shell: bare -->
+<style>
+/* Cartão da galeria: um painel inteiro clicável, com a mesma resposta ao ponteiro dos cartões de item. */
+.ex-index-card { display: grid; align-content: start; gap: 10px; padding: 18px; color: var(--he-ink); text-decoration: none; transition: transform var(--he-fast) var(--he-ease), box-shadow var(--he-fast); }
+.ex-index-card:hover { transform: translateY(-2px); text-decoration: none; box-shadow: inset 0 0 0 1px var(--he-line-strong), var(--he-shadow-2); }
+.ex-index-card:active { transform: scale(.99); }
+.ex-index-card .he-small { min-height: 2.8em; }
+.ex-index-card .he-list__end { justify-content: flex-start; font-weight: 600; color: var(--he-ink-2); }
+</style>
+<main class="ex-band">
+  <header class="he-head">
+    <div class="he-head__main">
+      <h1>Exemplos do hedesign</h1>
+      <p class="he-head__sub">Onze telas completas do Estúdio Norte, um sistema fictício de conteúdo com IA. Abra uma, troque o tema e estreite a janela.</p>
+    </div>
+    <div class="he-head__actions">
+      <a class="he-btn" href="../index.html">{i:file}Ler a documentação</a>
+      <button type="button" class="he-iconbtn he-iconbtn--solid" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro">{i:moon}</button>
+    </div>
+  </header>
+
+  <section class="he-sec" aria-labelledby="ex-index-app">
+    <div class="he-sec__head"><h2 id="ex-index-app">No aplicativo</h2><span class="he-sec__n">8</span></div>
+    <div class="he-grid he-stagger" style="--min:280px">
+      <a class="he-panel ex-index-card" href="painel.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="accent">{i:compass}</span><span class="he-tag">casca completa</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Painel do dia</span>
+        <span class="he-small">O que precisa de você agora: destaque com a fila, pergunta da IA e cartões por urgência.</span>
+        <span class="he-list__end">Abrir o painel{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="planejamento.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="teal">{i:board}</span><span class="he-tag">casca completa</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Planejamento</span>
+        <span class="he-small">A mesma lista em quadro, calendário e grade, com arrasto que salva na hora.</span>
+        <span class="he-list__end">Abrir o planejamento{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="fila.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="orange">{i:inbox}</span><span class="he-tag">tarefa única</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Fila de revisão</span>
+        <span class="he-small">Um item por vez na moldura do aparelho, com marcadores e a barra de decisão.</span>
+        <span class="he-list__end">Abrir a fila{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="item.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="pink">{i:carousel}</span><span class="he-tag">casca completa</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Detalhe do item</span>
+        <span class="he-small">Passos da etapa, estúdio com a prévia, conferências e a conversa do item.</span>
+        <span class="he-list__end">Abrir o item{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="referencias.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="blue">{i:bulb}</span><span class="he-tag">casca completa</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Referências</span>
+        <span class="he-small">Mural de recortes com captura rápida de link, nota, imagem e pesquisa.</span>
+        <span class="he-list__end">Abrir as referências{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="resultados.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="green">{i:chart}</span><span class="he-tag">casca completa</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Resultados</span>
+        <span class="he-small">Indicadores com base de comparação, barras por formato e tabela dos itens.</span>
+        <span class="he-list__end">Abrir os resultados{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="ajustes.html">
+        <span class="he-row he-row--between"><span class="he-list__ico">{i:gear}</span><span class="he-tag">casca completa</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Ajustes</span>
+        <span class="he-small">Seções com índice, interruptores que valem na hora e salvar por seção.</span>
+        <span class="he-list__end">Abrir os ajustes{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="conversa.html">
+        <span class="he-row he-row--between"><span class="he-list__ico" data-tone="ai">{i:comment}</span><span class="he-tag">sem campo fixo</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Conversa com a IA</span>
+        <span class="he-small">Chat em tela cheia com sugestões, compositor com ferramentas e pedido de permissão.</span>
+        <span class="he-list__end">Abrir a conversa{i:arrow_right}</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="he-sec" aria-labelledby="ex-index-fora">
+    <div class="he-sec__head"><h2 id="ex-index-fora">Fora do aplicativo</h2><span class="he-sec__n">3</span></div>
+    <div class="he-grid he-stagger" style="--min:280px">
+      <a class="he-panel ex-index-card" href="entrar.html">
+        <span class="he-row he-row--between"><span class="he-list__ico">{i:lock}</span><span class="he-tag">sem casca</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Entrar</span>
+        <span class="he-small">Cartão central com dois campos, erro no próprio campo e botão com estado ocupado.</span>
+        <span class="he-list__end">Abrir a entrada{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="pagina.html">
+        <span class="he-row he-row--between"><span class="he-list__ico">{i:star}</span><span class="he-tag">sem casca</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Página de apresentação</span>
+        <span class="he-small">Abertura, prévia no aparelho, blocos de como funciona e uma ilha de tema escuro.</span>
+        <span class="he-list__end">Abrir a apresentação{i:arrow_right}</span>
+      </a>
+      <a class="he-panel ex-index-card" href="leitura.html">
+        <span class="he-row he-row--between"><span class="he-list__ico">{i:file}</span><span class="he-tag">sem campo fixo</span></span>
+        <span class="he-h3" role="heading" aria-level="3">Leitura</span>
+        <span class="he-small">Artigo de ajuda em texto corrido, com sumário que acompanha a seção visível.</span>
+        <span class="he-list__end">Abrir o artigo{i:arrow_right}</span>
+      </a>
+    </div>
+  </section>
+
+  <p class="he-small he-faint" style="margin-top:32px">Os dados são fictícios e nada sai da página. O código de cada tela está em docs/src/examples, no repositório do hedesign.</p>
+</main>

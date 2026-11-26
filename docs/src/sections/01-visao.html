@@ -1,0 +1,57 @@
+<!-- nav: Começo | Visão geral -->
+<div class="doc-hero">
+  <div>
+    <span class="he-badge he-badge--lg" data-tone="ai">Design system · claro e escuro · MIT</span>
+    <h1>Um estúdio calmo, com a IA sempre à mão.</h1>
+    <p>O hedesign reúne tokens, componentes, movimento e regras de experiência para sistemas web em que uma pessoa decide e uma IA trabalha junto. É CSS e JavaScript puros, sem dependências e sem etapa de build, e funciona em qualquer stack.</p>
+    <div class="doc-hero__cta">
+      <a class="he-btn he-btn--primary he-btn--lg" href="#instalar">Instalar</a>
+      <a class="he-btn he-btn--lg" href="examples/index.html">{i:grid}Ver os exemplos</a>
+      <button type="button" class="he-btn he-btn--ai he-btn--lg" data-doc="ask"><span class="he-orb he-orb--sm" aria-hidden="true"></span>Pedir à IA</button>
+    </div>
+  </div>
+  <div class="doc-hero__art">
+    <div class="he-studio" data-tone="violet">
+      <article class="he-card he-glow" data-tone="violet" data-he-glow="IA escrevendo" style="width:min(300px,100%)">
+        <div class="he-card__thumb"><div class="he-card__poster"><span>O que muda quando o agente lê o contexto antes de responder</span></div><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+        <div class="he-card__body">
+          <h3 class="he-card__title">Contexto antes da resposta</h3>
+          <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="violet">Texto</span><span class="he-card__date">{i:clock}sáb 28/11 · 12h</span></div>
+          <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+        </div>
+      </article>
+      <ol class="he-steps" style="width:min(300px,100%)" aria-label="Passos">
+        <li class="he-steps__step is-done" data-tone="blue"><span>Ideia</span></li>
+        <li class="he-steps__step is-current" data-tone="violet" aria-current="step"><span>Texto</span></li>
+        <li class="he-steps__step" data-tone="pink"><span>Produção</span></li>
+        <li class="he-steps__step" data-tone="orange"><span>Aprovação</span></li>
+        <li class="he-steps__step" data-tone="teal"><span>Agendado</span></li>
+        <li class="he-steps__step" data-tone="green"><span>Publicado</span></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<h3>Os princípios</h3>
+<p>Cada decisão do sistema sai de um destes seis princípios. Quando faltar um componente, volte a eles antes de inventar um padrão novo.</p>
+<div class="doc-principles">
+  <div class="he-panel"><span class="he-list__ico" data-tone="blue">{i:sun}</span><b>Estúdio calmo</b><p>Fundo de papel quente, superfícies claras, muito respiro e um único botão em tinta por tela. O conteúdo é o que tem cor.</p></div>
+  <div class="he-panel"><span class="he-list__ico" data-tone="pink">{i:tag}</span><b>A cor diz o estado</b><p>Seis tons percorrem o fluxo, do azul ao verde. O mesmo tom aparece no selo, na coluna, no calendário e na barra de passos.</p></div>
+  <div class="he-panel"><span class="he-list__ico" data-tone="ai">{i:sparkles}</span><b>IA presente, fora do caminho</b><p>O campo de pedido fica no mesmo lugar em todas as telas e já sabe o contexto. O orbe mostra se a IA está livre, trabalhando ou esperando você.</p></div>
+  <div class="he-panel"><span class="he-list__ico" data-tone="orange">{i:undo}</span><b>Toda ação tem volta</b><p>Nada pede confirmação antes. A ação acontece na hora e o aviso traz o Desfazer, com dez segundos de contagem.</p></div>
+  <div class="he-panel"><span class="he-list__ico" data-tone="teal">{i:smartphone}</span><b>A prévia é a protagonista</b><p>O que vai ser publicado aparece na moldura do aparelho, do tamanho que o público vai ver. Os controles ficam em volta.</p></div>
+  <div class="he-panel"><span class="he-list__ico" data-tone="green">{i:check}</span><b>Um gesto por decisão</b><p>Aprovar, pedir ajuste ou negar cabem em uma barra, com tecla de atalho no computador e alvo de toque grande no celular.</p></div>
+</div>
+
+<h3>O que vem no pacote</h3>
+<div class="he-tablewrap"><table class="he-table doc-table">
+<thead><tr><th>Arquivo</th><th>Para quê</th><th class="is-num">Tamanho</th></tr></thead>
+<tbody>
+<tr><th><code>dist/hedesign.css</code></th><td>Tokens dos dois temas, base, casca e todos os componentes.</td><td class="is-num">165 KB</td></tr>
+<tr><th><code>dist/hedesign.js</code></th><td>Comportamentos em <code>window.HE</code>: tema, avisos, camadas, paleta, campo de pedido, arrasto e o resto.</td><td class="is-num">sem dependências</td></tr>
+<tr><th><code>dist/hedesign-theme.js</code></th><td>Aplica o tema antes da primeira pintura. Vai no <code>&lt;head&gt;</code>.</td><td class="is-num">1 KB</td></tr>
+<tr><th><code>dist/hedesign-fonts.css</code></th><td>Inter variável pelo jsDelivr. Opcional: sem ele vale a fonte do sistema.</td><td class="is-num">1 KB</td></tr>
+<tr><th><code>tokens/</code></th><td>Os mesmos tokens em JSON (DTCG), CSS isolado e tema para Tailwind v3 e v4.</td><td class="is-num">4 arquivos</td></tr>
+<tr><th><code>DESIGN.md</code></th><td>A especificação que um agente de IA lê para aplicar o sistema.</td><td class="is-num">1 arquivo</td></tr>
+<tr><th><code>skills/</code></th><td>Skills para agentes aplicarem, construírem telas e auditarem o resultado.</td><td class="is-num">3 skills</td></tr>
+</tbody></table></div>

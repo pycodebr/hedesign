@@ -1,0 +1,64 @@
+<!-- nav: IA presente | Campo de pedido e conversa -->
+<p>O campo de pedido é o mesmo, no mesmo lugar, em todas as telas: fixo no rodapé, centralizado, com 760 px no máximo. Ele já sabe onde você está. As etiquetas de contexto dizem à IA sobre o que é o pedido, e você pode tirar qualquer uma no "x". Quando o campo recebe foco, sobem sugestões que mudam conforme a tela. A tecla <kbd class="he-kbd he-kbd--always">/</kbd> leva o cursor até ele.</p>
+<p>Esta página tem o campo ligado. Use os botões para ver cada parte, ou escreva um pedido lá embaixo.</p>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-btn he-btn--ai" data-doc="ask"><span class="he-orb he-orb--sm" aria-hidden="true"></span>Focar o campo</button>
+  <button type="button" class="he-btn" data-doc="context">Acrescentar contexto</button>
+  <button type="button" class="he-btn" data-doc="suggestions">Trocar as sugestões</button>
+  <button type="button" class="he-btn he-btn--soft" data-doc="presence">Alternar a presença</button>
+</div>
+<!--/demo-->
+<!--code-->
+<div class="he-dock" data-he-dock>
+  <div class="he-dock__sugs" data-he-sugs role="group" aria-label="Sugestões de pedido"></div>
+  <div class="he-dock__row">
+    <form class="he-composer is-empty" data-he-ask-form novalidate>
+      <div class="he-composer__box">
+        <button type="button" class="he-dock__orb" data-he-presence data-state="idle" aria-label="Atividade da IA"><span class="he-orb" data-state="idle" aria-hidden="true"></span></button>
+        <div class="he-dock__ctx" data-he-ctx aria-label="Contexto do pedido"></div>
+        <textarea class="he-composer__input" name="prompt" rows="1" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+        <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><kbd class="he-kbd" aria-hidden="true">/</kbd><button class="he-composer__send" type="submit" aria-label="Enviar pedido"></button></span></div>
+      </div>
+    </form>
+  </div>
+</div>
+<!--/code-->
+<!--code-->
+// a aplicação responde ao pedido; enquanto a Promise não resolve, o campo fica em "enviando"
+HE.dock.onAsk = ({ prompt, context, action }) =>
+  fetch("/api/pedidos", { method: "POST", body: JSON.stringify({ prompt, context, action }) });
+
+HE.dock.setContext([
+  { key: "tela", label: "Planejamento", value: "planejamento" },
+  { key: "item", label: "5 erros no seu primeiro agente", value: 12 }
+]);
+HE.dock.addContext({ key: "lamina", label: "Lâmina 3", value: "s3" });
+HE.dock.removeContext("lamina");
+
+HE.dock.setSuggestions([
+  { label: "Montar a semana", prompt: "Monte a próxima semana.", action: "semana" },
+  { label: "Outro gancho", prompt: "Proponha outro gancho.", send: true }   // send: envia direto
+]);
+HE.dock.focus("texto opcional");
+<!--/code-->
+<h3>Conversa</h3>
+<p>Dentro de um item, os pedidos e as respostas ficam em uma conversa. Você fala à direita, em tinta; a IA responde à esquerda, na cor dela, com o orbe. Entre as mensagens entram os eventos da linha do tempo.</p>
+<!--demo both-->
+<div class="he-feed" style="max-width:520px">
+  <div class="he-event" data-tone="blue"><div class="he-event__main"><span><b>Ana</b> criou o item</span></div><time>ter 9h12</time></div>
+  <div class="he-msg he-msg--me"><div class="he-msg__ctx"><span class="he-ctx"><span class="he-ctx__label">Lâmina 3</span></span></div><div class="he-bubble">Deixe o título da lâmina 3 mais direto, com no máximo seis palavras.</div><div class="he-msg__meta">você · 9h14</div></div>
+  <div class="he-msg he-msg--ai"><span class="he-orb" aria-hidden="true"></span><div class="he-msg__main"><div class="he-msg__meta">IA · 9h14</div><p class="he-msg__text">Pronto. Troquei "Você provavelmente não está dando contexto suficiente" por "Dê contexto antes de pedir".</p><button type="button" class="he-btn he-btn--sm">Ver o que mudou</button></div></div>
+  <div class="he-event he-event--box"><div class="he-event__main"><span><b>Versão 3</b> · título da lâmina 3</span><small>feita pela IA a seu pedido</small></div><button type="button" class="he-btn he-btn--ghost he-btn--sm">Restaurar</button></div>
+  <div class="he-event" data-tone="green"><div class="he-event__main"><span><b>Ana</b> aprovou o texto</span></div><time>9h20</time></div>
+</div>
+<!--/demo-->
+<h3>Onde a IA entra em cada tela</h3>
+<ul>
+  <li><b>No rodapé</b>, sempre: o campo de pedido com o contexto da tela.</li>
+  <li><b>No topo</b>: a presença, que abre a atividade.</li>
+  <li><b>No estado vazio</b>: o primeiro passo é um botão que entrega a tarefa à IA.</li>
+  <li><b>No item</b>: o selo "com a IA", o brilho enquanto ela mexe e a conversa do item.</li>
+  <li><b>Na paleta</b>: o último resultado de qualquer busca é pedir à IA.</li>
+  <li><b>No calendário</b>: dia vazio oferece "Sugerir", e a sugestão aparece tracejada até ser aceita.</li>
+</ul>

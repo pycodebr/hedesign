@@ -1,0 +1,88 @@
+<!-- nav: Estúdio | Prévia no aparelho -->
+<p>O que vai ser publicado é revisado do tamanho que o público vai ver. A moldura de aparelho fica no centro de um palco com uma luz na cor do tom do item. No celular a moldura some, porque a tela já é um aparelho.</p>
+<!--demo both-->
+<div class="he-row" style="justify-content:center;align-items:flex-start">
+  <div class="he-studio" data-tone="orange">
+    <div class="he-phone">
+      <div class="he-phone__screen">
+        <div class="he-phone__status" aria-hidden="true"><span>9:41</span></div>
+        <div class="he-post__head"><span class="he-avatar he-avatar--ring"><span>N</span></span><span class="he-post__who"><span class="he-post__account">estudionorte</span><span class="he-post__sub">Publicação</span></span><span class="he-post__more" aria-hidden="true">{i:more}</span></div>
+        <div class="he-post__media he-carousel" data-ratio="4x5" data-he-carousel>
+          <div class="he-carousel__track">
+            <div class="he-slide"><img src="examples/media/s1.svg" alt="Lâmina 1" draggable="false"></div>
+            <div class="he-slide"><img src="examples/media/s2.svg" alt="Lâmina 2" draggable="false" loading="lazy"></div>
+            <div class="he-slide is-locked"><img src="examples/media/s3.svg" alt="Lâmina 3" draggable="false" loading="lazy"></div>
+            <div class="he-slide"><img src="examples/media/s4.svg" alt="Lâmina 4" draggable="false" loading="lazy"></div>
+            <div class="he-slide"><img src="examples/media/s5.svg" alt="Lâmina 5" draggable="false" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="he-post__actions"><span class="he-post__act" aria-hidden="true">{i:heart}1.204</span><span class="he-post__act" aria-hidden="true">{i:comment}</span><span class="he-post__act" aria-hidden="true">{i:share}</span><div class="he-dots" data-he-dots></div><span class="he-post__act he-post__act--save" aria-hidden="true">{i:bookmark}</span></div>
+        <div class="he-post__caption"><span class="he-post__captext"><b>estudionorte</b>Seu primeiro agente não saiu como você queria? Quase sempre é um destes cinco erros. Nenhum deles é técnico. <span class="he-post__tags">#agentes #ia</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="he-studio" data-tone="violet">
+    <div class="he-phone he-phone--sm">
+      <div class="he-phone__screen">
+        <div class="he-phone__status" aria-hidden="true"><span>9:41</span></div>
+        <div class="he-post__media he-carousel" data-ratio="4x5" data-he-carousel>
+          <div class="he-carousel__track">
+            <div class="he-slide he-slide--text"><span class="he-slide__n"><b>1</b>Capa</span><p class="he-slide__text">5 erros no seu primeiro agente</p><p class="he-slide__note">Gancho com número e situação concreta</p></div>
+            <div class="he-slide he-slide--text"><span class="he-slide__n"><b>2</b>Lâmina</span><p class="he-slide__text">1. Pedir tudo de uma vez</p></div>
+            <div class="he-slide he-slide--text"><span class="he-slide__n"><b>3</b>Lâmina</span><p class="he-slide__text">2. Não dar contexto</p></div>
+          </div>
+        </div>
+        <div class="he-dots he-dots--static" data-he-dots></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/demo-->
+<div class="he-tablewrap"><table class="he-table doc-table">
+<thead><tr><th>Peça</th><th>Classe</th><th>Observação</th></tr></thead>
+<tbody>
+<tr><th>Palco</th><td><code>.he-studio[data-tone]</code></td><td>Luz e sombra de chão na cor do tom.</td></tr>
+<tr><th>Moldura</th><td><code>.he-phone</code>, <code>--sm</code>, <code>--lg</code>, <code>--fit</code>, <code>--flat</code></td><td><code>--fit</code> calcula a largura pela altura livre da janela.</td></tr>
+<tr><th>Publicação</th><td><code>.he-post__head</code>, <code>__media</code>, <code>__actions</code>, <code>__caption</code></td><td>Proporções <code>data-ratio="1x1|4x5|9x16"</code>.</td></tr>
+<tr><th>Carrossel</th><td><code>.he-carousel</code>, <code>.he-slide</code>, <code>.he-dots</code></td><td>Toque com encaixe, setas, teclado e pontos. <code>.is-locked</code> mostra o cadeado.</td></tr>
+<tr><th>Cartão de texto</th><td><code>.he-slide--text</code></td><td>Para aprovar o texto antes de existir a arte.</td></tr>
+<tr><th>Vídeo vertical</th><td><code>.he-reel</code>, <code>.he-player</code>, <code>.he-tl</code></td><td>Interface por cima do vídeo e linha do tempo com marcadores.</td></tr>
+<tr><th>Tira</th><td><code>.he-strip</code>, <code>.he-strip__item</code></td><td>Miniaturas para escolher e reordenar por arrasto.</td></tr>
+</tbody></table></div>
+<h3>Vídeo vertical e tira de miniaturas</h3>
+<!--demo-->
+<div class="he-row" style="justify-content:center;align-items:flex-start;gap:24px">
+  <div class="he-studio" data-tone="pink">
+    <div class="he-phone he-phone--sm">
+      <div class="he-phone__screen">
+        <div class="he-reel">
+          <div class="he-player" data-he-player tabindex="0" aria-label="Vídeo"><video src="examples/media/clip.mp4" playsinline preload="metadata" loop muted></video></div>
+          <div class="he-reel__side" aria-hidden="true"><span>{i:heart}</span><span>{i:comment}</span><span>{i:share}</span></div>
+          <div class="he-reel__info"><div class="he-reel__who"><span class="he-avatar">N</span>estudionorte</div><div class="he-post__caption"><span class="he-post__captext">Python em 30 segundos: compreensão de lista.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="he-stack" style="max-width:360px">
+    <div class="he-strip" aria-label="Lâminas">
+      <button type="button" class="he-strip__item is-active"><img src="examples/media/s1.svg" alt=""><b>1</b></button>
+      <button type="button" class="he-strip__item"><img src="examples/media/s2.svg" alt=""><b>2</b></button>
+      <button type="button" class="he-strip__item"><img src="examples/media/s3.svg" alt=""><b>3</b></button>
+      <button type="button" class="he-strip__item"><b>4</b></button>
+      <button type="button" class="he-strip__add" aria-label="Nova lâmina">{i:plus}</button>
+    </div>
+    <p class="he-small">A tira fica abaixo da prévia. Clicar troca a lâmina; arrastar reordena.</p>
+  </div>
+</div>
+<!--/demo-->
+<h3>Marcadores de comentário</h3>
+<p>Para pedir um ajuste, a pessoa toca no ponto exato da imagem, ou marca um trecho do vídeo, e escreve uma linha. O marcador é laranja e numerado; depois de resolvido fica verde.</p>
+<!--demo both-->
+<div class="he-row" style="align-items:flex-start">
+  <div class="he-pinnable" style="width:200px;border-radius:14px;overflow:hidden"><img src="examples/media/s1.svg" alt="" style="display:block;width:100%"><button type="button" class="he-pin" style="--x:72;--y:18" aria-label="Comentário 1">1</button><button type="button" class="he-pin is-resolved" style="--x:30;--y:62" aria-label="Comentário 2, resolvido">2</button></div>
+  <div class="he-panel he-grow"><h3 class="he-panel__title">Comentários</h3>
+    <div class="he-tl he-tl--light" role="slider" tabindex="0" aria-label="Linha do tempo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" style="--p:.35"><div class="he-tl__fill"></div><span class="he-tl__range" style="--t:.5;--w:.14"></span><button type="button" class="he-pin" style="--t:.2" aria-label="Comentário 1 em 0:07"><span>1</span></button><button type="button" class="he-pin" style="--t:.5" aria-label="Comentário 2 em 0:21"><span>2</span></button></div>
+    <ul class="he-adjust__pins"><li class="he-adjust__pin"><span class="he-pin he-pin--static">1</span><div><small>Lâmina 1, canto de cima</small>Número maior na capa</div></li><li class="he-adjust__pin"><span class="he-pin he-pin--static">2</span><div><small>0:21 a 0:26</small>Cortar a pausa</div></li></ul>
+  </div>
+</div>
+<!--/demo-->

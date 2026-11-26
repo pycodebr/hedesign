@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pt-BR" class="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Conversa com a IA · exemplo do hedesign</title>
+<meta name="theme-color" content="#f4f2ee">
+<link rel="stylesheet" href="../../dist/hedesign-fonts.css">
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<link rel="stylesheet" href="assets/example.css">
+<script src="../../dist/hedesign-theme.js"></script>
+</head>
+<body class="he-tips">
+<aside class="he-sidebar" id="he-sidebar">
+  <div class="he-sidebar__head">
+    <a class="he-brand" href="painel.html" aria-label="Estúdio Norte, início"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+  </div>
+  <nav class="he-side" aria-label="Seções do sistema">
+<div class="he-side__section">
+<a class="he-side__item" href="painel.html" data-he-tip="Painel"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-compass"/></svg></span><span class="he-side__text">Painel</span></a>
+<a class="he-side__item is-active" aria-current="page" href="conversa.html" data-he-tip="Conversa com a IA"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg></span><span class="he-side__text">Conversa com a IA</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Conteúdo</div>
+<a class="he-side__item" href="planejamento.html" data-he-tip="Planejamento"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg></span><span class="he-side__text">Planejamento</span></a>
+<a class="he-side__item" href="fila.html" data-he-tip="Fila de revisão"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-inbox"/></svg></span><span class="he-side__text">Fila de revisão</span><span class="he-count" data-he-count="fila" data-he-count-hide="fila">3</span></a>
+<a class="he-side__item" href="referencias.html" data-he-tip="Referências"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg></span><span class="he-side__text">Referências</span></a>
+<a class="he-side__item" href="resultados.html" data-he-tip="Resultados"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg></span><span class="he-side__text">Resultados</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Sistema</div>
+<a class="he-side__item" href="ajustes.html" data-he-tip="Ajustes"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-gear"/></svg></span><span class="he-side__text">Ajustes</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Fora do aplicativo</div>
+<a class="he-side__item" href="entrar.html" data-he-tip="Entrar"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-lock"/></svg></span><span class="he-side__text">Entrar</span></a>
+<a class="he-side__item" href="pagina.html" data-he-tip="Página de apresentação"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-star"/></svg></span><span class="he-side__text">Página de apresentação</span></a>
+<a class="he-side__item" href="leitura.html" data-he-tip="Leitura"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-file"/></svg></span><span class="he-side__text">Leitura</span></a>
+</div>
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Recolher menu"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></span><span class="he-side__text">Recolher menu</span></button>
+    <div class="he-sidebar__note"><a href="../index.html">Documentação do hedesign</a></div>
+  </div>
+</aside>
+<header class="he-topbar">
+  <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu" aria-controls="he-sidebar"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></button>
+  <nav class="he-crumbs" aria-label="Você está em"><a href="index.html">Exemplos</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current">Conversa com a IA</span></nav>
+  <div class="he-topbar__actions">
+    <button type="button" class="he-iconbtn" data-he-palette-open aria-label="Buscar (Ctrl K)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-search"/></svg></button>
+    <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-moon"/></svg></button>
+    <button type="button" class="he-topbar__btn" aria-label="Conta de Ana"><span class="he-avatar">A</span><span class="he-wide">ana</span></button>
+  </div>
+</header>
+<div class="he-scrim-nav" aria-hidden="true"></div>
+<main class="he-main" id="conteudo">
+  <div class="he-page he-page--narrow">
+<style>
+/* A conversa ocupa a altura livre da janela e o compositor fica grudado embaixo enquanto a página rola. */
+.ex-conversa { display: flex; flex-direction: column; max-width: 760px; margin: 0 auto; min-height: calc(100dvh - var(--he-topbar-h) - 64px); }
+.ex-conversa .ex-chat { flex: 1 1 auto; width: 100%; min-height: 0; }
+.ex-conversa .he-head__main { flex: 1 1 300px; }
+.ex-conversa .he-head__sub { text-wrap: balance; }
+.ex-conversa-start { align-self: center; }
+.ex-conversa-dock { position: sticky; bottom: 0; z-index: 5; margin-bottom: -36px; padding: 12px 0; background: linear-gradient(to top, var(--he-bg) 82%, transparent); }
+/* Os avisos sobem para cima do compositor, como fazem com o campo de pedido fixo das outras telas. */
+html { --he-toasts-bottom: var(--ex-conversa-dock, 120px); }
+@media (max-width: 760px) { .ex-conversa { min-height: calc(100dvh - var(--he-topbar-h) - 52px); } }
+</style>
+<div class="ex-conversa">
+  <header class="he-head">
+    <div class="he-head__main"><h1>Conversa com a IA</h1><p class="he-head__sub">Peça um texto, uma pesquisa ou um plano. Nada sai do estúdio sem a sua permissão.</p></div>
+    <div class="he-head__actions"><button type="button" class="he-btn he-btn--sm" id="ex-conversa-nova" disabled><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-plus"/></svg>Começar outra conversa</button></div>
+  </header>
+
+  <div class="ex-chat">
+    <div class="he-empty ex-conversa-start" id="ex-conversa-start">
+      <span class="he-orb he-orb--xl" data-state="idle" aria-hidden="true"></span>
+      <div class="he-empty__title">Por onde começamos, Ana?</div>
+      <p class="he-empty__text">Escolha um começo ou escreva o seu pedido no campo abaixo.</p>
+      <div class="he-empty__actions" role="group" aria-label="Sugestões de pedido">
+        <button type="button" class="he-sug" data-ex-sug="ideias" data-prompt="Sugira 5 ideias de vídeo curto para esta semana."><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg>Sugerir 5 ideias de vídeo curto</button>
+        <button type="button" class="he-sug" data-ex-sug="semana" data-prompt="Monte a próxima semana com base no que foi melhor neste mês."><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-calendar"/></svg>Montar a próxima semana</button>
+        <button type="button" class="he-sug" data-ex-sug="resumo" data-prompt="Resuma o que eu preciso decidir hoje."><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-inbox"/></svg>Resumir o que decidir hoje</button>
+        <button type="button" class="he-sug" data-ex-sug="publicar" data-prompt="Publique agora a enquete que está agendada para hoje, às 20h."><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-send"/></svg>Publicar a enquete agora</button>
+      </div>
+    </div>
+    <div class="he-feed" id="ex-conversa-feed" role="log" aria-live="polite" aria-label="Mensagens da conversa" hidden></div>
+  </div>
+
+  <div class="ex-conversa-dock">
+    <form class="he-composer is-empty" id="ex-conversa-form" data-he-composer-enter novalidate>
+      <div class="he-composer__box">
+        <textarea class="he-composer__input" name="prompt" rows="1" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+        <div class="he-composer__bar">
+          <span class="he-composer__tools">
+            <label class="he-composer__tool" data-he-tip="Anexar arquivo"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-paperclip"/></svg><input type="file" class="he-sr" id="ex-conversa-file" aria-label="Anexar arquivo"></label>
+            <select class="he-composer__pill" id="ex-conversa-formato" aria-label="Formato da resposta"><option>Carrossel</option><option>Vídeo curto</option><option>Story</option><option>Texto livre</option></select>
+            <label class="he-composer__check"><input type="checkbox" id="ex-conversa-biblioteca" checked>Usar a biblioteca</label>
+          </span>
+          <span class="he-composer__actions">
+            <button class="he-composer__send" type="submit" aria-label="Enviar o pedido"></button>
+            <button class="he-composer__stop" type="button" aria-label="Parar a resposta" hidden></button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var $ = HE.util.$, $$ = HE.util.$$, esc = HE.esc;
+  var start = $("#ex-conversa-start"), feed = $("#ex-conversa-feed"), form = $("#ex-conversa-form"), fresh = $("#ex-conversa-nova");
+  var input = $(".he-composer__input", form), send = $(".he-composer__send", form), stop = $(".he-composer__stop", form);
+  var tools = $(".he-composer__tools", form), file = $("#ex-conversa-file"), formato = $("#ex-conversa-formato"), biblioteca = $("#ex-conversa-biblioteca");
+  var timer = null, pending = null;
+
+  /* A altura do compositor muda com o texto; os avisos acompanham para nunca cobrir o botão de enviar. */
+  var dock = $(".ex-conversa-dock");
+  function measure() { document.documentElement.style.setProperty("--ex-conversa-dock", dock.offsetHeight + "px"); }
+  if (window.ResizeObserver) new ResizeObserver(measure).observe(dock);
+  measure();
+
+  /* Respostas de demonstração. Em um sistema de verdade, cada uma chega do servidor. */
+  var REPLIES = {
+    ideias: {
+      text: "Cinco ideias de vídeo curto para esta semana:\n1. O erro de pedir tudo ao agente de uma vez, em 20 segundos\n2. Antes e depois de um prompt com contexto\n3. Python em 30 segundos: dicionário em uma linha\n4. O que eu confiro antes de publicar\n5. Uma pergunta que a turma fez na aula 3",
+      save: { label: "Guardar as 5 em Ideia", done: "5 ideias guardadas", toast: "5 ideias guardadas em Ideia." }
+    },
+    semana: {
+      text: "Proposta para a próxima semana, com base no que foi melhor neste mês:\nseg 30/11 · carrossel sobre contexto em prompts\nqua 2/12 · vídeo curto de Python em 30 segundos\nsex 4/12 · story com enquete sobre a aula ao vivo\nOs três entram no calendário como sugestão tracejada, até você aceitar.",
+      link: { label: "Abrir o planejamento", href: "planejamento.html" }
+    },
+    resumo: {
+      text: "Três itens esperam a sua decisão na fila. O mais próximo é o carrossel 5 erros no seu primeiro agente, que sai qui 26/11, às 18h.\nA enquete sobre a próxima aula ao vivo sai hoje, às 20h, e o roteiro de Python em 30 segundos está pronto para gravar.",
+      link: { label: "Abrir a fila", href: "fila.html" }
+    },
+    publicar: {
+      text: "Posso publicar a enquete agora, sem esperar as 20h. Como isso sai do estúdio, preciso da sua permissão.",
+      approval: {
+        head: "A IA quer publicar agora",
+        desc: "Story com a enquete \"Qual tema para a próxima aula ao vivo?\", na conta estudionorte. O horário agendado era hoje, às 20h.",
+        cmd: "publicar_item --item \"Enquete: qual tema para a próxima aula ao vivo?\" --conta estudionorte --quando agora"
+      }
+    }
+  };
+  function pick(prompt) {
+    var p = prompt.toLowerCase();
+    if (/publi/.test(p)) return "publicar";
+    if (/ideia/.test(p)) return "ideias";
+    if (/semana|planej/.test(p)) return "semana";
+    if (/resum|decid|fila/.test(p)) return "resumo";
+    return null;
+  }
+
+  function now() { return HE.fmtDate(new Date().toISOString(), "time"); }
+  function follow() { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: HE.util.reduced() ? "auto" : "smooth" }); }
+  function add(html) {
+    var box = document.createElement("div");
+    box.innerHTML = html;
+    var node = box.firstElementChild;
+    feed.appendChild(node);
+    start.hidden = true; feed.hidden = false; fresh.disabled = false;
+    follow();
+    return node;
+  }
+  function chip(text) { return '<span class="he-ctx"><span class="he-ctx__label">' + esc(text) + "</span></span>"; }
+  function addMe(text, ctx) {
+    return add('<div class="he-msg he-msg--me he-in-rise">' + (ctx.length ? '<div class="he-msg__ctx">' + ctx.map(chip).join("") + "</div>" : "") +
+      '<div class="he-bubble">' + esc(text) + '</div><div class="he-msg__meta">você · ' + now() + "</div></div>");
+  }
+  function addEvent(html, tone) {
+    return add('<div class="he-event he-in-rise"' + (tone ? ' data-tone="' + tone + '"' : "") + '><div class="he-event__main"><span>' + html + "</span></div><time>" + now() + "</time></div>");
+  }
+  function addAi(reply) {
+    var extra = "";
+    if (reply.approval) {
+      extra = '<div class="he-approval"><div class="he-approval__head">' + HE.icon("lock") + esc(reply.approval.head) + '</div><p class="he-approval__desc">' + esc(reply.approval.desc) +
+        '</p><pre class="he-approval__cmd" tabindex="0">' + esc(reply.approval.cmd) + '</pre><div class="he-approval__actions">' +
+        '<button type="button" class="he-btn he-btn--ok he-btn--sm" data-ex-permit="allow">Permitir</button><button type="button" class="he-btn he-btn--danger he-btn--sm" data-ex-permit="deny">Negar</button></div></div>';
+    } else if (reply.save) {
+      extra = '<button type="button" class="he-btn he-btn--sm" data-ex-save="' + esc(reply.save.toast) + '" data-done="' + esc(reply.save.done) + '">' + esc(reply.save.label) + "</button>";
+    } else if (reply.link) {
+      extra = '<a class="he-btn he-btn--sm" href="' + reply.link.href + '">' + esc(reply.link.label) + "</a>";
+    }
+    return add('<div class="he-msg he-msg--ai he-in-rise"><span class="he-orb" data-state="' + (reply.approval ? "waiting" : "idle") + '" aria-hidden="true"></span><div class="he-msg__main">' +
+      '<div class="he-msg__meta">IA · ' + now() + '</div><p class="he-msg__text">' + esc(reply.text) + "</p>" + extra + "</div></div>");
+  }
+
+  /* Enquanto a IA responde, o botão de enviar vira o de parar. */
+  function setBusy(on) {
+    send.hidden = on; stop.hidden = !on;
+    form.setAttribute("aria-busy", on ? "true" : "false");
+  }
+  function ask(text, key, ctx) {
+    if (timer || !text) return;
+    addMe(text, ctx || []);
+    pending = add('<div class="he-msg he-msg--ai he-in-rise"><span class="he-orb" data-state="working" aria-hidden="true"></span><div class="he-msg__main"><div class="he-msg__meta">IA · escrevendo</div>' +
+      '<p class="he-msg__text"><span class="he-dots3" aria-hidden="true"><i></i><i></i><i></i></span><span class="he-sr">A IA está escrevendo</span></p></div></div>');
+    setBusy(true);
+    timer = window.setTimeout(function () {
+      timer = null;
+      pending.remove(); pending = null;
+      setBusy(false);
+      addAi(REPLIES[key || pick(text)] || {
+        text: "Anotei o pedido" + (ctx && ctx.length ? " com este contexto: " + ctx.join(", ") + "." : ".") +
+          " Esta conversa é uma demonstração e as respostas são simuladas na própria página. Peça para publicar a enquete e veja um pedido de permissão."
+      });
+    }, 1500);
+  }
+  function halt() {
+    if (!timer) return;
+    window.clearTimeout(timer); timer = null;
+    pending.remove(); pending = null;
+    setBusy(false);
+    addEvent("<b>Ana</b> parou a resposta");
+    input.focus();
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var text = input.value.trim();
+    if (!text) { input.focus(); return; }
+    if (timer) return;
+    var ctx = [formato.value];
+    if (biblioteca.checked) ctx.push("Biblioteca");
+    var attached = $("[data-ex-file]", tools);
+    if (attached) { ctx.push(attached.getAttribute("data-ex-file")); attached.remove(); file.value = ""; }
+    input.value = "";
+    ask(text, null, ctx);
+  });
+  stop.addEventListener("click", halt);
+
+  /* Sugestões iniciais: enviam o pedido direto. */
+  start.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-ex-sug]");
+    if (b) ask(b.getAttribute("data-prompt"), b.getAttribute("data-ex-sug"));
+  });
+
+  /* Anexo: o arquivo escolhido vira uma etiqueta no compositor e segue com o próximo pedido. Nada é enviado. */
+  file.addEventListener("change", function () {
+    var old = $("[data-ex-file]", tools);
+    if (old) old.remove();
+    if (!file.files.length) return;
+    var name = file.files[0].name, tag = document.createElement("span");
+    tag.className = "he-ctx"; tag.setAttribute("data-ex-file", name);
+    tag.innerHTML = '<span class="he-ctx__label">' + esc(name) + '</span><button type="button" class="he-ctx__x" aria-label="Tirar o anexo ' + esc(name) + '">' + HE.icon("x") + "</button>";
+    tools.appendChild(tag);
+    input.focus();
+  });
+  tools.addEventListener("click", function (e) {
+    if (!e.target.closest(".he-ctx__x")) return;
+    e.target.closest("[data-ex-file]").remove();
+    file.value = "";
+    HE.toast("Anexo retirado.");
+  });
+
+  /* Ações dentro das respostas: permissão e guardar ideias. */
+  feed.addEventListener("click", function (e) {
+    var permit = e.target.closest("[data-ex-permit]"), save = e.target.closest("[data-ex-save]");
+    if (permit) {
+      var allowed = permit.getAttribute("data-ex-permit") === "allow", box = permit.closest(".he-approval"), orb = $(".he-orb", permit.closest(".he-msg"));
+      box.classList.add("is-done");
+      $$("button", box).forEach(function (b) { b.disabled = true; });
+      orb.setAttribute("data-state", "idle");
+      if (allowed) {
+        addEvent("<b>Ana</b> permitiu a publicação", "green");
+        addAi({ text: "Publicado. A enquete saiu agora na conta estudionorte e o item passou para Publicado." });
+        HE.say("Enquete publicada.");
+      } else {
+        addEvent("<b>Ana</b> negou a publicação");
+        addAi({ text: "Certo, não publiquei. A enquete continua agendada para hoje, às 20h." });
+      }
+    }
+    if (save && !save.disabled) {
+      var label = save.textContent;
+      save.disabled = true; save.textContent = save.getAttribute("data-done");
+      HE.toast({ text: save.getAttribute("data-ex-save"), onUndo: function () { save.disabled = false; save.textContent = label; } });
+    }
+  });
+
+  /* Outra conversa: limpa a tela na hora e o aviso devolve tudo. */
+  fresh.addEventListener("click", function () {
+    if (timer) { window.clearTimeout(timer); timer = null; pending.remove(); pending = null; setBusy(false); }
+    var kept = Array.prototype.slice.call(feed.children);
+    feed.textContent = "";
+    feed.hidden = true; start.hidden = false; fresh.disabled = true;
+    window.scrollTo(0, 0);
+    input.focus();
+    HE.toast({ text: "Conversa encerrada.", onUndo: function () {
+      kept.forEach(function (n) { n.classList.remove("he-in-rise"); feed.appendChild(n); });
+      start.hidden = true; feed.hidden = false; fresh.disabled = false;
+      follow();
+    } });
+  });
+
+  /* A tecla / leva ao campo, como no campo de pedido das outras telas. */
+  HE.shortcuts.add("Conversa", ["/"], "Escrever um pedido");
+  HE.shortcuts.add("Conversa", ["Enter"], "Enviar o pedido");
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey && !HE.util.isTyping(e.target) && !HE.overlayOpen()) { e.preventDefault(); input.focus(); }
+  });
+});
+</script>
+
+  </div>
+</main>
+<script src="../../dist/hedesign.js"></script>
+<script src="assets/example.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+/* hedesign · 00 · tokens
+   Tudo o que o sistema decide em um lugar: cor, tipo, espaço, forma, sombra e movimento.
+   Tema claro por padrão; tema escuro em [data-he-theme="dark"], no <html> ou em qualquer elemento (ilha de tema:
+   um trecho escuro numa página clara, ou o contrário, com [data-he-theme="light"]).
+   Nunca escreva cor fixa em tela: use estes tokens, e a tela funciona nos dois temas. */
+
+:root, [data-he-theme="light"] {
+  color-scheme: light;
+
+  /* ── Estúdio: fundo calmo, superfícies claras ── */
+  --he-bg: #f4f2ee;            /* fundo da página (papel quente) */
+  --he-bg-sunken: #ebe8e2;     /* áreas rebaixadas: trilhos, teclas, código */
+  --he-surface: #ffffff;       /* cartões, campos, painéis */
+  --he-soft: #f8f7f4;          /* superfície secundária dentro de um painel */
+  --he-raise: #ffffff;         /* o que flutua: menus, paleta, campo de pedido */
+
+  /* ── Tinta ── */
+  --he-ink: #1b1a18;           /* texto principal e botão principal */
+  --he-ink-2: #31302e;         /* texto de apoio forte */
+  --he-muted: #5f5b56;         /* texto secundário */
+  --he-faint: #6b6761;         /* legendas e rótulos (ainda AA sobre o fundo) */
+  --he-ghost: #a39e98;         /* decorativo: ícones apagados, pontos neutros */
+
+  /* ── Linhas e realce ── */
+  --he-line: rgba(27, 26, 24, .1);
+  --he-line-strong: rgba(27, 26, 24, .2);
+  --he-hover: rgba(55, 53, 47, .06);
+  --he-hover-strong: rgba(55, 53, 47, .11);
+
+  /* ── Destaque e estados ── */
+  --he-accent: #0075de;
+  --he-accent-ink: #005bab;
+  --he-accent-soft: #e8f2fc;
+  --he-on-accent: #ffffff;
+  --he-danger: #c4352b;
+  --he-danger-soft: #fbeceb;
+  --he-ok: #136c2a;
+  --he-ok-soft: #e0f3e4;
+  --he-scrim: rgba(20, 18, 16, .42);
+  --he-spot: rgba(255, 255, 255, .85);   /* luz no topo da página */
+
+  /* ── IA: cor própria, do violeta ao azul ── */
+  --he-ai-1: #6b3fa8;
+  --he-ai-2: #3d5fd9;
+  --he-ai-3: #0075de;
+  --he-ai: #6b3fa8;
+  --he-ai-ink: #5b3e8f;
+  --he-ai-soft: #f3ecfb;
+  --he-ai-line: #ddd3f3;
+  --he-ai-grad: linear-gradient(135deg, var(--he-ai-1) 0%, var(--he-ai-2) 55%, var(--he-ai-3) 100%);
+
+  /* ── Seis tons, do frio ao verde. Cada tom tem quatro papéis:
+        viva (ponto, barra, contorno) · -fg (texto) · -bg (fundo suave) · -solid (fundo cheio).
+        Texto -fg sobre a superfície e sobre o próprio -bg passa de 4,5:1 nos dois temas. ── */
+  --he-blue: #3d8fd6;    --he-blue-fg: #1c5f99;    --he-blue-bg: #e4f0fb;    --he-blue-solid: #1c5f99;
+  --he-violet: #8a55cc;  --he-violet-fg: #6537a6;  --he-violet-bg: #f0e8fb;  --he-violet-solid: #6537a6;
+  --he-pink: #d23fa0;    --he-pink-fg: #a3246f;    --he-pink-bg: #fce6f3;    --he-pink-solid: #a3246f;
+  --he-orange: #dd5b00;  --he-orange-fg: #a04300;  --he-orange-bg: #fdecdc;  --he-orange-solid: #a04300;
+  --he-teal: #1f9c97;    --he-teal-fg: #136a67;    --he-teal-bg: #dcf2f0;    --he-teal-solid: #136a67;
+  --he-green: #1a8a35;   --he-green-fg: #136c2a;   --he-green-bg: #e0f3e4;   --he-green-solid: #136c2a;
+  --he-on-tone: #ffffff;                 /* texto sobre -solid */
+  --he-rail: linear-gradient(90deg, var(--he-blue), var(--he-violet), var(--he-pink), var(--he-orange), var(--he-teal), var(--he-green));
+
+  /* ── Moldura de aparelho e papel ── */
+  --he-post-bg: #ffffff;
+  --he-post-ink: #0f1419;
+  --he-post-muted: #6b7280;
+  --he-post-line: #e6e6e6;
+  --he-post-link: #00376b;
+  --he-bezel: #101012;
+  --he-paper: #fbf7ef;
+  --he-paper-ink: #201d18;
+
+  /* ── Avisos (sempre escuros, nos dois temas) ── */
+  --he-toast-bg: #1f1d1a;
+  --he-toast-ink: #f6f3ee;
+  --he-toast-error: #5a1d18;
+  --he-toast-shadow: var(--he-shadow-2);
+  --he-knob: #ffffff;                    /* botão do interruptor */
+  --he-check-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4.5 4.5L19 7'/%3E%3C/svg%3E");
+
+  /* ── Casca ── */
+  --he-sidebar-bg: #fbfbfa;
+  --he-topbar-bg: rgba(246, 245, 244, .86);
+  --he-disabled-bg: #e7e5e2;
+  --he-disabled-ink: #a7a19a;
+
+  /* ── Tipografia ── */
+  --he-font: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  --he-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+  --he-text-display: 700 40px/1.1 var(--he-font);    /* -1px */
+  --he-text-h1: 700 32px/1.1 var(--he-font);         /* -.9px */
+  --he-text-h2: 700 26px/1.23 var(--he-font);        /* -.6px */
+  --he-text-h3: 700 18px/1.3 var(--he-font);         /* -.3px */
+  --he-text-title: 600 14.5px/1.35 var(--he-font);   /* título de cartão */
+  --he-text-lead: 400 17px/1.55 var(--he-font);
+  --he-text-body: 400 15.5px/1.5 var(--he-font);
+  --he-text-small: 400 13px/1.4 var(--he-font);
+  --he-text-label: 600 12.5px/1.3 var(--he-font);    /* rótulo de campo */
+  --he-text-overline: 700 12px/1.3 var(--he-font);   /* caixa alta, .3px */
+
+  /* ── Espaço (base 4) ── */
+  --he-s-1: 4px;
+  --he-s-2: 8px;
+  --he-s-3: 12px;
+  --he-s-4: 16px;
+  --he-s-5: 24px;
+  --he-s-6: 32px;
+  --he-s-7: 48px;
+  --he-s-8: 64px;
+
+  /* ── Forma ── */
+  --he-r-xs: 6px;
+  --he-r-sm: 10px;
+  --he-r: 14px;
+  --he-r-lg: 20px;
+  --he-r-full: 999px;
+
+  /* ── Elevação ── */
+  --he-shadow-1: 0 1px 2px rgba(20, 18, 16, .05), 0 6px 18px -10px rgba(20, 18, 16, .18);
+  --he-shadow-2: 0 2px 6px rgba(20, 18, 16, .06), 0 18px 44px -18px rgba(20, 18, 16, .32);
+  --he-shadow-pop: 0 0 0 1px var(--he-line), 0 12px 28px -8px rgba(20, 18, 16, .22), 0 32px 80px -24px rgba(20, 18, 16, .4);
+  --he-shadow-ai: 0 1px 2px rgba(20, 18, 16, .06), 0 16px 40px -18px rgba(48, 28, 96, .45);
+
+  /* ── Movimento ── */
+  --he-ease: cubic-bezier(.2, .7, .2, 1);
+  --he-fast: 150ms;
+  --he-med: 220ms;
+}
+
+/* Medidas da casca. Zero até o elemento existir na página (ver 02-shell.css). */
+:root {
+  --he-sidebar-w: 0px;
+  --he-topbar-h: 0px;
+  --he-top-h: 0px;
+  --he-dock-h: 0px;
+  --he-mnav-h: 0px;
+  --he-bottom: calc(var(--he-dock-h) + var(--he-mnav-h));   /* espaço ocupado pelo rodapé fixo */
+  --he-content-max: 1320px;
+  --he-reading-max: 860px;
+}
+
+[data-he-theme="dark"] {
+  color-scheme: dark;
+  --he-bg: #131316;
+  --he-bg-sunken: #0d0d10;
+  --he-surface: #1d1d22;
+  --he-soft: #18181c;
+  --he-raise: #26262d;
+  --he-ink: #f2f0eb;
+  --he-ink-2: #d9d6cf;
+  --he-muted: #aaa69e;
+  --he-faint: #96928a;
+  --he-ghost: #6d6a64;
+  --he-line: rgba(255, 255, 255, .1);
+  --he-line-strong: rgba(255, 255, 255, .2);
+  --he-hover: rgba(255, 255, 255, .06);
+  --he-hover-strong: rgba(255, 255, 255, .12);
+  --he-accent: #5aa9ff;
+  --he-accent-ink: #8cc4ff;
+  --he-accent-soft: #1c2e45;
+  --he-on-accent: #0b1220;
+  --he-danger: #ff8a80;
+  --he-danger-soft: #3d2222;
+  --he-ok: #7bdc94;
+  --he-ok-soft: #1f3526;
+  --he-scrim: rgba(0, 0, 0, .6);
+  --he-spot: rgba(255, 255, 255, .045);
+
+  --he-ai: #a67be6;
+  --he-ai-ink: #c4a8f5;
+  --he-ai-soft: #2b2440;
+  --he-ai-line: #453a66;
+
+  --he-blue: #5aa9ee;    --he-blue-fg: #8cc4f6;    --he-blue-bg: #29394b;    --he-blue-solid: #5aa9ee;
+  --he-violet: #a67be6;  --he-violet-fg: #c9acf5;  --he-violet-bg: #383049;  --he-violet-solid: #a67be6;
+  --he-pink: #ec63b8;    --he-pink-fg: #f79ad2;    --he-pink-bg: #462b40;    --he-pink-solid: #ec63b8;
+  --he-orange: #ff8a3d;  --he-orange-fg: #ffb07a;  --he-orange-bg: #4a3327;  --he-orange-solid: #ff8a3d;
+  --he-teal: #35c2bb;    --he-teal-fg: #72d9d3;    --he-teal-bg: #223e41;    --he-teal-solid: #35c2bb;
+  --he-green: #3fc463;   --he-green-fg: #7bdc94;   --he-green-bg: #243e2f;   --he-green-solid: #3fc463;
+  --he-on-tone: #131316;
+  --he-rail: linear-gradient(90deg, var(--he-blue), var(--he-violet), var(--he-pink), var(--he-orange), var(--he-teal), var(--he-green));
+
+  --he-post-bg: #000000;
+  --he-post-ink: #f5f5f5;
+  --he-post-muted: #a8a8a8;
+  --he-post-line: #262626;
+  --he-post-link: #e0f1ff;
+  --he-bezel: #050506;
+  --he-paper: #24211c;
+  --he-paper-ink: #f3ede1;
+
+  --he-toast-bg: #34343c;
+  --he-toast-error: #5a2420;
+  --he-toast-shadow: var(--he-shadow-pop);
+  --he-knob: #f2f0eb;
+  --he-check-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23131316' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4.5 4.5L19 7'/%3E%3C/svg%3E");
+
+  --he-sidebar-bg: #17171b;
+  --he-topbar-bg: rgba(19, 19, 22, .86);
+  --he-disabled-bg: #34343c;
+  --he-disabled-ink: #8a867f;
+
+  --he-shadow-1: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px -10px rgba(0, 0, 0, .6);
+  --he-shadow-2: 0 2px 6px rgba(0, 0, 0, .4), 0 20px 48px -18px rgba(0, 0, 0, .75);
+  --he-shadow-pop: 0 0 0 1px var(--he-line-strong), 0 12px 28px -8px rgba(0, 0, 0, .6), 0 32px 80px -24px rgba(0, 0, 0, .8);
+  --he-shadow-ai: 0 1px 2px rgba(0, 0, 0, .4), 0 16px 40px -18px rgba(0, 0, 0, .7);
+}
+
+/* Tom no elemento: qualquer coisa com data-tone recebe --tone (viva), --tone-fg (texto), --tone-bg (fundo) e --tone-solid.
+   Selo, coluna, calendário, passos, chips, marcador de arrasto e a luz do estúdio leem essas quatro variáveis,
+   por isso a cor é idêntica em todo lugar. */
+[data-tone="blue"]   { --tone: var(--he-blue);   --tone-fg: var(--he-blue-fg);   --tone-bg: var(--he-blue-bg);   --tone-solid: var(--he-blue-solid); }
+[data-tone="violet"] { --tone: var(--he-violet); --tone-fg: var(--he-violet-fg); --tone-bg: var(--he-violet-bg); --tone-solid: var(--he-violet-solid); }
+[data-tone="pink"]   { --tone: var(--he-pink);   --tone-fg: var(--he-pink-fg);   --tone-bg: var(--he-pink-bg);   --tone-solid: var(--he-pink-solid); }
+[data-tone="orange"] { --tone: var(--he-orange); --tone-fg: var(--he-orange-fg); --tone-bg: var(--he-orange-bg); --tone-solid: var(--he-orange-solid); }
+[data-tone="teal"]   { --tone: var(--he-teal);   --tone-fg: var(--he-teal-fg);   --tone-bg: var(--he-teal-bg);   --tone-solid: var(--he-teal-solid); }
+[data-tone="green"]  { --tone: var(--he-green);  --tone-fg: var(--he-green-fg);  --tone-bg: var(--he-green-bg);  --tone-solid: var(--he-green-solid); }
+[data-tone="ai"]     { --tone: var(--he-ai);     --tone-fg: var(--he-ai-ink);    --tone-bg: var(--he-ai-soft);   --tone-solid: var(--he-ai); }
+[data-tone="accent"] { --tone: var(--he-accent); --tone-fg: var(--he-accent-ink); --tone-bg: var(--he-accent-soft); --tone-solid: var(--he-accent); }
+[data-tone="danger"] { --tone: var(--he-danger); --tone-fg: var(--he-danger);    --tone-bg: var(--he-danger-soft); --tone-solid: var(--he-danger); }
+[data-tone="neutral"] { --tone: var(--he-ghost); --tone-fg: var(--he-muted);     --tone-bg: var(--he-hover-strong); --tone-solid: var(--he-muted); }

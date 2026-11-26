@@ -1,0 +1,35 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Fonte, arquivos gerados, skills, texto e guarda de publicação
+        run: bash tests/check.sh
+      - name: DESIGN.md
+        run: npx -y @google/design.md@0.4.0 lint DESIGN.md
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Playwright
+        run: pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+      - name: Comportamentos (window.HE)
+        run: python tests/js/test_js.py
+      - name: Documentação e exemplos nos dois temas e em duas larguras
+        run: python tests/pages.py
+  install:
+    strategy:
+      matrix: { os: [ubuntu-latest, macos-latest] }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar em uma pasta pessoal limpa, usar e desinstalar
+        run: bash tests/install.sh

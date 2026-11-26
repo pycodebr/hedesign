@@ -1,0 +1,48 @@
+<!-- nav: Fundamentos | Cores -->
+<p>A paleta parte de um papel quente no tema claro e de um grafite levemente azulado no escuro. Cada token tem um papel, e o papel importa mais que o valor: troque o valor para adaptar a marca, mantenha o papel para o sistema continuar coerente. Clique em uma cor para copiar o nome do token.</p>
+<h3>Fundo e superfícies</h3>
+<!--demo both nocode-->
+<div class="doc-swatches">
+  <button class="doc-swatch" data-doc-token="--he-bg" style="--c:var(--he-bg)"><i></i>Fundo<code>--he-bg</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-bg-sunken" style="--c:var(--he-bg-sunken)"><i></i>Rebaixado<code>--he-bg-sunken</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-surface" style="--c:var(--he-surface)"><i></i>Superfície<code>--he-surface</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-soft" style="--c:var(--he-soft)"><i></i>Suave<code>--he-soft</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-raise" style="--c:var(--he-raise)"><i></i>Elevado<code>--he-raise</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-paper" style="--c:var(--he-paper)"><i></i>Papel<code>--he-paper</code><small></small></button>
+</div>
+<!--/demo-->
+<h3>Tinta</h3>
+<p>Cinco degraus de texto. <code>--he-ink</code> também é a cor do botão principal: no tema escuro ele vira claro, e o texto dele vira <code>--he-bg</code>.</p>
+<!--demo both nocode-->
+<div class="doc-swatches">
+  <button class="doc-swatch" data-doc-token="--he-ink" style="--c:var(--he-ink)"><i></i>Tinta<code>--he-ink</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ink-2" style="--c:var(--he-ink-2)"><i></i>Tinta 2<code>--he-ink-2</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-muted" style="--c:var(--he-muted)"><i></i>Secundário<code>--he-muted</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-faint" style="--c:var(--he-faint)"><i></i>Legenda<code>--he-faint</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ghost" style="--c:var(--he-ghost)"><i></i>Decorativo<code>--he-ghost</code><small></small></button>
+</div>
+<!--/demo-->
+<h3>Linhas, realce, destaque e estados</h3>
+<!--demo both nocode-->
+<div class="doc-swatches">
+  <button class="doc-swatch" data-doc-token="--he-line" style="--c:var(--he-line)"><i></i>Linha<code>--he-line</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-line-strong" style="--c:var(--he-line-strong)"><i></i>Linha forte<code>--he-line-strong</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-hover" style="--c:var(--he-hover)"><i></i>Realce<code>--he-hover</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-hover-strong" style="--c:var(--he-hover-strong)"><i></i>Realce forte<code>--he-hover-strong</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-accent" style="--c:var(--he-accent)"><i></i>Destaque<code>--he-accent</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-accent-ink" style="--c:var(--he-accent-ink)"><i></i>Destaque, texto<code>--he-accent-ink</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-accent-soft" style="--c:var(--he-accent-soft)"><i></i>Destaque, fundo<code>--he-accent-soft</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ok" style="--c:var(--he-ok)"><i></i>Certo<code>--he-ok</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ok-soft" style="--c:var(--he-ok-soft)"><i></i>Certo, fundo<code>--he-ok-soft</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-danger" style="--c:var(--he-danger)"><i></i>Perigo<code>--he-danger</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-danger-soft" style="--c:var(--he-danger-soft)"><i></i>Perigo, fundo<code>--he-danger-soft</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-scrim" style="--c:var(--he-scrim)"><i></i>Véu<code>--he-scrim</code><small></small></button>
+</div>
+<!--/demo-->
+<h3>Regras de uso</h3>
+<ul>
+  <li>Texto corrido usa <code>--he-ink-2</code> ou <code>--he-muted</code>. <code>--he-faint</code> é o limite para texto pequeno e ainda passa de 4,5:1 sobre o fundo. <code>--he-ghost</code> nunca carrega informação.</li>
+  <li>O azul de destaque marca foco, link e seleção. O botão principal da tela é em tinta, nunca em azul.</li>
+  <li>Contorno de superfície é <code>box-shadow: inset 0 0 0 1px var(--he-line)</code>, e não <code>border</code>: a medida da caixa não muda e o contorno acompanha o raio.</li>
+  <li>Nenhuma tela escreve cor fixa. Se um valor novo for necessário, ele entra como token nos dois temas.</li>
+</ul>

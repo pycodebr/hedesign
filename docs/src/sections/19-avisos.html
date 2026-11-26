@@ -1,0 +1,74 @@
+<!-- nav: Componentes | Avisos e camadas -->
+<h3>Aviso com Desfazer</h3>
+<p>O aviso confirma o que acabou de acontecer, em uma frase. Quando a ação pode ser revertida ele traz o botão Desfazer e uma barra de contagem com os seis tons, que para enquanto o ponteiro ou o foco estiverem nele. Avisos são sempre escuros, nos dois temas, e ficam no canto de baixo, acima do campo de pedido.</p>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-btn" data-doc="toast-undo">Aviso com Desfazer</button>
+  <button type="button" class="he-btn" data-doc="toast-ok">Aviso de sucesso</button>
+  <button type="button" class="he-btn" data-doc="toast-error">Aviso de erro</button>
+  <button type="button" class="he-btn" data-doc="toast-ai">Aviso da IA</button>
+</div>
+<!--/demo-->
+<!--code-->
+HE.toast("Legenda copiada.");
+HE.toast({ text: "Item arquivado.", onUndo: () => restaurar(id) });
+HE.toast({ kind: "ok", text: "Aprovado e agendado para quinta, 18h." });
+HE.toast({ kind: "error", text: "Não consegui salvar.", sub: "A conexão caiu. Tente de novo.", action: { label: "Tentar de novo", onClick: salvar } });
+HE.toast({ kind: "ai", text: "A IA terminou o texto do carrossel." });
+<!--/code-->
+<h3>Gaveta, folha e camada de detalhe</h3>
+<p>Três camadas, uma para cada tamanho de tarefa. A <b>gaveta</b> entra pela direita para algo que complementa a tela, como a atividade da IA ou um filtro longo. A <b>folha</b> é uma caixa central para uma decisão curta. A <b>camada de detalhe</b> cobre a tela inteira para abrir um item e, ao fechar, devolve a rolagem e o foco ao ponto exato. No celular as três sobem de baixo, e gaveta e folha fecham arrastando a alça.</p>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-btn" data-doc="drawer">Abrir gaveta</button>
+  <button type="button" class="he-btn" data-doc="sheet">Abrir folha</button>
+  <button type="button" class="he-btn" data-doc="layer">Abrir camada de detalhe</button>
+  <button type="button" class="he-btn" data-doc="menu" aria-haspopup="menu">Abrir menu</button>
+</div>
+<!--/demo-->
+<!--code-->
+const gaveta = HE.drawer.open({
+  title: "Filtros",
+  body: "<p>Conteúdo em HTML ou um nó do DOM.</p>",
+  foot: '<button class="he-btn he-btn--primary" data-he-close>Aplicar</button>',
+  wide: false,           // 620px no lugar de 440px
+  side: "right",         // ou "left"
+  onClose() {}
+});
+gaveta.close();
+
+HE.sheet({ title: "Marcar como publicado", body: "…", foot: "…" });
+
+HE.layer.open({ title: "5 erros no seu primeiro agente", body: document.querySelector("#detalhe").content.cloneNode(true) });
+HE.layer.close();
+<!--/code-->
+<h3>Paleta de comandos</h3>
+<p>Ctrl K (ou Cmd K) abre a busca de qualquer lugar. Ela mistura itens, telas e ações, agrupados, e o último resultado é sempre entregar o texto digitado à IA. A aplicação registra as fontes.</p>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-btn" data-he-palette-open>{i:search}Abrir a paleta <kbd class="he-kbd">Ctrl K</kbd></button>
+  <button type="button" class="he-btn he-btn--soft" data-he-shortcuts-open>{i:keyboard}Ver os atalhos <kbd class="he-kbd">?</kbd></button>
+</div>
+<!--/demo-->
+<!--code-->
+HE.palette.register({
+  group: "Ir para",
+  items: [
+    { label: "Planejamento", icon: "board", href: "/planejamento/" },
+    { label: "Resultados", icon: "chart", href: "/resultados/" }
+  ]
+});
+HE.palette.register({
+  group: "Itens",
+  search: (q) => fetch("/api/busca?q=" + encodeURIComponent(q)).then((r) => r.json())
+  // cada item: { label, hint, icon, tone, img, href, onSelect }
+});
+HE.shortcuts.add("Fila", ["A"], "Aprovar o item aberto");
+<!--/code-->
+<h3>Regras das camadas</h3>
+<ul>
+  <li>Uma camada por vez. Esc fecha a de cima, o foco fica preso dentro dela e volta para quem abriu.</li>
+  <li>A página não rola por baixo e nada salta de lugar: a largura da barra de rolagem vira respiro.</li>
+  <li>Não use caixa de confirmação para ação reversível. Faça a ação e ofereça o Desfazer no aviso.</li>
+  <li>Folha só para decisões que cabem em uma tela de celular. Passou disso, é camada de detalhe ou página.</li>
+</ul>

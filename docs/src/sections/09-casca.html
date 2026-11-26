@@ -1,0 +1,94 @@
+<!-- nav: Estrutura | Casca da aplicação -->
+<p>A casca tem quatro peças, todas opcionais: o menu lateral do sistema, a barra do topo com o caminho, a barra da área com os destinos e, no rodapé, o campo de pedido à IA. No celular o menu lateral vira gaveta e os destinos da área descem para uma barra inferior.</p>
+<div class="doc-frame"><iframe src="examples/painel.html" title="Exemplo de casca completa" loading="lazy"></iframe></div>
+<p style="margin-top:12px">As medidas se ajustam sozinhas. <code>--he-sidebar-w</code>, <code>--he-topbar-h</code>, <code>--he-dock-h</code> e <code>--he-mnav-h</code> valem zero até o elemento existir na página, e tudo o que é fixo se posiciona a partir delas. Elemento seu que fique grudado embaixo usa <code>bottom: calc(var(--he-bottom) + 4px)</code>.</p>
+<!--code-->
+<body>
+  <aside class="he-sidebar" id="he-sidebar">
+    <div class="he-sidebar__head">
+      <a class="he-brand" href="/"><span class="he-brand__mark">N</span>
+        <span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+    </div>
+    <nav class="he-side" aria-label="Seções">
+      <div class="he-side__section">
+        <a class="he-side__item is-active" href="/" aria-current="page" data-he-tip="Painel">
+          <span class="he-side__icon"><svg class="he-i"><use href="#he-i-compass"/></svg></span>
+          <span class="he-side__text">Painel</span></a>
+        <a class="he-side__item" href="/conversas/" data-he-tip="Conversas">
+          <span class="he-side__icon"><svg class="he-i"><use href="#he-i-comment"/></svg></span>
+          <span class="he-side__text">Conversas</span><span class="he-count">4</span></a>
+      </div>
+      <div class="he-side__section">
+        <div class="he-side__label">Marketing</div>
+        <!-- mais itens -->
+      </div>
+    </nav>
+    <div class="he-sidebar__foot">
+      <button type="button" class="he-side__item" data-he-sidebar-toggle>
+        <span class="he-side__icon"><svg class="he-i"><use href="#he-i-list"/></svg></span>
+        <span class="he-side__text">Recolher menu</span></button>
+    </div>
+  </aside>
+
+  <header class="he-topbar">
+    <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu"><svg class="he-i"><use href="#he-i-list"/></svg></button>
+    <nav class="he-crumbs" aria-label="Você está em">
+      <a href="/">Estúdio Norte</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current">Painel</span>
+    </nav>
+    <div class="he-topbar__actions">
+      <span class="he-live"><span class="he-wide">Tempo real</span></span>
+      <button type="button" class="he-topbar__btn"><span class="he-avatar">A</span><span class="he-wide">ana</span></button>
+    </div>
+  </header>
+  <div class="he-scrim-nav" aria-hidden="true"></div>
+
+  <main class="he-main">
+    <div class="he-top">…barra da área…</div>
+    <div class="he-page">…tela…</div>
+    <div class="he-dock" data-he-dock>…campo de pedido…</div>
+    <nav class="he-mnav" aria-label="Áreas">…cinco destinos no celular…</nav>
+  </main>
+</body>
+<!--/code-->
+<h3>Barra da área</h3>
+<p>Fica grudada abaixo da barra do topo e leva, nesta ordem: a marca da área, os destinos (cinco no máximo), o botão Novo, a ação principal com contador, a presença da IA, a busca e o tema. Ela se aperta sozinha conforme a própria largura: primeiro some o nome, depois os ícones dos destinos, o rótulo da presença e o texto longo da ação.</p>
+<!--demo plain-->
+<div class="he-top" style="position:relative;top:0;z-index:1;border-radius:var(--he-r-lg);border:1px solid var(--he-line)">
+  <a class="he-top__brand" href="#casca"><span class="he-top__mark" aria-hidden="true"></span><span>Conteúdo</span></a>
+  <nav class="he-nav" aria-label="Áreas">
+    <a class="he-nav__item is-active" href="#casca" aria-current="page">{i:sun}<span>Hoje</span><span class="he-count">3</span></a>
+    <a class="he-nav__item" href="#casca">{i:bulb}<span>Referências</span></a>
+    <a class="he-nav__item" href="#casca">{i:board}<span>Planejamento</span></a>
+    <a class="he-nav__item" href="#casca">{i:library}<span>Biblioteca</span></a>
+    <a class="he-nav__item" href="#casca">{i:chart}<span>Resultados</span></a>
+  </nav>
+  <div class="he-top__actions">
+    <button type="button" class="he-new" aria-label="Novo">{i:plus}<span class="he-new__label">Novo</span></button>
+    <a class="he-review" href="#casca"><span>Revisar<span class="he-review__long"> agora</span></span><span class="he-review__n">3</span></a>
+    <button type="button" class="he-presence" data-state="working"><span class="he-orb" data-state="working" aria-hidden="true"></span><span class="he-presence__label">Trabalhando em 2</span></button>
+    <button type="button" class="he-iconbtn" aria-label="Buscar">{i:search}</button>
+  </div>
+</div>
+<!--/demo-->
+<h3>Cabeçalho de tela e de seção</h3>
+<!--demo-->
+<header class="he-head">
+  <div class="he-head__main"><h1>Planejamento</h1><p class="he-head__sub">Arraste para mudar a etapa ou a data.</p></div>
+  <div class="he-head__actions"><button class="he-btn">Exportar</button><button class="he-btn he-btn--primary">{i:plus}Novo item</button></div>
+</header>
+<section class="he-sec">
+  <div class="he-sec__head"><h2>Para você decidir</h2><span class="he-sec__n">3</span><a class="he-btn he-btn--ghost he-btn--sm" href="#casca">Abrir a fila</a></div>
+  <p class="he-small">O último elemento do cabeçalho de seção vai para a direita.</p>
+</section>
+<!--/demo-->
+<h3>Arranjos</h3>
+<div class="he-tablewrap"><table class="he-table doc-table">
+<thead><tr><th>Classe</th><th>O que faz</th></tr></thead>
+<tbody>
+<tr><th><code>.he-stack</code></th><td>Pilha vertical com 12 px. <code>--sm</code> usa 6 px e <code>--lg</code>, 24 px.</td></tr>
+<tr><th><code>.he-row</code></th><td>Linha que quebra, 8 px entre itens. <code>--between</code> separa as pontas.</td></tr>
+<tr><th><code>.he-grid</code></th><td>Grade que preenche com colunas de 232 px no mínimo (<code>--min</code> troca). <code>--2</code>, <code>--3</code> e <code>--4</code> fixam as colunas.</td></tr>
+<tr><th><code>.he-split</code></th><td>Conteúdo e coluna lateral de 300 a 380 px. <code>--3</code> acrescenta uma coluna à esquerda. Abaixo de 900 px vira pilha.</td></tr>
+<tr><th><code>.he-toolbar</code></th><td>Linha de filtros à esquerda e ações à direita, acima de uma lista.</td></tr>
+<tr><th><code>.he-cards</code></th><td>Grade de cartões; <code>--list</code> empilha em linhas.</td></tr>
+</tbody></table></div>

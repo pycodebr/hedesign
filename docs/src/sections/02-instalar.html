@@ -1,0 +1,58 @@
+<!-- nav: Começo | Instalar -->
+<p>O caminho mais curto é carregar os arquivos pelo jsDelivr, direto do repositório. Fixe a versão na URL para a página não mudar sozinha quando sair uma versão nova.</p>
+<!--code-->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign-fonts.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign-theme.js"></script>
+</head>
+<body>
+  <main class="he-main">
+    <div class="he-page he-page--narrow">
+      <header class="he-head">
+        <div class="he-head__main"><h1>Bom dia, Ana</h1><p class="he-head__sub">Dois itens esperam a sua decisão.</p></div>
+        <div class="he-head__actions"><button class="he-btn he-btn--primary">Revisar agora</button></div>
+      </header>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/hedesign.min.js"></script>
+</body>
+</html>
+<!--/code-->
+<h3>Arquivos no seu projeto</h3>
+<p>Para servir tudo do seu domínio, copie a pasta <code>dist/</code> para os arquivos estáticos do projeto. O instalador faz isso e baixa as fontes com conferência de sha256.</p>
+<!--code-->
+# copia dist/ para static/hedesign e baixa a Inter para a mesma pasta
+curl -fsSL https://raw.githubusercontent.com/pycodebr/hedesign/main/install.sh | bash -s -- --assets static/hedesign
+
+# só as skills para agentes (Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes)
+curl -fsSL https://raw.githubusercontent.com/pycodebr/hedesign/main/install.sh | bash
+<!--/code-->
+<h3>Tema</h3>
+<p>O tema fica no atributo <code>data-he-theme</code> do <code>&lt;html&gt;</code>. O script <code>hedesign-theme.js</code> lê a escolha guardada em <code>localStorage["he.theme"]</code> (<code>light</code>, <code>dark</code> ou <code>auto</code>) e aplica antes da primeira pintura. Sem escolha guardada vale <code>auto</code>, que segue o sistema; <code>data-he-theme-default="light"</code> no <code>&lt;html&gt;</code> troca esse padrão. Sem o script, a página também segue o sistema.</p>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-btn" data-he-theme-toggle aria-pressed="false">{i:moon}Alternar tema</button>
+  <button type="button" class="he-btn he-btn--soft" data-doc="theme-auto">Seguir o sistema</button>
+</div>
+<!--/demo-->
+<!--code-->
+HE.theme.get();          // "light" | "dark"
+HE.theme.set("dark");    // "light" | "dark" | "auto"
+HE.theme.toggle();
+document.addEventListener("he:theme", (e) => console.log(e.detail.theme));
+<!--/code-->
+<h3>Ilhas de tema</h3>
+<p>O mesmo atributo funciona em qualquer elemento. Um trecho com <code>data-he-theme="dark"</code> fica escuro numa página clara, e o contrário com <code>light</code>. Serve para um rodapé, um destaque numa página de vendas ou uma comparação lado a lado, como as desta documentação.</p>
+<!--demo-->
+<div class="he-grid he-grid--2">
+  <div class="he-panel" data-he-theme="light"><h3 class="he-panel__title">Ilha clara</h3><p class="he-panel__text">Este painel usa os tokens do tema claro.</p><div class="he-row" style="margin-top:12px"><button class="he-btn he-btn--primary he-btn--sm">Principal</button><span class="he-badge" data-tone="green">Publicado</span></div></div>
+  <div class="he-panel" data-he-theme="dark"><h3 class="he-panel__title">Ilha escura</h3><p class="he-panel__text">Este painel usa os tokens do tema escuro.</p><div class="he-row" style="margin-top:12px"><button class="he-btn he-btn--primary he-btn--sm">Principal</button><span class="he-badge" data-tone="green">Publicado</span></div></div>
+</div>
+<!--/demo-->
+<h3>Para agentes de IA</h3>
+<p>Quem vai aplicar o hedesign com um agente entrega o link do repositório. A seção "Para agentes de IA" do <code>README.md</code> diz o que instalar, em que ordem ler e como conferir o resultado. A especificação completa está no <code>DESIGN.md</code>, o índice para janelas de contexto pequenas está no <code>llms.txt</code>, e as três skills em <code>skills/</code> trazem o procedimento.</p>

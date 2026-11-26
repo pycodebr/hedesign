@@ -1,0 +1,50 @@
+<!-- nav: Fundamentos | Seis tons e a cor da IA -->
+<p>Os seis tons formam uma sequência, do frio ao verde, e servem para qualquer coisa que tenha etapas, categorias ou situações. Cada tom tem quatro papéis, e o texto sobre a superfície ou sobre o próprio fundo suave passa de 4,5:1 nos dois temas.</p>
+<!--demo both nocode-->
+<div class="doc-tones">
+  <div class="doc-tone" data-tone="blue"><b>blue</b><span class="v">Viva<small>--he-blue</small></span><span class="f">Texto<small>--he-blue-fg</small></span><span class="b">Fundo<small>--he-blue-bg</small></span><span class="s">Cheio<small>--he-blue-solid</small></span></div>
+  <div class="doc-tone" data-tone="violet"><b>violet</b><span class="v">Viva<small>--he-violet</small></span><span class="f">Texto<small>--he-violet-fg</small></span><span class="b">Fundo<small>--he-violet-bg</small></span><span class="s">Cheio<small>--he-violet-solid</small></span></div>
+  <div class="doc-tone" data-tone="pink"><b>pink</b><span class="v">Viva<small>--he-pink</small></span><span class="f">Texto<small>--he-pink-fg</small></span><span class="b">Fundo<small>--he-pink-bg</small></span><span class="s">Cheio<small>--he-pink-solid</small></span></div>
+  <div class="doc-tone" data-tone="orange"><b>orange</b><span class="v">Viva<small>--he-orange</small></span><span class="f">Texto<small>--he-orange-fg</small></span><span class="b">Fundo<small>--he-orange-bg</small></span><span class="s">Cheio<small>--he-orange-solid</small></span></div>
+  <div class="doc-tone" data-tone="teal"><b>teal</b><span class="v">Viva<small>--he-teal</small></span><span class="f">Texto<small>--he-teal-fg</small></span><span class="b">Fundo<small>--he-teal-bg</small></span><span class="s">Cheio<small>--he-teal-solid</small></span></div>
+  <div class="doc-tone" data-tone="green"><b>green</b><span class="v">Viva<small>--he-green</small></span><span class="f">Texto<small>--he-green-fg</small></span><span class="b">Fundo<small>--he-green-bg</small></span><span class="s">Cheio<small>--he-green-solid</small></span></div>
+</div>
+<!--/demo-->
+<h3>Um atributo, a mesma cor em todo lugar</h3>
+<p>Ponha <code>data-tone</code> no elemento ou num ancestral. Ele passa a ter <code>--tone</code>, <code>--tone-fg</code>, <code>--tone-bg</code> e <code>--tone-solid</code>, e todo componente dentro dele lê essas quatro variáveis. Valores aceitos: <code>blue</code>, <code>violet</code>, <code>pink</code>, <code>orange</code>, <code>teal</code>, <code>green</code>, <code>ai</code>, <code>accent</code>, <code>danger</code> e <code>neutral</code>.</p>
+<!--demo-->
+<div class="he-row">
+  <span class="he-badge" data-tone="blue">Ideia</span>
+  <span class="he-badge" data-tone="violet">Texto</span>
+  <span class="he-badge" data-tone="pink">Produção</span>
+  <span class="he-badge" data-tone="orange">Aprovação</span>
+  <span class="he-badge" data-tone="teal">Agendado</span>
+  <span class="he-badge" data-tone="green">Publicado</span>
+  <span class="he-badge" data-tone="neutral">Arquivado</span>
+</div>
+<!--/demo-->
+<!--code-->
+/* no seu CSS: qualquer elemento novo acompanha o tom do contexto */
+.meu-marcador { color: var(--tone-fg); background: var(--tone-bg); border-left: 3px solid var(--tone); }
+<!--/code-->
+<h3>O que cada tom costuma dizer</h3>
+<ul>
+  <li><b>Laranja</b> é a cor de "espera você": contador de fila, pergunta da IA, pedido de ajuste e marcador de comentário.</li>
+  <li><b>Verde</b> é a cor de "feito": aprovar, publicado, meta batida, interruptor ligado.</li>
+  <li><b>Violeta</b> é vizinho da cor da IA e marca o que é texto ou rascunho.</li>
+  <li>O <b>trilho</b> com os seis tons em sequência (<code>--he-rail</code>) é a assinatura do sistema: aparece na marca, no item ativo da barra do celular e na contagem do aviso.</li>
+</ul>
+<!--demo both nocode-->
+<div class="doc-rail"></div>
+<!--/demo-->
+<h3>A cor da IA</h3>
+<p>A IA tem cor própria, do violeta ao azul, e ela nunca é usada para outra coisa. Onde essa cor aparece, a IA está agindo, sugerindo ou esperando um pedido.</p>
+<!--demo both nocode-->
+<div class="doc-swatches">
+  <button class="doc-swatch" data-doc-token="--he-ai" style="--c:var(--he-ai)"><i></i>IA<code>--he-ai</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ai-ink" style="--c:var(--he-ai-ink)"><i></i>IA, texto<code>--he-ai-ink</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ai-soft" style="--c:var(--he-ai-soft)"><i></i>IA, fundo<code>--he-ai-soft</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ai-line" style="--c:var(--he-ai-line)"><i></i>IA, linha<code>--he-ai-line</code><small></small></button>
+  <button class="doc-swatch" data-doc-token="--he-ai-grad" style="--c:var(--he-ai-grad)"><i></i>Gradiente<code>--he-ai-grad</code><small></small></button>
+</div>
+<!--/demo-->

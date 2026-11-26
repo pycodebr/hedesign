@@ -1,0 +1,48 @@
+<!-- nav: Componentes | Botões -->
+<p>Todo botão é pílula, tem 40 px de altura e encolhe para 97% ao ser pressionado. Cada tela tem um botão principal, em tinta. Os outros são contorno, suave ou fantasma.</p>
+<!--demo both-->
+<div class="he-row">
+  <button type="button" class="he-btn he-btn--primary">Principal</button>
+  <button type="button" class="he-btn">Padrão</button>
+  <button type="button" class="he-btn he-btn--soft">Suave</button>
+  <button type="button" class="he-btn he-btn--ghost">Fantasma</button>
+  <button type="button" class="he-btn he-btn--accent">Destaque</button>
+  <button type="button" class="he-btn he-btn--ok">{i:check}Aprovar</button>
+  <button type="button" class="he-btn he-btn--danger">Negar</button>
+  <button type="button" class="he-btn he-btn--ai"><span class="he-orb he-orb--sm" aria-hidden="true"></span>Pedir à IA</button>
+  <button type="button" class="he-btn" disabled>Desligado</button>
+</div>
+<!--/demo-->
+<h3>Tamanhos, ícone e largura total</h3>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-btn he-btn--sm">Pequeno</button>
+  <button type="button" class="he-btn">Médio</button>
+  <button type="button" class="he-btn he-btn--lg he-btn--primary">Grande</button>
+  <button type="button" class="he-btn">{i:download}Baixar</button>
+  <button type="button" class="he-iconbtn" aria-label="Mais opções">{i:more}</button>
+  <button type="button" class="he-iconbtn he-iconbtn--solid" aria-label="Editar">{i:edit}</button>
+  <button type="button" class="he-iconbtn is-active" aria-label="Fixar">{i:pin}</button>
+</div>
+<div class="he-stack" style="max-width:320px;margin-top:12px"><button type="button" class="he-btn he-btn--primary he-btn--block">Largura total</button></div>
+<!--/demo-->
+<h3>Ações da barra</h3>
+<p>O botão <b>Novo</b> abre o menu de criação. A <b>ação com contador</b> leva para a fila e some quando o número chega a zero.</p>
+<!--demo-->
+<div class="he-row">
+  <button type="button" class="he-new" data-doc="menu" aria-haspopup="menu" aria-expanded="false">{i:plus}<span class="he-new__label">Novo</span></button>
+  <a class="he-review" href="#botoes"><span>Revisar agora</span><span class="he-review__n">3</span></a>
+  <span class="he-row"><kbd class="he-kbd he-kbd--always">Ctrl</kbd><kbd class="he-kbd he-kbd--always">K</kbd></span>
+</div>
+<!--/demo-->
+<h3>Quando usar cada um</h3>
+<div class="he-tablewrap"><table class="he-table doc-table">
+<thead><tr><th>Variante</th><th>Uso</th></tr></thead>
+<tbody>
+<tr><th><code>--primary</code></th><td>A ação que a tela existe para fazer. Uma por tela ou por folha.</td></tr>
+<tr><th>padrão</th><td>Ações secundárias ao lado da principal.</td></tr>
+<tr><th><code>--soft</code> e <code>--ghost</code></th><td>Ações de apoio em barras cheias e dentro de cartões.</td></tr>
+<tr><th><code>--accent</code></th><td>Confirmação dentro de um fluxo que já tem um botão em tinta na tela, como salvar numa folha.</td></tr>
+<tr><th><code>--ok</code> e <code>--danger</code></th><td>Decisões: aprovar e negar. O perigo só fica cheio depois do ponteiro.</td></tr>
+<tr><th><code>--ai</code></th><td>Tudo o que entrega a tarefa à IA. Leva o orbe pequeno antes do texto.</td></tr>
+</tbody></table></div>

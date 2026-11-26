@@ -1,0 +1,104 @@
+/* hedesign · 01 · base
+   Base de página com especificidade zero (:where), para o CSS do projeto vencer sem esforço.
+   Tipografia, utilitários de arranjo e regras globais de foco, seleção, movimento reduzido e impressão. */
+
+:where(html) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+:where(*, *::before, *::after) { box-sizing: border-box; }
+:where(body) {
+  margin: 0;
+  background: var(--he-bg);
+  color: var(--he-ink);
+  font: 400 16px/1.5 var(--he-font);
+  font-feature-settings: "lnum", "locl";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+:where(h1, h2, h3, h4, p, figure) { margin: 0; }
+:where(h1, h2, h3, h4) { color: var(--he-ink); }
+:where(a) { color: var(--he-accent-ink); text-decoration: none; }
+:where(a:hover) { text-decoration: underline; text-underline-offset: 3px; }
+:where(img, video, svg) { max-width: 100%; }
+:where(button, input, select, textarea) { font: inherit; color: inherit; }
+:where(:focus-visible) { outline: 2px solid var(--he-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--he-accent) 22%, transparent); }
+[hidden] { display: none !important; }
+
+/* Camada aberta: a página não rola e nada salta de lugar (a largura da barra de rolagem vira respiro) */
+html.he-lock, html.he-lock body { overflow: hidden; }
+html.he-lock body { padding-right: var(--he-sbw, 0px); }
+html.he-lock .he-dock { right: var(--he-sbw, 0px); }
+
+/* ── Tipografia ── */
+.he-display { font: var(--he-text-display); letter-spacing: -1px; color: var(--he-ink); text-wrap: balance; }
+.he-h1 { font: var(--he-text-h1); letter-spacing: -.9px; color: var(--he-ink); text-wrap: balance; }
+.he-h2 { font: var(--he-text-h2); letter-spacing: -.6px; color: var(--he-ink); text-wrap: balance; }
+.he-h3 { font: var(--he-text-h3); letter-spacing: -.3px; color: var(--he-ink); }
+.he-title { font: var(--he-text-title); letter-spacing: -.1px; color: var(--he-ink); }
+.he-lead { font: var(--he-text-lead); color: var(--he-muted); text-wrap: pretty; }
+.he-text { font: var(--he-text-body); color: var(--he-ink-2); }
+.he-small { font: var(--he-text-small); color: var(--he-muted); }
+.he-label { font: var(--he-text-label); color: var(--he-muted); }
+.he-overline { font: var(--he-text-overline); letter-spacing: .3px; text-transform: uppercase; color: var(--he-faint); }
+.he-muted { color: var(--he-muted); }
+.he-faint { color: var(--he-faint); }
+.he-mono { font-family: var(--he-mono); }
+.he-num { font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) {
+  .he-display { font-size: 30px; letter-spacing: -.6px; }
+  .he-h1 { font-size: 26px; letter-spacing: -.6px; }
+  .he-h2 { font-size: 22px; }
+  .he-lead { font-size: 16px; }
+}
+
+/* Texto corrido (documentação, artigo, ajuda): o conteúdo entra sem classes */
+.he-prose { max-width: 72ch; font: var(--he-text-body); font-size: 16px; line-height: 1.65; color: var(--he-ink-2); overflow-wrap: anywhere; }
+.he-prose > * + * { margin-top: 1em; }
+.he-prose :where(h1, h2, h3, h4) { color: var(--he-ink); text-wrap: balance; scroll-margin-top: calc(var(--he-topbar-h) + var(--he-top-h) + 16px); }
+.he-prose :where(h1) { font: var(--he-text-h1); letter-spacing: -.9px; }
+.he-prose :where(h2) { margin-top: 1.9em; font: var(--he-text-h2); font-size: 22px; letter-spacing: -.4px; }
+.he-prose :where(h3) { margin-top: 1.6em; font: var(--he-text-h3); }
+.he-prose :where(ul, ol) { margin: 1em 0 0; padding-left: 1.3em; }
+.he-prose :where(li + li) { margin-top: .35em; }
+.he-prose :where(a) { color: var(--he-accent-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.he-prose :where(strong) { color: var(--he-ink); }
+.he-prose :where(code) { padding: 1px 5px; border-radius: var(--he-r-xs); background: var(--he-bg-sunken); color: var(--he-ink); font: 500 .88em/1.5 var(--he-mono); }
+.he-prose :where(pre) { overflow: auto; padding: 14px 16px; border-radius: var(--he-r); background: var(--he-bg-sunken); color: var(--he-ink); font: 500 13px/1.6 var(--he-mono); }
+.he-prose :where(pre code) { padding: 0; background: none; font: inherit; }
+.he-prose :where(blockquote) { margin: 1em 0 0; padding: 12px 16px; border-radius: var(--he-r); background: var(--he-paper); color: var(--he-paper-ink); box-shadow: inset 3px 0 0 var(--he-orange); }
+.he-prose :where(hr) { height: 1px; margin: 2em 0; border: 0; background: var(--he-line-strong); }
+.he-prose :where(img) { border-radius: var(--he-r); }
+
+/* ── Arranjos ── */
+.he-page { max-width: var(--he-content-max); margin: 0 auto; padding: 28px 32px 8px; min-width: 0; }
+.he-page--narrow { max-width: var(--he-reading-max); }
+.he-page--full { max-width: none; }
+@media (max-width: 760px) { .he-page { padding: 16px 16px 8px; } }
+.he-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; }
+.he-stack--sm { gap: 6px; }
+.he-stack--lg { gap: 24px; }
+.he-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+.he-row--between { justify-content: space-between; }
+.he-row--nowrap { flex-wrap: nowrap; }
+.he-grow { flex: 1 1 auto; min-width: 0; }
+.he-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 16px; min-width: 0; }
+.he-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); gap: 24px; align-items: start; min-width: 0; }
+.he-split--3 { grid-template-columns: minmax(220px, 320px) minmax(330px, 1fr) minmax(260px, 350px); }
+.he-split > * { min-width: 0; }
+/* Três colunas: com pouco espaço, a primeira (apoio, conversa) desce para baixo das outras duas, e fica por último também na pilha do celular.
+   Com o menu lateral aberto sobram 256 px a menos, então a quebra acontece antes. */
+@media (max-width: 1180px) { .he-split--3 { grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); } .he-split--3 > :first-child { grid-column: 1 / -1; order: 3; } }
+@media (min-width: 1181px) and (max-width: 1380px) { html:has(.he-sidebar):not(.he-nav-collapsed) .he-split--3 { grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); } html:has(.he-sidebar):not(.he-nav-collapsed) .he-split--3 > :first-child { grid-column: 1 / -1; order: 3; } }
+@media (max-width: 900px) { .he-split, .he-split--3 { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+.he-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--min, 232px), 1fr)); gap: 14px; min-width: 0; }
+.he-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.he-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.he-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .he-grid--3, .he-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .he-grid--2, .he-grid--3 { grid-template-columns: minmax(0, 1fr); } .he-grid--4 { gap: 10px; } }
+
+/* ── Movimento reduzido: nada anima, e cada estado continua legível sem a animação ── */
+@media (prefers-reduced-motion: reduce) {
+  :where([class^="he-"], [class*=" he-"]), :where([class^="he-"], [class*=" he-"])::before, :where([class^="he-"], [class*=" he-"])::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}

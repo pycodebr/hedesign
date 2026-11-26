@@ -1,0 +1,41 @@
+<!-- nav: Componentes | Números, gráficos e tabela -->
+<h3>Indicadores</h3>
+<p>O número é o maior elemento do cartão e usa algarismos tabulares. A variação vem logo abaixo, em pílula verde ou vermelha, com a base de comparação escrita.</p>
+<!--demo both-->
+<div class="he-stats">
+  <div class="he-stat"><span class="he-stat__label">Alcance</span><span class="he-stat__value">48.210</span><span class="he-delta he-delta--up">{i:arrow_up|he-i--sm}12% <small>vs. mês passado</small></span></div>
+  <div class="he-stat"><span class="he-stat__label">Salvamentos</span><span class="he-stat__value">1.204</span><span class="he-delta he-delta--down">{i:arrow_down|he-i--sm}4%</span></div>
+  <div class="he-stat"><span class="he-stat__label">Publicados</span><span class="he-stat__value">18</span><span class="he-stat__hint">meta de 20 no mês</span></div>
+  <div class="he-stat" data-tone="orange"><span class="he-stat__label">Esperam você</span><span class="he-stat__value">3</span><span class="he-stat__hint">o mais antigo há 2 dias</span></div>
+</div>
+<!--/demo-->
+<h3>Barras e colunas</h3>
+<p>Gráficos simples em CSS. Cada barra recebe <code>--v</code> de 0 a 1, e o tom vem de <code>data-tone</code>. Para séries longas ou interativas, use a biblioteca de gráficos do projeto com as cores dos tokens.</p>
+<!--demo both-->
+<div class="he-grid he-grid--2">
+  <div class="he-panel"><h3 class="he-panel__title">Alcance por formato</h3>
+    <ul class="he-bars">
+      <li class="he-bar" data-tone="blue"><span class="he-bar__name">Carrossel <small>9</small></span><span class="he-bar__track"><i style="--v:.92"></i></span><span class="he-bar__val">22.140</span></li>
+      <li class="he-bar" data-tone="pink"><span class="he-bar__name">Vídeo <small>5</small></span><span class="he-bar__track"><i style="--v:.71"></i></span><span class="he-bar__val">17.030</span></li>
+      <li class="he-bar" data-tone="teal"><span class="he-bar__name">Imagem <small>4</small></span><span class="he-bar__track"><i style="--v:.38"></i></span><span class="he-bar__val">9.040</span></li>
+    </ul>
+  </div>
+  <div class="he-panel"><h3 class="he-panel__title">Publicados por semana</h3>
+    <ol class="he-cols" aria-label="Publicados por semana">
+      <li class="he-cols__col" style="--v:.4">S1</li><li class="he-cols__col" style="--v:.6">S2</li><li class="he-cols__col" style="--v:.5">S3</li><li class="he-cols__col" style="--v:.8">S4</li><li class="he-cols__col" style="--v:.7">S5</li><li class="he-cols__col is-current" style="--v:1" data-tone="green">S6</li>
+    </ol>
+  </div>
+</div>
+<!--/demo-->
+<h3>Tabela</h3>
+<p>Cabeçalho grudado, números alinhados à direita e linha realçada sob o ponteiro. A tabela rola de lado dentro da própria moldura.</p>
+<!--demo both-->
+<div class="he-tablewrap"><table class="he-table">
+  <thead><tr><th>Item</th><th>Etapa</th><th class="is-num"><button type="button" class="he-table__sort">Alcance{i:arrow_down}</button></th><th class="is-num">Salvos</th><th class="is-num">Taxa</th></tr></thead>
+  <tbody>
+    <tr><th>5 erros no seu primeiro agente</th><td><span class="he-badge he-badge--sm" data-tone="green">Publicado</span></td><td class="is-num">12.480</td><td class="is-num">412</td><td class="is-num"><span class="he-delta he-delta--up">3,3%</span></td></tr>
+    <tr><th>Python em 30 segundos</th><td><span class="he-badge he-badge--sm" data-tone="green">Publicado</span></td><td class="is-num">9.870</td><td class="is-num">188</td><td class="is-num"><span class="he-delta">1,9%</span></td></tr>
+    <tr><th>Checklist de publicação</th><td><span class="he-badge he-badge--sm" data-tone="teal">Agendado</span></td><td class="is-num">0</td><td class="is-num">0</td><td class="is-num"><span class="he-delta he-delta--none">sem dados</span></td></tr>
+  </tbody>
+</table></div>
+<!--/demo-->

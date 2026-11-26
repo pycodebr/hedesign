@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR" class="{{html_class}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>{{title}} · exemplo do hedesign</title>
+<meta name="theme-color" content="#f4f2ee">
+<link rel="stylesheet" href="../../dist/hedesign-fonts.css">
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<link rel="stylesheet" href="assets/example.css">
+<script src="../../dist/hedesign-theme.js"></script>
+</head>
+<body class="he-tips">
+<aside class="he-sidebar" id="he-sidebar">
+  <div class="he-sidebar__head">
+    <a class="he-brand" href="painel.html" aria-label="Estúdio Norte, início"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+  </div>
+  <nav class="he-side" aria-label="Seções do sistema">
+{{side_nav}}
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Recolher menu"><span class="he-side__icon">{i:list}</span><span class="he-side__text">Recolher menu</span></button>
+    <div class="he-sidebar__note"><a href="../index.html">Documentação do hedesign</a></div>
+  </div>
+</aside>
+<header class="he-topbar">
+  <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu" aria-controls="he-sidebar">{i:list}</button>
+  <nav class="he-crumbs" aria-label="Você está em"><a href="index.html">Exemplos</a><span class="he-crumbs__sep">/</span><a href="painel.html">Conteúdo</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current">{{title}}</span></nav>
+  <div class="he-topbar__actions">
+    <span class="he-live"><span class="he-wide">Tempo real</span></span>
+    <button type="button" class="he-topbar__btn" aria-label="Conta de Ana"><span class="he-avatar">A</span><span class="he-wide">ana</span></button>
+  </div>
+</header>
+<div class="he-scrim-nav" aria-hidden="true"></div>
+<main class="he-main" id="conteudo">
+  <div class="he-top" data-he-top>
+    <a class="he-top__brand" href="painel.html" aria-label="Conteúdo, início"><span class="he-top__mark" aria-hidden="true"></span><span>Conteúdo</span></a>
+    <nav class="he-nav" aria-label="Áreas do conteúdo">
+{{top_nav}}
+    </nav>
+    <div class="he-top__actions">
+      <button type="button" class="he-new" data-he-new aria-haspopup="menu" aria-expanded="false" aria-label="Novo: criar ideia, item ou referência (tecla C)">{i:plus}<span class="he-new__label">Novo</span></button>
+      <a class="he-review" href="fila.html" data-he-count-hide="fila"><span>Revisar<span class="he-review__long"> agora</span></span><span class="he-review__n" data-he-count="fila">3</span></a>
+      <button type="button" class="he-presence" data-he-presence data-state="working" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span><span class="he-presence__label" data-he-presence-label>Trabalhando em 2</span></button>
+      <button type="button" class="he-iconbtn" data-he-palette-open aria-label="Buscar item, referência ou ação (Ctrl K)">{i:search}</button>
+      <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro">{i:moon}</button>
+      <a class="he-iconbtn" href="ajustes.html" aria-label="Ajustes">{i:gear}</a>
+    </div>
+  </div>
+  <div class="he-page {{page}}">
+{{content}}
+  </div>
+  <div class="he-dock" data-he-dock>
+    <div class="he-dock__sugs" data-he-sugs role="group" aria-label="Sugestões de pedido"></div>
+    <div class="he-dock__row">
+      <form class="he-composer is-empty" data-he-ask-form novalidate>
+        <div class="he-composer__box">
+          <button type="button" class="he-dock__orb" data-he-presence data-state="working" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span></button>
+          <div class="he-dock__ctx" data-he-ctx aria-label="Contexto do pedido"></div>
+          <textarea class="he-composer__input" name="prompt" rows="1" maxlength="4000" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+          <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><kbd class="he-kbd" aria-hidden="true" title="A tecla / traz o cursor para cá">/</kbd><button class="he-composer__send" type="submit" aria-label="Enviar pedido à IA"></button></span></div>
+        </div>
+      </form>
+      <a class="he-review he-review--dock" href="fila.html" data-he-count-hide="fila">Revisar <span class="he-review__n" data-he-count="fila">3</span></a>
+    </div>
+  </div>
+  <nav class="he-mnav" aria-label="Áreas do conteúdo">
+{{mnav}}
+  </nav>
+</main>
+<script src="../../dist/hedesign.js"></script>
+<script src="assets/example.js"></script>
+</body>
+</html>

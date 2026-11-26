@@ -1,0 +1,37 @@
+<!-- nav: Fundamentos | Tipografia -->
+<p>Uma família só, a Inter, em quatro pesos de uso (400, 500, 600 e 700). Títulos são pesados e apertados, com espaçamento negativo; o texto de apoio é um degrau mais claro. Texto de leitura nunca fica abaixo de 12 px; só micro-rótulos, como contador, tecla e selo pequeno, usam de 10,5 a 11,5 px, sempre em peso 600 ou mais. Números que mudam usam algarismos tabulares.</p>
+<!--demo both nocode-->
+<div class="doc-type">
+  <div class="doc-type__row"><small>.he-display · 40/1.1 · 700 · -1px</small><div class="he-display">Planeje a semana</div></div>
+  <div class="doc-type__row"><small>.he-h1 · 32/1.1 · 700 · -.9px</small><div class="he-h1">Bom dia, Ana</div></div>
+  <div class="doc-type__row"><small>.he-h2 · 26/1.23 · 700 · -.6px</small><div class="he-h2">Para você decidir</div></div>
+  <div class="doc-type__row"><small>.he-h3 · 18/1.3 · 700 · -.3px</small><div class="he-h3">Resultados do mês</div></div>
+  <div class="doc-type__row"><small>.he-title · 14.5/1.35 · 600</small><div class="he-title">Checklist de publicação sem susto</div></div>
+  <div class="doc-type__row"><small>.he-lead · 17/1.55 · 400</small><div class="he-lead">Três itens esperam a sua decisão e um roteiro está pronto para gravar.</div></div>
+  <div class="doc-type__row"><small>.he-text · 15.5/1.5 · 400</small><div class="he-text">O texto corrido usa a tinta de apoio e linhas de até 76 caracteres.</div></div>
+  <div class="doc-type__row"><small>.he-small · 13/1.4 · 400</small><div class="he-small">Atualizado há 3 minutos por Ana.</div></div>
+  <div class="doc-type__row"><small>.he-label · 12.5/1.3 · 600</small><div class="he-label">Nome da campanha</div></div>
+  <div class="doc-type__row"><small>.he-overline · 12/1.3 · 700 · caixa alta</small><div class="he-overline">Histórico</div></div>
+  <div class="doc-type__row"><small>.he-num · tabular</small><div class="he-h2 he-num">1.204 · 38,5% · R$ 4.120,00</div></div>
+  <div class="doc-type__row"><small>.he-mono</small><div class="he-mono he-small">git commit -m "ajusta o cabeçalho"</div></div>
+</div>
+<!--/demo-->
+<h3>Regras de uso</h3>
+<ul>
+  <li>Um <code>h1</code> por tela, dentro de <code>.he-head</code>, seguido de uma frase que diz o que há para fazer ali.</li>
+  <li>Título de seção dentro de <code>.he-sec__head</code> pode levar um contador ao lado (<code>.he-sec__n</code>).</li>
+  <li>Caixa alta só no <code>.he-overline</code>, para rotular um painel ou um grupo. Nunca em botão ou em título.</li>
+  <li>No celular, todo campo de texto usa 16 px, para o navegador não ampliar a página ao focar.</li>
+  <li><code>text-wrap: balance</code> nos títulos e <code>pretty</code> nos parágrafos de apoio já vêm nas classes.</li>
+</ul>
+<h3>Texto corrido</h3>
+<p>Para artigo, ajuda ou documentação, envolva o conteúdo em <code>.he-prose</code>. Títulos, listas, links, código e citação saem formatados sem classe por elemento.</p>
+<!--demo-->
+<div class="he-prose">
+  <h2>Como revisar um item</h2>
+  <p>Abra a fila e leia a prévia <strong>do tamanho que o público vai ver</strong>. Se algo precisar mudar, marque o ponto na imagem e escreva o pedido em uma linha.</p>
+  <ul><li>Aprovar agenda o item para o próximo horário livre.</li><li>Pedir ajuste devolve o item para a IA com os seus comentários.</li></ul>
+  <blockquote>O primeiro resultado é rascunho. Leia, aponte o que errou e peça de novo.</blockquote>
+  <p>O atalho fica em <code>A</code>, <code>J</code> e <code>N</code>. Veja a <a href="#decisao">barra de decisão</a>.</p>
+</div>
+<!--/demo-->

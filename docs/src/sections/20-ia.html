@@ -1,0 +1,68 @@
+<!-- nav: IA presente | Orbe, presença e brilho -->
+<p>A IA aparece sempre do mesmo jeito: um orbe com o gradiente dela. O orbe tem três estados, e cada estado tem um movimento e um texto. Quem usa nunca precisa procurar para saber se a IA está fazendo algo.</p>
+<!--demo both-->
+<div class="he-stack">
+  <div class="he-row">
+    <span class="he-orb he-orb--sm" data-state="idle" aria-hidden="true"></span>
+    <span class="he-orb" data-state="idle" aria-hidden="true"></span>
+    <span class="he-orb he-orb--lg" data-state="working" aria-hidden="true"></span>
+    <span class="he-orb he-orb--lg" data-state="waiting" aria-hidden="true"></span>
+    <span class="he-orb he-orb--xl" data-state="idle" aria-hidden="true"></span>
+  </div>
+  <div class="he-row">
+    <button type="button" class="he-presence" data-state="idle"><span class="he-orb" data-state="idle"></span>IA livre</button>
+    <button type="button" class="he-presence" data-state="working"><span class="he-orb" data-state="working"></span>Trabalhando em 2</button>
+    <button type="button" class="he-presence" data-state="waiting"><span class="he-orb" data-state="waiting"></span>Esperando você</button>
+  </div>
+</div>
+<!--/demo-->
+<div class="he-tablewrap"><table class="he-table doc-table">
+<thead><tr><th>Estado</th><th>O que quer dizer</th><th>Como aparece</th></tr></thead>
+<tbody>
+<tr><th><code>idle</code></th><td>Nada em andamento.</td><td>O orbe respira devagar. Rótulo neutro.</td></tr>
+<tr><th><code>working</code></th><td>Uma ou mais tarefas rodando.</td><td>O gradiente gira e solta um halo. Rótulo na cor da IA, com a quantidade.</td></tr>
+<tr><th><code>waiting</code></th><td>A IA parou e precisa de uma resposta sua.</td><td>O orbe fica laranja e pulsa. A pílula inteira ganha o fundo laranja suave.</td></tr>
+</tbody></table></div>
+<!--code-->
+HE.presence.set({ state: "working", working: 2 });   // atualiza todo [data-he-presence] da página
+HE.presence.set({ state: "waiting", waiting: 1 });
+HE.presence.onOpen = () => HE.drawer.open({ title: "Atividade da IA", body: HE.presence.renderActivity(tarefas) });
+<!--/code-->
+<h3>Brilho de trabalho</h3>
+<p>Qualquer elemento em que a IA esteja mexendo ganha um contorno em gradiente que corre, com um rótulo curto no canto. O conteúdo perde um pouco de saturação para deixar claro que ainda vai mudar. Use <code>--soft</code> em elementos pequenos e <code>--veil</code> para esmaecer o conteúdo.</p>
+<!--demo both-->
+<div class="he-grid he-grid--2">
+  <div class="he-panel he-glow" data-he-glow="IA escrevendo"><h3 class="he-panel__title">Lâmina 4</h3><div class="he-panel__text">3. Ignorar o retorno. O primeiro resultado é rascunho.</div></div>
+  <div class="he-panel he-glow he-glow--soft" data-he-glow=""><h3 class="he-panel__title">Brilho suave, sem rótulo</h3><div class="he-panel__text">Para elementos pequenos.</div></div>
+</div>
+<div class="he-row" style="margin-top:12px"><button type="button" class="he-btn he-btn--sm" data-doc="glow">Ligar e desligar o brilho</button></div>
+<!--/demo-->
+<!--code-->
+HE.glow(elemento, true, "IA escrevendo");   // liga
+HE.glow(elemento, false);                    // desliga
+<!--/code-->
+<h3>Pergunta da IA</h3>
+<p>Quando a IA precisa de uma decisão para continuar, a pergunta sobe para o topo da tela, em laranja, com as respostas prontas em botões. Um toque responde.</p>
+<!--demo both-->
+<div class="he-question">
+  <span class="he-orb" data-state="waiting" aria-hidden="true"></span>
+  <div><div class="he-question__who">A IA pergunta · Checklist de publicação</div><div class="he-question__text">A capa fica melhor com o número 7 ou com a palavra "checklist"?</div></div>
+  <div class="he-question__answers"><button type="button" class="he-btn he-btn--sm">Número 7</button><button type="button" class="he-btn he-btn--sm">Palavra checklist</button><button type="button" class="he-btn he-btn--sm">Faça as duas</button></div>
+</div>
+<!--/demo-->
+<h3>Atividade</h3>
+<p>A lista do que a IA está fazendo, em que passo e para qual item. A tarefa rodando tem a varredura no topo. A ação que precisa de permissão mostra exatamente o que vai ser feito, com permitir e negar ao lado.</p>
+<!--demo both-->
+<div class="he-act">
+  <div class="he-act__group"><h3>Agora</h3>
+    <ul class="he-act__list">
+      <li class="he-job" data-status="running"><span class="he-orb" data-state="working" aria-hidden="true"></span><div class="he-job__title">Texto do carrossel "O prompt que mudou meu fluxo"</div><div class="he-job__step">Escrevendo a lâmina 4 de 7 <span class="he-dots3" aria-hidden="true"><i></i><i></i><i></i></span></div><div class="he-job__meta">começou há 40 s</div></li>
+      <li class="he-job" data-status="approval"><span class="he-orb" data-state="waiting" aria-hidden="true"></span><div class="he-job__title">Publicar o boletim de sexta</div><div class="he-job__step">Esperando a sua permissão</div>
+        <div class="he-job__extra"><div class="he-approval"><div class="he-approval__head">{i:lock}A IA quer enviar um e-mail</div><p class="he-approval__desc">Envio do boletim para a lista "Alunos", 1.240 pessoas.</p><pre class="he-approval__cmd" tabindex="0">enviar_boletim --lista alunos --assunto "O que mudou nesta semana"</pre><div class="he-approval__actions"><button type="button" class="he-btn he-btn--ok he-btn--sm">Permitir</button><button type="button" class="he-btn he-btn--sm">Permitir sempre</button><button type="button" class="he-btn he-btn--danger he-btn--sm">Negar</button></div></div></div></li>
+    </ul>
+  </div>
+  <div class="he-act__group"><h3>Não concluíram</h3>
+    <ul class="he-act__list"><li class="he-job" data-status="failed"><span class="he-orb he-orb--sm" aria-hidden="true"></span><div class="he-job__title">Pesquisa de referências</div><div class="he-job__step">A busca não respondeu a tempo</div><div class="he-job__extra"><button type="button" class="he-btn he-btn--sm">Tentar de novo</button></div></li></ul>
+  </div>
+</div>
+<!--/demo-->

@@ -1,0 +1,21 @@
+<!-- nav: Estúdio | Tela de ajustes -->
+<p>Ajustes ficam em seções, uma por assunto, com o índice em pílulas à esquerda. Cada seção salva sozinha: o botão fica no rodapé dela e a faixa laranja avisa quando há mudança por salvar. No celular o índice vira uma fileira que rola de lado.</p>
+<!--demo both-->
+<div class="he-settings">
+  <nav class="he-sidenav" aria-label="Seções dos ajustes">
+    <a class="he-sidenav__item is-active" href="#ajustes">{i:calendar}Agenda</a>
+    <a class="he-sidenav__item" href="#ajustes">{i:target}Metas</a>
+    <a class="he-sidenav__item" href="#ajustes">{i:user}Pessoas</a>
+  </nav>
+  <div class="he-formsecs">
+    <section class="he-formsec is-dirty">
+      <div class="he-formsec__head"><h3 class="he-h3">Agenda de publicação</h3><p>Os horários em que um item aprovado pode entrar.</p></div>
+      <div class="he-formsec__body">
+        <div class="he-field"><label for="aj-hora">Horário padrão</label><input class="he-input" id="aj-hora" value="18:00"></div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Publicar no fim de semana</b><small>Sábado e domingo entram na agenda.</small></div><button type="button" class="he-switch" role="switch" aria-checked="false" aria-label="Publicar no fim de semana"><span class="he-switch__knob"></span></button></div>
+      </div>
+      <div class="he-formsec__foot"><span class="he-help">Mudança por salvar</span><button type="button" class="he-btn he-btn--ghost">Descartar</button><button type="button" class="he-btn he-btn--primary">Salvar</button></div>
+    </section>
+  </div>
+</div>
+<!--/demo-->

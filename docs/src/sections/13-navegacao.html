@@ -1,0 +1,61 @@
+<!-- nav: Componentes | Alternador, chips e abas -->
+<h3>Alternador de visões</h3>
+<p>Troca a forma de ver a mesma coisa. O indicador desliza entre as opções. Em tela estreita só a opção ativa mostra o nome.</p>
+<!--demo both-->
+<div class="he-row">
+  <div class="he-views" data-he-views aria-label="Visão">
+    <button type="button" class="he-views__item is-active" data-view="quadro" aria-pressed="true">{i:board}<span>Quadro</span></button>
+    <button type="button" class="he-views__item" data-view="calendario" aria-pressed="false">{i:calendar}<span>Calendário</span></button>
+    <button type="button" class="he-views__item" data-view="grade" aria-pressed="false">{i:grid}<span>Grade</span></button>
+  </div>
+  <div class="he-views" data-he-views aria-label="Período">
+    <button type="button" class="he-views__item is-active" data-view="semana" aria-pressed="true">Semana</button>
+    <button type="button" class="he-views__item" data-view="mes" aria-pressed="false">Mês</button>
+  </div>
+</div>
+<!--/demo-->
+<!--code-->
+const visoes = HE.views(document.querySelector("[data-he-views]"));
+visoes.get();            // "quadro"
+visoes.set("grade");
+document.addEventListener("he:view", (e) => console.log(e.detail.view));
+<!--/code-->
+<h3>Chips de filtro</h3>
+<p>Filtros que ligam e desligam. O chip ligado fica em tinta; com tom, fica na cor cheia do tom. No celular a fileira rola de lado com <code>.he-chips--scroll</code>.</p>
+<!--demo both-->
+<div class="he-stack">
+  <div class="he-chips" data-he-chips="multi" data-name="tipo"><span class="he-chips__label">Tipo</span>
+    <button type="button" class="he-chip" aria-pressed="true" data-value="carrossel">{i:carousel}Carrossel <span class="he-chip__n">6</span></button>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="video">{i:reel}Vídeo <span class="he-chip__n">2</span></button>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="imagem">{i:image}Imagem</button>
+    <span class="he-chips__sep"></span>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="voce">Com você</button>
+    <button type="button" class="he-chip he-chip--clear">Limpar</button>
+  </div>
+  <div class="he-chips" data-he-chips="multi" data-name="etapa"><span class="he-chips__label">Etapa</span>
+    <button type="button" class="he-chip" data-tone="blue" aria-pressed="false" data-value="ideia">Ideia</button>
+    <button type="button" class="he-chip" data-tone="violet" aria-pressed="true" data-value="texto">Texto</button>
+    <button type="button" class="he-chip" data-tone="pink" aria-pressed="false" data-value="producao">Produção</button>
+    <button type="button" class="he-chip" data-tone="orange" aria-pressed="true" data-value="aprovacao">Aprovação</button>
+    <button type="button" class="he-chip" data-tone="teal" aria-pressed="false" data-value="agendado">Agendado</button>
+    <button type="button" class="he-chip" data-tone="green" aria-pressed="false" data-value="publicado">Publicado</button>
+  </div>
+</div>
+<!--/demo-->
+<h3>Abas</h3>
+<p>Separam conteúdos diferentes dentro do mesmo painel. As setas do teclado andam entre as abas.</p>
+<!--demo-->
+<div>
+  <div class="he-tabs" data-he-tabs><button type="button" class="he-tab" aria-controls="doc-t1" aria-selected="true">Histórico</button><button type="button" class="he-tab" aria-controls="doc-t2">Comentários</button><button type="button" class="he-tab" aria-controls="doc-t3">Arquivos</button></div>
+  <div class="he-tabpanel" id="doc-t1">Painel do histórico.</div>
+  <div class="he-tabpanel" id="doc-t2" hidden>Painel dos comentários.</div>
+  <div class="he-tabpanel" id="doc-t3" hidden>Painel dos arquivos.</div>
+</div>
+<!--/demo-->
+<h3>Qual usar</h3>
+<ul>
+  <li><b>Alternador</b>: a mesma lista em outra forma (quadro, calendário, grade) ou outro período.</li>
+  <li><b>Chips</b>: reduzir a lista. Vários podem ficar ligados ao mesmo tempo.</li>
+  <li><b>Abas</b>: conteúdos diferentes que dividem o mesmo espaço.</li>
+  <li><b>Destinos da barra da área</b>: telas diferentes. Cinco no máximo, porque são eles que descem para a barra do celular.</li>
+</ul>

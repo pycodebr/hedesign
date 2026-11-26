@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR" class="he-focus">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Fila de revisão · exemplo do hedesign</title>
+<meta name="theme-color" content="#f4f2ee">
+<link rel="stylesheet" href="../../dist/hedesign-fonts.css">
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<link rel="stylesheet" href="assets/example.css">
+<script src="../../dist/hedesign-theme.js"></script>
+</head>
+<body class="he-tips">
+<aside class="he-sidebar" id="he-sidebar">
+  <div class="he-sidebar__head">
+    <a class="he-brand" href="painel.html" aria-label="Estúdio Norte, início"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+  </div>
+  <nav class="he-side" aria-label="Seções do sistema">
+<div class="he-side__section">
+<a class="he-side__item" href="painel.html" data-he-tip="Painel"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-compass"/></svg></span><span class="he-side__text">Painel</span></a>
+<a class="he-side__item" href="conversa.html" data-he-tip="Conversa com a IA"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg></span><span class="he-side__text">Conversa com a IA</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Conteúdo</div>
+<a class="he-side__item" href="planejamento.html" data-he-tip="Planejamento"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg></span><span class="he-side__text">Planejamento</span></a>
+<a class="he-side__item is-active" aria-current="page" href="fila.html" data-he-tip="Fila de revisão"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-inbox"/></svg></span><span class="he-side__text">Fila de revisão</span><span class="he-count" data-he-count="fila" data-he-count-hide="fila">3</span></a>
+<a class="he-side__item" href="referencias.html" data-he-tip="Referências"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg></span><span class="he-side__text">Referências</span></a>
+<a class="he-side__item" href="resultados.html" data-he-tip="Resultados"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg></span><span class="he-side__text">Resultados</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Sistema</div>
+<a class="he-side__item" href="ajustes.html" data-he-tip="Ajustes"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-gear"/></svg></span><span class="he-side__text">Ajustes</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Fora do aplicativo</div>
+<a class="he-side__item" href="entrar.html" data-he-tip="Entrar"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-lock"/></svg></span><span class="he-side__text">Entrar</span></a>
+<a class="he-side__item" href="pagina.html" data-he-tip="Página de apresentação"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-star"/></svg></span><span class="he-side__text">Página de apresentação</span></a>
+<a class="he-side__item" href="leitura.html" data-he-tip="Leitura"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-file"/></svg></span><span class="he-side__text">Leitura</span></a>
+</div>
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Recolher menu"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></span><span class="he-side__text">Recolher menu</span></button>
+    <div class="he-sidebar__note"><a href="../index.html">Documentação do hedesign</a></div>
+  </div>
+</aside>
+<header class="he-topbar">
+  <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu" aria-controls="he-sidebar"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></button>
+  <nav class="he-crumbs" aria-label="Você está em"><a href="index.html">Exemplos</a><span class="he-crumbs__sep">/</span><a href="painel.html">Conteúdo</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current">Fila de revisão</span></nav>
+  <div class="he-topbar__actions">
+    <span class="he-live"><span class="he-wide">Tempo real</span></span>
+    <button type="button" class="he-topbar__btn" aria-label="Conta de Ana"><span class="he-avatar">A</span><span class="he-wide">ana</span></button>
+  </div>
+</header>
+<div class="he-scrim-nav" aria-hidden="true"></div>
+<main class="he-main" id="conteudo">
+  <div class="he-top" data-he-top>
+    <a class="he-top__brand" href="painel.html" aria-label="Conteúdo, início"><span class="he-top__mark" aria-hidden="true"></span><span>Conteúdo</span></a>
+    <nav class="he-nav" aria-label="Áreas do conteúdo">
+<a class="he-nav__item" href="painel.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-sun"/></svg><span>Hoje</span><span class="he-count" data-he-count="fila">3</span></a>
+<a class="he-nav__item" href="referencias.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg><span>Referências</span></a>
+<a class="he-nav__item" href="planejamento.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg><span>Planejamento</span></a>
+<a class="he-nav__item" href="resultados.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg><span>Resultados</span></a>
+<a class="he-nav__item" href="conversa.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg><span>Conversa</span></a>
+    </nav>
+    <div class="he-top__actions">
+      <button type="button" class="he-new" data-he-new aria-haspopup="menu" aria-expanded="false" aria-label="Novo: criar ideia, item ou referência (tecla C)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-plus"/></svg><span class="he-new__label">Novo</span></button>
+      <a class="he-review" href="fila.html" data-he-count-hide="fila"><span>Revisar<span class="he-review__long"> agora</span></span><span class="he-review__n" data-he-count="fila">3</span></a>
+      <button type="button" class="he-presence" data-he-presence data-state="working" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span><span class="he-presence__label" data-he-presence-label>Trabalhando em 2</span></button>
+      <button type="button" class="he-iconbtn" data-he-palette-open aria-label="Buscar item, referência ou ação (Ctrl K)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-search"/></svg></button>
+      <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-moon"/></svg></button>
+      <a class="he-iconbtn" href="ajustes.html" aria-label="Ajustes"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-gear"/></svg></a>
+    </div>
+  </div>
+  <div class="he-page he-page--full">
+<div class="he-toolbar" data-ex-bar>
+  <div class="he-row he-row--nowrap">
+    <a class="he-iconbtn he-iconbtn--solid" href="painel.html" aria-label="Sair da fila" data-he-tip="Sair da fila"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-x"/></svg></a>
+    <span class="he-counter" data-ex-counter aria-live="polite"><b>1</b> de 3</span>
+    <span class="he-badge" data-tone="orange" data-ex-stage>Aprovação</span>
+  </div>
+  <div class="he-row he-row--nowrap">
+    <button type="button" class="he-iconbtn he-iconbtn--solid" data-ex-pin aria-pressed="false" aria-label="Marcar um ponto na prévia" data-he-tip="Marcar um ponto (M)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-pin"/></svg></button>
+    <button type="button" class="he-iconbtn he-iconbtn--solid" data-ex-go="-1" aria-label="Item anterior" data-he-tip="Item anterior"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chevron_left"/></svg></button>
+    <button type="button" class="he-iconbtn he-iconbtn--solid" data-ex-go="1" aria-label="Próximo item" data-he-tip="Próximo item"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chevron_right"/></svg></button>
+  </div>
+</div>
+
+<div class="he-split" data-ex-split>
+  <div data-ex-preview></div>
+  <div data-ex-side></div>
+</div>
+
+<div class="he-decide" data-he-decide-bar role="group" aria-label="Decisão">
+  <button type="button" class="he-decide__btn he-decide__btn--deny" data-he-decide="deny" aria-keyshortcuts="N"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-x"/></svg><span class="he-decide__label">Negar</span><kbd class="he-kbd" aria-hidden="true">N</kbd></button>
+  <button type="button" class="he-decide__btn he-decide__btn--adjust" data-he-decide="adjust" aria-keyshortcuts="J"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-edit"/></svg><span class="he-decide__label">Pedir ajuste</span><kbd class="he-kbd" aria-hidden="true">J</kbd></button>
+  <button type="button" class="he-decide__btn he-decide__btn--approve" data-he-decide="approve" aria-keyshortcuts="A"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-check"/></svg><span class="he-decide__label">Aprovar<span class="he-decide__more"> e agendar</span><small>qui 26/11 · 18h</small></span><kbd class="he-kbd" aria-hidden="true">A</kbd></button>
+  <button type="button" class="he-decide__swap" data-he-decide="swap">Trocar data</button>
+</div>
+
+<div class="he-toasts" id="he-toasts" aria-live="polite" role="status"></div>
+
+<template data-ex-done>
+  <div class="he-empty he-in-rise">
+    <svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true" focusable="false"><circle class="a" cx="66" cy="48" r="36"/><circle class="c6" cx="66" cy="48" r="26" opacity=".18"/><path class="l l6" stroke-width="5" d="m52 49 10 10 19-21"/></svg>
+    <h1 class="he-empty__title">Fila zerada</h1>
+    <p class="he-empty__text">Você decidiu os três itens. O próximo passo é o planejamento da semana.</p>
+    <div class="he-empty__actions"><a class="he-btn he-btn--primary" href="planejamento.html">Ver o planejamento</a><a class="he-btn" href="painel.html">Voltar ao painel</a></div>
+  </div>
+</template>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var $ = HE.util.$, esc = HE.esc;
+  var STAGES = [
+    { tone: "blue", name: "Ideia" }, { tone: "violet", name: "Texto" }, { tone: "pink", name: "Produção" },
+    { tone: "orange", name: "Aprovação" }, { tone: "teal", name: "Agendado" }, { tone: "green", name: "Publicado" }
+  ];
+  /* A fila de exemplo. Em um sistema de verdade, cada item vem do servidor já com a prévia, o que mudou e as conferências. */
+  var QUEUE = [
+    {
+      id: "erros", stage: 3, title: "5 erros no seu primeiro agente",
+      sub: "A versão 3 chegou ontem, com a capa refeita. Aprovado, o carrossel sai na quinta, às 18h.",
+      when: "qui 26/11 · 18h", dates: ["qui 26/11 · 18h", "sex 27/11 · 12h", "sáb 28/11 · 9h", "seg 30/11 · 18h"],
+      slides: [
+        { id: "l1", img: "media/s1.svg", alt: "Lâmina 1, capa: 5 erros no seu primeiro agente" },
+        { id: "l2", img: "media/s2.svg", alt: "Lâmina 2: pedir tudo de uma vez" },
+        { id: "l3", img: "media/s3.svg", alt: "Lâmina 3: não dar contexto" },
+        { id: "l4", img: "media/s4.svg", alt: "Lâmina 4: ignorar o retorno" },
+        { id: "l5", img: "media/s5.svg", alt: "Lâmina 5, fecho: salve para consultar depois" }
+      ],
+      caption: "Seu primeiro agente não saiu como você queria? Quase sempre é um destes cinco erros.\n\nNenhum deles é técnico. Todos têm a ver com o jeito de pedir.", tags: "#agentes #ia",
+      diffTitle: "O que mudou desde a versão 2",
+      diff: "Capa: 5 erros <del>que travam</del> <ins>no</ins> seu primeiro agente. Legenda: <ins>Nenhum deles é técnico.</ins> <del>Leia até o fim.</del>",
+      checks: [
+        { text: "Dimensões 1080 × 1350 nas cinco lâminas" },
+        { text: "Acentuação conferida" },
+        { state: "warn", text: "Lâmina 5 sem texto alternativo", small: "A IA pode escrever a descrição da imagem." },
+        { state: "wait", text: "Revisão de fatos em andamento" }
+      ]
+    },
+    {
+      id: "ganchos", stage: 3, title: "3 ganchos que seguram a audiência",
+      sub: "A IA cortou duas pausas e pôs a legenda. Aprovado, o vídeo sai no domingo, às 18h.",
+      when: "dom 29/11 · 18h", dates: ["dom 29/11 · 18h", "sex 27/11 · 12h", "sáb 28/11 · 9h", "seg 30/11 · 18h"],
+      video: "media/clip.mp4",
+      caption: "Três aberturas que testamos neste mês e que seguraram quem assistia até o fim.", tags: "#vídeo #roteiro",
+      diffTitle: "O que mudou desde a versão 1",
+      diff: "Abertura: <del>Hoje eu vou mostrar três ganchos</del> <ins>Você perde quem assiste nos três primeiros segundos</ins>. Corte <ins>de duas pausas</ins> no meio.",
+      checks: [
+        { text: "Formato vertical, 1080 × 1920" },
+        { text: "Legenda conferida palavra por palavra" },
+        { state: "warn", text: "Música mais alta que a voz", small: "Entre 0:03 e 0:05." },
+        { state: "wait", text: "Direito de uso da trilha em conferência" }
+      ]
+    },
+    {
+      id: "sinais", stage: 1, title: "4 sinais de que o seu agente precisa de memória",
+      sub: "Carrossel só de texto. A arte começa depois que você aprovar o que está escrito.",
+      when: "",
+      slides: [
+        { id: "t1", label: "Capa", text: "4 sinais de que o seu agente precisa de memória", note: "Gancho com número e promessa clara" },
+        { id: "t2", label: "Lâmina", text: "1. Ele pergunta de novo o que você já respondeu", note: "Sem memória, cada conversa começa do zero." },
+        { id: "t3", label: "Lâmina", text: "2. Você cola o mesmo contexto todo dia", note: "O que se repete deveria estar guardado." },
+        { id: "t4", label: "Lâmina", text: "3. Ele repete um erro que você já corrigiu", note: "Correção sem registro se perde no dia seguinte." },
+        { id: "t5", label: "Lâmina", text: "4. O tom muda a cada pedido", note: "Estilo também é memória." },
+        { id: "t6", label: "Fecho", text: "Salve para conferir no seu próximo agente" }
+      ],
+      caption: "Se o seu agente esquece o que vocês combinaram, o problema não é o modelo. É a memória.\n\nQuatro sinais para conferir hoje.", tags: "#agentes #memória",
+      diffTitle: "O que mudou desde a versão 1",
+      diff: "Lâmina 3: <del>Você repete muita coisa</del> <ins>Você cola o mesmo contexto todo dia</ins>. Fecho <ins>com convite para salvar</ins>.",
+      checks: [
+        { text: "Seis lâminas, dentro do limite de dez" },
+        { text: "Acentuação conferida" },
+        { state: "warn", text: "Lâmina 2 com 47 caracteres", small: "O padrão do estúdio é até 40 por título." },
+        { state: "wait", text: "Arte ainda não começou", small: "Começa quando o texto for aprovado." }
+      ]
+    }
+  ];
+  QUEUE.forEach(function (it) { it.pins = []; it.decision = null; });
+
+  var page = $(".he-page"), bar = $("[data-ex-bar]"), split = $("[data-ex-split]"), stage = $("[data-ex-preview]"), side = $("[data-ex-side]");
+  var decideEl = $("[data-he-decide-bar]"), pinBtn = $("[data-ex-pin]");
+  var index = 0, pins = null, doneEl = null;
+
+  function pending() { return QUEUE.filter(function (it) { return !it.decision; }); }
+  function current() {
+    var list = pending();
+    index = Math.max(0, Math.min(index, list.length - 1));
+    return list[index] || null;
+  }
+  function clock(sec) { sec = Math.floor(sec); return Math.floor(sec / 60) + ":" + ("0" + (sec % 60)).slice(-2); }
+
+  /* Prévia: carrossel de imagens, carrossel só de texto ou vídeo vertical, sempre na moldura do aparelho */
+  function slide(s, i) {
+    if (s.img) return '<div class="he-slide he-pinnable" data-slide-id="' + s.id + '"><img src="' + s.img + '" alt="' + esc(s.alt) + '" draggable="false"></div>';
+    return '<div class="he-slide he-slide--text he-pinnable" data-slide-id="' + s.id + '"><span class="he-slide__n"><b>' + (i + 1) + "</b>" + s.label + "</span>" +
+      '<p class="he-slide__text">' + esc(s.text) + "</p>" + (s.note ? '<p class="he-slide__note">' + esc(s.note) + "</p>" : "") + "</div>";
+  }
+  function act(name) { return '<span class="he-post__act" aria-hidden="true">' + HE.icon(name) + "</span>"; }
+  function phone(it) {
+    var caption = esc(it.caption) + ' <span class="he-post__tags">' + esc(it.tags) + "</span>";
+    if (it.video) {
+      return '<div class="he-phone he-phone--fit"><div class="he-phone__screen"><div class="he-reel he-pinnable" data-slide-id="video">' +
+        '<div class="he-player" data-he-player tabindex="0" aria-label="Vídeo: ' + esc(it.title) + '"><video src="' + it.video + '" playsinline preload="metadata" loop muted></video></div>' +
+        '<div class="he-reel__side" aria-hidden="true"><span>' + HE.icon("heart") + "</span><span>" + HE.icon("comment") + "</span><span>" + HE.icon("share") + "</span></div>" +
+        '<div class="he-reel__info"><div class="he-reel__who"><span class="he-avatar">N</span>estudionorte</div>' +
+        '<div class="he-post__caption"><span class="he-post__captext">' + caption + "</span></div></div>" +
+        "</div></div></div>";
+    }
+    return '<div class="he-phone he-phone--fit"><div class="he-phone__screen">' +
+      '<div class="he-phone__status" aria-hidden="true"><span>9:41</span></div>' +
+      '<div class="he-post__head"><span class="he-avatar he-avatar--ring"><span>N</span></span><span class="he-post__who"><span class="he-post__account">estudionorte</span>' +
+      '<span class="he-post__sub">Prévia da publicação</span></span><span class="he-post__more" aria-hidden="true">' + HE.icon("more") + "</span></div>" +
+      '<div class="he-post__media he-carousel" data-ratio="4x5" data-he-carousel><div class="he-carousel__track">' + it.slides.map(slide).join("") + "</div></div>" +
+      '<div class="he-post__actions">' + act("heart") + act("comment") + act("share") + '<div class="he-dots" data-he-dots></div><span class="he-post__act he-post__act--save" aria-hidden="true">' + HE.icon("bookmark") + "</span></div>" +
+      '<div class="he-post__caption"><span class="he-post__captext"><b>estudionorte</b>' + caption + "</span></div>" +
+      "</div></div>";
+  }
+  /* Painéis ao lado da prévia: o item, as etapas, os comentários presos, a legenda, o que mudou e as conferências */
+  function panels(it, motion) {
+    var kind = it.video ? HE.icon("reel", "he-i--sm") + "Vídeo curto" : HE.icon("carousel", "he-i--sm") + "Carrossel · " + it.slides.length + " lâminas";
+    return '<div class="he-stack ' + motion + '">' +
+      '<div class="he-stack he-stack--sm">' +
+        '<div class="he-row"><span class="he-tag">' + kind + "</span>" +
+          (it.when ? '<span class="he-tag">' + HE.icon("clock", "he-i--sm") + "<span data-ex-when>" + esc(it.when) + "</span></span>" : "") +
+          '<span class="he-who" data-who="you">com você</span></div>' +
+        '<h1 class="he-h2">' + esc(it.title) + "</h1>" +
+        '<p class="he-muted">' + esc(it.sub) + "</p>" +
+      "</div>" +
+      '<div class="he-panel"><h2 class="he-panel__title">Etapas</h2><ol class="he-steps" data-he-steps="' + it.stage + '" aria-label="Etapas do item">' +
+        STAGES.map(function (s) { return '<li class="he-steps__step" data-tone="' + s.tone + '"><span>' + s.name + "</span></li>"; }).join("") + "</ol></div>" +
+      '<div class="he-panel" data-ex-notes hidden><h2 class="he-panel__title">Comentários na prévia</h2><div class="he-stack">' +
+        '<ul class="he-adjust__pins" data-ex-notes-list></ul>' +
+        '<div class="he-row"><button type="button" class="he-btn he-btn--sm" data-ex-write>' + HE.icon("edit") + "Escrever os comentários</button></div></div></div>" +
+      '<div class="he-panel"><h2 class="he-panel__title">Legenda</h2><div class="he-panel__text">' + esc(it.caption) + "</div></div>" +
+      '<div class="he-panel"><h2 class="he-panel__title">' + it.diffTitle + '</h2><p class="he-diff">' + it.diff + "</p></div>" +
+      '<div class="he-panel he-panel--soft"><h2 class="he-panel__title">Conferências</h2><ul class="he-checks">' +
+        it.checks.map(function (c) {
+          return '<li class="he-check"' + (c.state ? ' data-state="' + c.state + '"' : "") + "><span>" + esc(c.text) + (c.small ? "<small>" + esc(c.small) + "</small>" : "") + "</span></li>";
+        }).join("") + "</ul></div>" +
+    "</div>";
+  }
+  function notes(it) {
+    var box = $("[data-ex-notes]", side);
+    if (!box) return;
+    box.hidden = !it.pins.length;
+    $("[data-ex-notes-list]", box).innerHTML = it.pins.map(function (p) {
+      return '<li class="he-adjust__pin"><span class="he-pin he-pin--static">' + p.n + "</span><div><small>" + esc(p.where) + "</small>" +
+        esc(p.text || "Sem texto ainda") + "</div></li>";
+    }).join("");
+  }
+
+  /* Mostra o item da vez. O sentido da entrada diz se a fila andou para a frente ou voltou. */
+  function render(dir) {
+    var it = current(), list = pending();
+    if (!it) { finish(); return; }
+    var motion = dir === "prev" ? "he-in-prev" : dir === "next" ? "he-in-next" : "";
+    if (doneEl) { doneEl.parentNode.removeChild(doneEl); doneEl = null; }
+    bar.hidden = split.hidden = decideEl.hidden = false;
+    setPinning(false);
+    stage.innerHTML = '<div class="he-studio ' + motion + '" data-tone="' + STAGES[it.stage].tone + '">' + phone(it) + "</div>";
+    side.innerHTML = panels(it, motion);
+    HE.init(page);
+
+    $("[data-ex-counter]", bar).innerHTML = "<b>" + (index + 1) + "</b> de " + list.length;
+    var badge = $("[data-ex-stage]", bar);
+    badge.setAttribute("data-tone", STAGES[it.stage].tone);
+    badge.textContent = STAGES[it.stage].name;
+    [].forEach.call(bar.querySelectorAll("[data-ex-go]"), function (b) { b.hidden = list.length < 2; });
+
+    if (it.when) decide.setApprove(["Aprovar", " e agendar"], it.when);
+    else decide.setApprove(["Aprovar", " o texto"], "segue para a produção");
+    $('[data-he-decide="swap"]', decideEl).hidden = !it.when;
+
+    pins = HE.pins($(".he-studio", stage), { onAdd: pinned, onSelect: function () { decide.adjust(); } });
+    it.pins.forEach(function (p) {
+      pins.add({ x: p.x, y: p.y, n: p.n, slideId: p.slideId });
+      if (p.t != null) HE.player($(".he-player", stage)).addPin({ n: p.n, t: p.t });
+    });
+    notes(it);
+    HE.dock.setContext([{ key: "tela", label: "Fila de revisão", value: "fila" }, { key: "item", label: it.title, value: it.id, kind: "Item" }]);
+  }
+  /* Fim da fila: o estado de fila zerada entra no lugar da prévia e a barra de decisão sai */
+  function finish() {
+    stage.innerHTML = side.innerHTML = "";
+    bar.hidden = split.hidden = decideEl.hidden = true;
+    if (!doneEl) {
+      doneEl = document.importNode($("[data-ex-done]").content, true).firstElementChild;
+      page.insertBefore(doneEl, decideEl);
+    }
+    HE.init(page);
+    HE.dock.setContext([{ key: "tela", label: "Fila de revisão", value: "fila" }]);
+  }
+
+  /* Marcadores: o próximo toque na prévia prende um comentário naquele ponto */
+  function setPinning(on) {
+    if (!pins) on = false;
+    else if (on) pins.start();
+    else pins.stop();
+    pinBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    pinBtn.classList.toggle("is-active", on);
+  }
+  function togglePinning() {
+    var on = pinBtn.getAttribute("aria-pressed") !== "true";
+    setPinning(on);
+    if (on) HE.toast("Toque na prévia para prender um comentário naquele ponto.");
+  }
+  function pinned(info) {
+    var it = current(), pin = { n: info.n, x: info.x, y: info.y, slideId: info.slideId, text: "", t: null }, text;
+    if (it.video) {
+      var player = HE.player($(".he-player", stage));
+      pin.t = Math.round(player.time * 10) / 10;
+      pin.where = "Vídeo, em " + clock(pin.t);
+      player.addPin({ n: pin.n, t: pin.t });
+      text = "Comentário " + pin.n + " preso em " + clock(pin.t) + ".";
+    } else {
+      var n = it.slides.map(function (s) { return s.id; }).indexOf(info.slideId) + 1;
+      pin.where = "Lâmina " + n;
+      text = "Comentário " + pin.n + " preso na lâmina " + n + ".";
+    }
+    it.pins.push(pin);
+    notes(it);
+    HE.toast({
+      text: text, sub: "O texto dele entra em Pedir ajuste.",
+      onUndo: function () {
+        it.pins = it.pins.filter(function (p) { return p !== pin; });
+        if (current() === it) render();
+      }
+    });
+  }
+
+  /* Decisão: carimbo na prévia, o item sai da fila, o contador anda e o aviso traz o Desfazer */
+  function settle(kind, data) {
+    var it = current();
+    if (!it) return null;
+    setPinning(false);
+    var marks = {
+      approve: { kind: "ok", text: it.when ? "Aprovado" : "Texto aprovado" },
+      adjust: { kind: "adjust", text: "Ajuste pedido" },
+      deny: { kind: "denied", text: "Negado" }
+    };
+    var text = "Item negado e arquivado.", sub = it.title;
+    if (kind === "approve") text = it.when ? "Aprovado e agendado para " + it.when + "." : "Texto aprovado. O item seguiu para a produção.";
+    if (kind === "deny" && data.reason) sub = data.reason;
+    if (kind === "adjust") {
+      data.pins.forEach(function (sent) {
+        it.pins.forEach(function (p) { if (String(p.n) === String(sent.n)) p.text = sent.text; });
+      });
+      var written = data.pins.filter(function (p) { return p.text; }).length;
+      var parts = data.quick.concat(data.text ? [data.text] : [], written ? [written === 1 ? "1 comentário na prévia" : written + " comentários na prévia"] : []);
+      text = "Ajuste enviado à IA.";
+      sub = parts.join(" · ") || it.title;
+    }
+    HE.stamp($(".he-phone__screen", stage), marks[kind]);
+    return new Promise(function (resolve) {
+      window.setTimeout(function () {
+        it.decision = kind;
+        HE.counts.set({ fila: pending().length });
+        if (kind === "adjust") HE.presence.set({ state: "working", working: 3 });
+        render("next");
+        HE.toast({
+          text: text, sub: sub,
+          onUndo: function () {
+            it.decision = null;
+            index = pending().indexOf(it);
+            HE.counts.set({ fila: pending().length });
+            if (kind === "adjust") HE.presence.set({ state: "working", working: 2 });
+            render("prev");
+          }
+        });
+        resolve();
+      }, 800);
+    });
+  }
+  function setWhen(it, when) {
+    it.when = when;
+    if (current() !== it) return;
+    decide.setApprove(["Aprovar", " e agendar"], when);
+    var tag = $("[data-ex-when]", side);
+    if (tag) tag.textContent = when;
+  }
+  function swap() {
+    var it = current(), old = it.when;
+    var sheet = HE.sheet({
+      title: "Trocar a data",
+      body: '<div class="he-stack"><p class="he-muted">Os horários com mais alcance nas últimas quatro semanas.</p>' +
+        '<div class="he-chips" data-he-chips="single" data-name="data">' + it.dates.map(function (d) {
+          return '<button type="button" class="he-chip" aria-pressed="' + (d === old) + '" data-value="' + d + '">' + d + "</button>";
+        }).join("") + "</div></div>",
+      foot: '<button type="button" class="he-btn he-btn--ghost" data-he-close>Manter a data</button><button type="button" class="he-btn he-btn--primary" data-ex-save>Guardar a data</button>'
+    });
+    $("[data-ex-save]", sheet.el).addEventListener("click", function () {
+      var chip = $('.he-chip[aria-pressed="true"]', sheet.el), next = chip ? chip.getAttribute("data-value") : old;
+      sheet.close();
+      if (next === old) return;
+      setWhen(it, next);
+      HE.toast({ text: "Data trocada para " + next + ".", sub: it.title, onUndo: function () { setWhen(it, old); } });
+    });
+  }
+  var decide = HE.decide(decideEl, {
+    onApprove: function () { return settle("approve"); },
+    onAdjust: function (data) { return settle("adjust", data); },
+    onDeny: function (data) { return settle("deny", data); },
+    onSwap: swap,
+    getPins: function () { var it = current(); return it ? it.pins : []; },
+    quick: ["Mais direto", "Mais curto", "Outra capa", "Outro tom"],
+    reasons: ["Fora do momento", "Repetido", "Fora do padrão"]
+  });
+
+  /* Andar pela fila sem decidir: setas da barra e do teclado */
+  function go(step) {
+    var total = pending().length;
+    if (total < 2) return;
+    index = (index + step + total) % total;
+    render(step < 0 ? "prev" : "next");
+  }
+  bar.addEventListener("click", function (e) {
+    var arrow = e.target.closest("[data-ex-go]");
+    if (arrow) go(+arrow.getAttribute("data-ex-go"));
+    else if (e.target.closest("[data-ex-pin]")) togglePinning();
+  });
+  side.addEventListener("click", function (e) { if (e.target.closest("[data-ex-write]")) decide.adjust(); });
+  stage.addEventListener("he:slide", function (e) {
+    HE.dock.addContext({ key: "parte", label: "Lâmina " + (e.detail.index + 1), value: e.detail.id, kind: "Parte" });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey || HE.util.isTyping(e.target) || HE.overlayOpen() || split.hidden) return;
+    if (e.key === "Escape" && pinBtn.getAttribute("aria-pressed") === "true") setPinning(false);
+    /* Com o foco no carrossel ou no vídeo, as setas e a tecla M são da prévia */
+    var inVideo = e.target.closest(".he-player"), inPreview = inVideo || e.target.closest(".he-carousel");
+    if (e.key === "ArrowLeft" && !inPreview) go(-1);
+    else if (e.key === "ArrowRight" && !inPreview) go(1);
+    else if ((e.key === "m" || e.key === "M") && !inVideo) togglePinning();
+  });
+  HE.shortcuts.add("Fila", ["←", "→"], "Item anterior e próximo");
+  HE.shortcuts.add("Fila", ["M"], "Marcar um ponto na prévia");
+
+  /* Campo de pedido: sugestões desta tela. O contexto acompanha o item e a lâmina à mostra. */
+  HE.dock.setSuggestions([
+    { label: "Resumir o que mudou", prompt: "Resuma o que mudou neste item desde a última versão.", send: true },
+    { label: "Encurtar a legenda", prompt: "Encurte a legenda deste item sem perder a chamada final." },
+    { label: "Conferir os fatos", prompt: "Confira os fatos citados neste item e aponte as fontes." },
+    { label: "Sugerir outro horário", prompt: "Sugira outro horário para este item com base no alcance do mês." }
+  ]);
+  render();
+});
+</script>
+
+  </div>
+  <div class="he-dock" data-he-dock>
+    <div class="he-dock__sugs" data-he-sugs role="group" aria-label="Sugestões de pedido"></div>
+    <div class="he-dock__row">
+      <form class="he-composer is-empty" data-he-ask-form novalidate>
+        <div class="he-composer__box">
+          <button type="button" class="he-dock__orb" data-he-presence data-state="working" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span></button>
+          <div class="he-dock__ctx" data-he-ctx aria-label="Contexto do pedido"></div>
+          <textarea class="he-composer__input" name="prompt" rows="1" maxlength="4000" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+          <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><kbd class="he-kbd" aria-hidden="true" title="A tecla / traz o cursor para cá">/</kbd><button class="he-composer__send" type="submit" aria-label="Enviar pedido à IA"></button></span></div>
+        </div>
+      </form>
+      <a class="he-review he-review--dock" href="fila.html" data-he-count-hide="fila">Revisar <span class="he-review__n" data-he-count="fila">3</span></a>
+    </div>
+  </div>
+  <nav class="he-mnav" aria-label="Áreas do conteúdo">
+<a class="he-mnav__item" href="painel.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-sun"/></svg><span>Hoje</span><span class="he-count" data-he-count="fila">3</span></a>
+<a class="he-mnav__item" href="referencias.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg><span>Referências</span></a>
+<a class="he-mnav__item" href="planejamento.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg><span>Planejamento</span></a>
+<a class="he-mnav__item" href="resultados.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg><span>Resultados</span></a>
+<a class="he-mnav__item" href="conversa.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg><span>Conversa</span></a>
+  </nav>
+</main>
+<script src="../../dist/hedesign.js"></script>
+<script src="assets/example.js"></script>
+</body>
+</html>

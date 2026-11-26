@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR" data-he-theme-default="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>hedesign · design system de estúdio com IA presente</title>
+<meta name="description" content="hedesign: tokens, componentes, movimento e regras de experiência para sistemas web com IA presente. Tema claro e escuro, CSS e JS sem dependências, MIT.">
+<meta name="theme-color" content="#f4f2ee">
+{{head_assets}}
+</head>
+<body class="he-tips">
+<aside class="he-sidebar" id="he-sidebar">
+  <div class="he-sidebar__head">
+    <a class="he-brand" href="#visao" aria-label="hedesign, início"><span class="he-brand__mark"></span><span class="he-brand__text"><span class="he-brand__name">hedesign</span><span class="he-brand__sub">design system · {{version}}</span></span></a>
+  </div>
+  <nav class="he-side" aria-label="Seções da documentação">
+{{nav}}
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Recolher menu"><span class="he-side__icon">{i:list}</span><span class="he-side__text">Recolher menu</span></button>
+    <div class="he-sidebar__note"><a href="https://github.com/pycodebr/hedesign">GitHub</a> · MIT</div>
+  </div>
+</aside>
+<header class="he-topbar">
+  <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu" aria-controls="he-sidebar">{i:list}</button>
+  <nav class="he-crumbs" aria-label="Você está em"><a href="#visao">hedesign</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current" data-doc-current>Visão geral</span></nav>
+  <div class="he-topbar__actions">
+    <button type="button" class="he-topbar__btn" data-he-palette-open aria-label="Buscar na documentação (Ctrl K)">{i:search}<span class="he-wide">Buscar</span><kbd class="he-kbd he-wide">Ctrl K</kbd></button>
+    <a class="he-topbar__btn" href="examples/index.html">{i:grid}<span class="he-wide">Exemplos</span></a>
+    <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro">{i:moon}</button>
+  </div>
+</header>
+<div class="he-scrim-nav" aria-hidden="true"></div>
+<main class="he-main" id="conteudo">
+  <div class="he-page doc-page">
+{{content}}
+    <footer class="doc-foot">hedesign {{version}} · MIT · feito pela <a href="https://github.com/pycodebr">PycodeBR</a>. A fonte desta página está em <code>docs/src/</code>.</footer>
+  </div>
+  <div class="he-dock" data-he-dock>
+    <div class="he-dock__sugs" data-he-sugs role="group" aria-label="Sugestões de pedido"></div>
+    <div class="he-dock__row">
+      <form class="he-composer is-empty" data-he-ask-form novalidate>
+        <div class="he-composer__box">
+          <button type="button" class="he-dock__orb" data-he-presence data-state="idle" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="idle" aria-hidden="true"></span></button>
+          <div class="he-dock__ctx" data-he-ctx aria-label="Contexto do pedido"></div>
+          <textarea class="he-composer__input" name="prompt" rows="1" maxlength="4000" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+          <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><kbd class="he-kbd" aria-hidden="true" title="A tecla / traz o cursor para cá">/</kbd><button class="he-composer__send" type="submit" aria-label="Enviar pedido à IA"></button></span></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+{{body_assets}}
+</body>
+</html>

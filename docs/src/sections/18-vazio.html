@@ -1,0 +1,36 @@
+<!-- nav: Componentes | Vazio, carregando e erro -->
+<p>Toda lista tem três estados além do normal, e os três têm desenho. O vazio diz o que cabe ali e oferece o primeiro passo, quase sempre um pedido à IA. O carregamento ocupa o espaço do que vem. O erro explica e dá saída.</p>
+<h3>Estado vazio</h3>
+<!--demo both-->
+<div class="he-grid he-grid--2">
+  <div class="he-empty he-empty--boxed">
+    <svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true" focusable="false"><rect class="b" x="38" y="14" width="62" height="74" rx="9" transform="rotate(7 69 51)"/><rect class="a" x="30" y="10" width="62" height="74" rx="9"/><rect class="c2" x="38" y="19" width="46" height="32" rx="5" opacity=".28"/><path class="l" d="M39 61h38M39 70h24"/><circle class="k" cx="100" cy="74" r="13"/></svg>
+    <div class="he-empty__title">Nenhum item nesta etapa</div>
+    <div class="he-empty__text">Guarde uma ideia ou peça sugestões.</div>
+    <div class="he-empty__actions"><button type="button" class="he-btn he-btn--ai" data-doc="ask"><span class="he-orb he-orb--sm" aria-hidden="true"></span>Pedir ideias</button></div>
+  </div>
+  <div class="he-empty he-empty--boxed">
+    <svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true" focusable="false"><circle class="a" cx="66" cy="48" r="36"/><circle class="c6" cx="66" cy="48" r="26" opacity=".18"/><path class="l l6" stroke-width="5" d="m52 49 10 10 19-21"/></svg>
+    <div class="he-empty__title">Fila zerada</div>
+    <div class="he-empty__text">Você decidiu tudo. O próximo passo é o planejamento.</div>
+    <div class="he-empty__actions"><a class="he-btn he-btn--primary" href="#vazio">Ver o planejamento</a></div>
+  </div>
+</div>
+<!--/demo-->
+<p>Os desenhos usam seis classes de preenchimento (<code>.a</code> superfície, <code>.b</code> rebaixado, <code>.c1</code> a <code>.c6</code> os tons, <code>.k</code> a IA, <code>.l</code> linha) e acompanham o tema. Em espaço pequeno, use <code>.he-empty--compact</code>.</p>
+<!--demo-->
+<div class="he-row">
+  <div class="he-empty he-empty--compact"><svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true"><rect class="a" x="18" y="14" width="96" height="70" rx="10"/><path class="l" d="M18 32h96"/><rect class="c1" x="28" y="42" width="14" height="12" rx="3" opacity=".35"/><rect class="c2" x="48" y="42" width="14" height="12" rx="3" opacity=".35"/><rect class="b" x="68" y="42" width="14" height="12" rx="3"/><rect class="c5" x="88" y="42" width="14" height="12" rx="3" opacity=".4"/><circle class="k" cx="92" cy="70" r="11"/></svg><div class="he-empty__title">Semana livre</div></div>
+  <div class="he-empty he-empty--compact"><svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true"><rect class="a" x="16" y="12" width="100" height="72" rx="10"/><rect class="c1" x="30" y="52" width="12" height="20" rx="3" opacity=".4"/><rect class="c2" x="48" y="40" width="12" height="32" rx="3" opacity=".4"/><rect class="c3" x="66" y="46" width="12" height="26" rx="3" opacity=".4"/><rect class="c6" x="84" y="28" width="12" height="44" rx="3" opacity=".5"/><circle class="k" cx="106" cy="24" r="10"/></svg><div class="he-empty__title">Sem resultados ainda</div></div>
+  <div class="he-empty he-empty--compact"><svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true"><circle class="a" cx="60" cy="44" r="28"/><path class="l" stroke-width="5" d="m82 66 20 18"/><path class="l" d="M48 44h24M48 52h14"/><circle class="k" cx="100" cy="24" r="10"/></svg><div class="he-empty__title">Nada encontrado</div></div>
+  <div class="he-empty he-empty--compact"><svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true"><circle class="b" cx="66" cy="48" r="40"/><circle class="a" cx="66" cy="48" r="28"/><circle class="k" cx="66" cy="48" r="17"/><circle fill="#fff" opacity=".6" cx="60" cy="42" r="4"/></svg><div class="he-empty__title">IA livre</div></div>
+</div>
+<!--/demo-->
+<h3>Esqueleto</h3>
+<p>O esqueleto tem a forma do que vai chegar. O contêiner leva <code>aria-busy="true"</code> e um texto só para leitor de tela.</p>
+<!--demo both-->
+<div class="he-grid he-grid--2" aria-busy="true"><span class="he-sr" role="status">Carregando</span>
+  <span class="he-skel he-skel--card" aria-hidden="true"></span>
+  <div><span class="he-skel he-skel--title" aria-hidden="true"></span><span class="he-skel he-skel--text" aria-hidden="true"></span><span class="he-skel he-skel--text" aria-hidden="true"></span><span class="he-skel he-skel--text he-skel--w60" aria-hidden="true"></span><span class="he-skel he-skel--row" aria-hidden="true" style="margin-top:12px"></span></div>
+</div>
+<!--/demo-->

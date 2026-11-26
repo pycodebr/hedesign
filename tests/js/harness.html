@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f2ee">
+<title>hedesign.js: página de teste</title>
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<!-- Só o arranjo da página de teste (prefixo t-). O sistema vem de dist/hedesign.css. -->
+<style>
+  .he-main { padding: 16px 16px calc(var(--he-bottom) + 40px); }
+  .t-sec { margin: 0 0 28px; }
+  .t-sec > h2 { margin: 0 0 10px; font: 700 15px/1.3 var(--he-font); }
+  .t-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 20px; }
+  .t-spacer { height: 900px; }
+  .t-phone { width: 260px; }
+  .t-board { display: flex; gap: 12px; align-items: flex-start; }
+  .t-col { flex: 1 1 0; min-width: 0; max-width: 200px; min-height: 220px; padding: 8px; border-radius: 12px; background: var(--he-bg-sunken); display: flex; flex-direction: column; gap: 8px; }
+  .t-item { padding: 12px 10px; border-radius: 10px; background: var(--he-surface); box-shadow: var(--he-shadow-1); touch-action: pan-y; user-select: none; cursor: grab; }
+  .t-box { position: relative; width: 240px; height: 140px; border-radius: 12px; background: var(--he-surface); box-shadow: var(--he-shadow-1); }
+</style>
+<script src="../../src/js/hedesign-theme.js"></script>
+<script>window.T_THEME_AT_HEAD = document.documentElement.getAttribute("data-he-theme"); window.T_NAV_AT_HEAD = document.documentElement.classList.contains("he-nav-collapsed");</script>
+</head>
+<body>
+<svg id="he-sprite" class="he-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="he-grad-ai" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b3fa8"/><stop offset=".55" stop-color="#3d5fd9"/><stop offset="1" stop-color="#0075de"/></linearGradient></defs>
+<symbol id="he-i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+<symbol id="he-i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="he-i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+<symbol id="he-i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+<symbol id="he-i-download" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+<symbol id="he-i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8Z"/></symbol>
+<symbol id="he-i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+<symbol id="he-i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+<symbol id="he-i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+<symbol id="he-i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+<symbol id="he-i-arrow_left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+<symbol id="he-i-chevron_right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+<symbol id="he-i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></symbol>
+<symbol id="he-i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.8-4.2L4 8M4 4v4h4M4 13a8 8 0 0 0 14.8 4.2L20 16M20 20v-4h-4"/></symbol>
+<symbol id="he-i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="he-i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+<symbol id="he-i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+<symbol id="he-i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9Z"/></symbol>
+<symbol id="he-i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20Z"/><path d="M12 10v4M12 17h.01"/></symbol>
+<symbol id="he-i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></symbol>
+<symbol id="he-i-filter" viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8Z"/></symbol>
+<symbol id="he-i-sparkles" viewBox="0 0 24 24"><path d="M10 3.5 11.6 8a2 2 0 0 0 1.2 1.2l4.5 1.6-4.5 1.6a2 2 0 0 0-1.2 1.2L10 18.1l-1.6-4.5a2 2 0 0 0-1.2-1.2L2.7 10.8l4.5-1.6A2 2 0 0 0 8.4 8Z"/><path d="M19 3v4M17 5h4M18 16v3M16.5 17.5h3"/></symbol>
+<symbol id="he-i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="he-i-grip" viewBox="0 0 24 24"><circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/></symbol>
+<symbol id="he-i-arrow_up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+<symbol id="he-i-arrow_down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+<symbol id="he-i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+<symbol id="he-i-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/></symbol>
+<symbol id="he-i-smartphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="he-i-type" viewBox="0 0 24 24"><path d="M4 7V5h16v2M9 19h6M12 5v14"/></symbol>
+<symbol id="he-i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+<symbol id="he-i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+<symbol id="he-i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></symbol>
+<symbol id="he-i-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-1.5 5-4 6M15 7h4v4c0 3-1.5 5-4 6"/></symbol>
+<symbol id="he-i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+<symbol id="he-i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="he-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="he-i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></symbol>
+<symbol id="he-i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></symbol>
+<symbol id="he-i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></symbol>
+<symbol id="he-i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="he-i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+<symbol id="he-i-paperclip" viewBox="0 0 24 24"><path d="m21 11-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7"/></symbol>
+<symbol id="he-i-send" viewBox="0 0 24 24"><path d="M21 3 10 14"/><path d="m21 3-7 18-4-7-7-4Z"/></symbol>
+<symbol id="he-i-tag" viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="8" cy="8" r="1.4"/></symbol>
+<symbol id="he-i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M2.5 12h2M19.5 12h2M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+<symbol id="he-i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
+<symbol id="he-i-bulb" viewBox="0 0 24 24"><path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.3 1.1 2.2h5c.1-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3Z"/></symbol>
+<symbol id="he-i-board" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="9.5" y="4" width="5" height="10" rx="1.5"/><rect x="16" y="4" width="5" height="13" rx="1.5"/></symbol>
+<symbol id="he-i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></symbol>
+<symbol id="he-i-library" viewBox="0 0 24 24"><rect x="4" y="4" width="4" height="16" rx="1"/><rect x="8" y="4" width="4" height="16" rx="1"/><path d="m14.2 6.6 3.6-1 3.8 13.8-3.6 1Z"/></symbol>
+<symbol id="he-i-heart" viewBox="0 0 24 24"><path d="M12 20.5S4.6 16 2.9 11.3C1.7 8 3.6 4.5 7.1 4.5c1.9 0 3.5 1 4.9 2.8 1.4-1.8 3-2.8 4.9-2.8 3.5 0 5.4 3.5 4.2 6.8C19.4 16 12 20.5 12 20.5Z"/></symbol>
+<symbol id="he-i-comment" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.2-4.2A8.5 8.5 0 1 1 20.5 12Z"/></symbol>
+<symbol id="he-i-share" viewBox="0 0 24 24"><path d="M21.5 3 2.5 10.5l7 3 3 7Z"/><path d="M21.5 3 9.5 13.5"/></symbol>
+<symbol id="he-i-bookmark" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-6-4.5-6 4.5Z"/></symbol>
+<symbol id="he-i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.1"/><circle cx="12" cy="12" r="1.1"/><circle cx="19" cy="12" r="1.1"/></symbol>
+<symbol id="he-i-chevron_left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+<symbol id="he-i-chevron_down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="he-i-chevron_up" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></symbol>
+<symbol id="he-i-arrow_right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="he-i-volume" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5Z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/></symbol>
+<symbol id="he-i-mute" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5Z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></symbol>
+<symbol id="he-i-note" viewBox="0 0 24 24"><path d="M5 4h14v10l-6 6H5Z"/><path d="M19 14h-6v6M8.5 9h7M8.5 12.5h3.5"/></symbol>
+<symbol id="he-i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10.5 5-3v9l-5-3"/></symbol>
+<symbol id="he-i-reel" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4.5"/><path d="M3 8.5h18M8 3l2.5 5.5M14 3l2.5 5.5"/><path d="M10.5 12v5l4.5-2.5Z"/></symbol>
+<symbol id="he-i-carousel" viewBox="0 0 24 24"><rect x="6.5" y="4" width="11" height="16" rx="2"/><path d="M3 7v10M21 7v10"/></symbol>
+<symbol id="he-i-story" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-dasharray="3.6 3"/><path d="M12 8.5v7M8.5 12h7"/></symbol>
+<symbol id="he-i-pin" viewBox="0 0 24 24"><path d="M9 3h6l-1 6 3.5 3.5V14h-11v-1.5L10 9Z"/><path d="M12 14v7"/></symbol>
+<symbol id="he-i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="he-i-unlock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.6-1.7"/></symbol>
+<symbol id="he-i-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6.5 10h.01M10 10h.01M13.5 10h.01M17 10h.01M7.5 14h9"/></symbol>
+<symbol id="he-i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+<symbol id="he-i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/></symbol>
+<symbol id="he-i-inbox" viewBox="0 0 24 24"><path d="M3 13.5 5.5 5h13L21 13.5V19H3Z"/><path d="M3 13.5h5.5a3.5 3.5 0 0 0 7 0H21"/></symbol>
+<symbol id="he-i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1.5"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9M10 13h4"/></symbol>
+<symbol id="he-i-wand" viewBox="0 0 24 24"><path d="m4 20 10.5-10.5"/><path d="M14.5 3.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9ZM19 12.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6Z"/></symbol>
+<symbol id="he-i-swap" viewBox="0 0 24 24"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></symbol>
+<symbol id="he-i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
+<symbol id="he-i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8M12 17h.01"/></symbol>
+<symbol id="he-i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+<symbol id="he-i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="he-i-folder" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v8.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5Z"/></symbol>
+</svg>
+
+<aside class="he-sidebar" id="t-sidebar" aria-label="Menu lateral">
+  <a class="he-btn he-btn--ghost" href="#inicio" id="t-side-first">Início</a>
+  <a class="he-btn he-btn--ghost" href="#tarefas">Tarefas</a>
+  <a class="he-btn he-btn--ghost" href="#ajustes">Ajustes</a>
+</aside>
+<div class="he-scrim-nav"></div>
+
+<main class="he-main">
+  <div class="t-bar" id="t-bar">
+    <button type="button" class="he-iconbtn" id="t-side-toggle" data-he-sidebar-toggle aria-controls="t-sidebar" aria-expanded="false" aria-label="Menu lateral"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></button>
+    <button type="button" class="he-new" id="t-new" data-he-new aria-haspopup="menu" aria-expanded="false" aria-label="Criar"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-plus"/></svg><span class="he-new__label">Novo</span></button>
+    <button type="button" class="he-presence" id="t-presence" data-he-presence data-state="working" data-working="2" data-waiting="0" aria-haspopup="dialog">
+      <span class="he-orb" data-state="working" aria-hidden="true"></span>
+      <span class="he-presence__label" data-he-presence-label>Trabalhando em 2</span>
+    </button>
+    <button type="button" class="he-iconbtn" id="t-pal-open" data-he-palette-open aria-label="Buscar (Ctrl K)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-search"/></svg></button>
+    <button type="button" class="he-iconbtn" id="t-theme" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-moon"/></svg></button>
+    <button type="button" class="he-btn he-btn--sm" id="t-theme-text" data-he-theme-toggle aria-pressed="false"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-moon"/></svg><span data-he-theme-label>Usar tema escuro</span></button>
+    <button type="button" class="he-iconbtn" id="t-keys-open" data-he-shortcuts-open aria-label="Atalhos de teclado"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-keyboard"/></svg></button>
+    <span class="he-count" id="t-count" data-he-count="inbox">3</span>
+    <a class="he-btn he-btn--sm" id="t-count-hide" data-he-count-hide="inbox" href="#fila">Revisar</a>
+  </div>
+
+  <section class="t-sec" id="s-overlays">
+    <h2>Gaveta, folha e menu</h2>
+    <div class="he-row">
+      <button type="button" class="he-btn" id="t-open-drawer">Abrir gaveta</button>
+      <button type="button" class="he-btn" id="t-open-sheet">Abrir folha</button>
+      <button type="button" class="he-btn" id="t-open-declared" data-he-drawer-open="#t-drawer">Gaveta da página</button>
+      <button type="button" class="he-btn" id="t-menu-btn" aria-haspopup="menu" aria-expanded="false">Mais ações</button>
+    </div>
+    <div class="he-drawer he-drawer--left" id="t-drawer" hidden>
+      <div class="he-drawer__head"><h2 class="he-drawer__title">Sem data</h2><button type="button" class="he-iconbtn" data-he-close aria-label="Fechar"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-x"/></svg></button></div>
+      <div class="he-drawer__body"><p class="he-panel__text">Itens sem data ficam aqui.</p><button type="button" class="he-btn" id="t-drawer-inner">Organizar</button></div>
+    </div>
+  </section>
+
+  <section class="t-sec" id="s-views">
+    <h2>Visões, abas e chips</h2>
+    <div class="he-views" id="t-views" data-he-views data-param="visao" data-storage="t.view" aria-label="Visão">
+      <button type="button" class="he-views__item is-active" data-view="quadro" aria-pressed="true"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg><span>Quadro</span></button>
+      <button type="button" class="he-views__item" data-view="lista" aria-pressed="false"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg><span>Lista</span></button>
+      <button type="button" class="he-views__item" data-view="grade" aria-pressed="false"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-grid"/></svg><span>Grade</span></button>
+    </div>
+    <div class="he-tabs" id="t-tabs" data-he-tabs>
+      <button type="button" class="he-tab" id="t-tab-1" aria-controls="t-p1" aria-selected="true">Resumo</button>
+      <button type="button" class="he-tab" id="t-tab-2" aria-controls="t-p2">Base</button>
+      <button type="button" class="he-tab" id="t-tab-3" aria-controls="t-p3">Histórico</button>
+    </div>
+    <div class="he-tabpanel" id="t-p1">Painel do resumo.</div>
+    <div class="he-tabpanel" id="t-p2" hidden>Painel da base.</div>
+    <div class="he-tabpanel" id="t-p3" hidden>Painel do histórico.</div>
+    <div class="he-chips" id="t-chips" data-he-chips="multi" data-name="tipo">
+      <span class="he-chips__label">Tipo</span>
+      <button type="button" class="he-chip" aria-pressed="false" data-value="texto">Texto</button>
+      <button type="button" class="he-chip" aria-pressed="false" data-value="imagem" data-tone="pink">Imagem</button>
+      <button type="button" class="he-chip" aria-pressed="false" data-value="video">Vídeo</button>
+      <button type="button" class="he-chip he-chip--clear" data-he-chip-clear aria-pressed="false">Limpar</button>
+    </div>
+    <div class="he-chips" id="t-chips-one" data-he-chips="single" data-name="ordem">
+      <button type="button" class="he-chip" aria-pressed="true" data-value="recentes">Recentes</button>
+      <button type="button" class="he-chip" aria-pressed="false" data-value="antigos">Antigos</button>
+    </div>
+  </section>
+
+  <section class="t-sec" id="s-preview">
+    <h2>Prévia: carrossel, marcadores e player</h2>
+    <div class="he-row">
+      <div class="he-phone he-phone--sm t-phone" id="t-phone">
+        <div class="he-phone__screen">
+          <div class="he-post__media he-carousel" id="t-carousel" data-ratio="4x5" data-he-carousel>
+            <div class="he-carousel__track">
+              <div class="he-slide he-slide--text he-pinnable" data-slide-id="s1"><span class="he-slide__n"><b>1</b>Capa</span><p class="he-slide__text">Primeiro slide</p></div>
+              <div class="he-slide he-slide--text he-pinnable" data-slide-id="s2"><span class="he-slide__n"><b>2</b>Slide</span><p class="he-slide__text">Segundo slide</p></div>
+              <div class="he-slide he-slide--text he-pinnable" data-slide-id="s3"><span class="he-slide__n"><b>3</b>Slide</span><p class="he-slide__text">Terceiro slide</p></div>
+              <div class="he-slide he-slide--text he-pinnable" data-slide-id="s4"><span class="he-slide__n"><b>4</b>Slide</span><p class="he-slide__text">Quarto slide</p></div>
+            </div>
+          </div>
+          <div class="he-post__actions"><div class="he-dots" data-he-dots></div></div>
+          <div class="he-post__caption"><span class="he-post__captext"><b>conta</b>Legenda curta do exemplo.</span></div>
+        </div>
+      </div>
+      <div class="he-pinnable t-box" id="t-pinbox" aria-label="Área de marcação"></div>
+      <div class="he-player t-box" id="t-player" data-he-player data-duration="30"><video preload="none" muted></video></div>
+    </div>
+  </section>
+
+  <section class="t-sec" id="s-decide">
+    <h2>Decisão, passos, chave e carimbo</h2>
+    <div class="he-decide he-decide--static" id="t-decide" data-he-decide-bar role="group" aria-label="Decisão">
+      <button type="button" class="he-decide__btn he-decide__btn--deny" data-he-decide="deny" aria-keyshortcuts="N"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-x"/></svg><span class="he-decide__label">Negar</span><kbd class="he-kbd" aria-hidden="true">N</kbd></button>
+      <button type="button" class="he-decide__btn he-decide__btn--adjust" data-he-decide="adjust" aria-keyshortcuts="J"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-edit"/></svg><span class="he-decide__label">Pedir ajuste</span><kbd class="he-kbd" aria-hidden="true">J</kbd></button>
+      <button type="button" class="he-decide__btn he-decide__btn--approve" data-he-decide="approve" aria-keyshortcuts="A"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-check"/></svg><span class="he-decide__label">Aprovar</span><kbd class="he-kbd" aria-hidden="true">A</kbd></button>
+    </div>
+    <ol class="he-steps" id="t-steps" aria-label="Etapas">
+      <li class="he-steps__step" data-tone="blue"><span>Ideia</span></li>
+      <li class="he-steps__step" data-tone="violet"><span>Texto</span></li>
+      <li class="he-steps__step" data-tone="pink"><span>Produção</span></li>
+      <li class="he-steps__step" data-tone="orange"><span>Aprovação</span></li>
+      <li class="he-steps__step" data-tone="teal"><span>Agendado</span></li>
+      <li class="he-steps__step" data-tone="green"><span>Publicado</span></li>
+    </ol>
+    <div class="he-row">
+      <button type="button" class="he-switch" id="t-switch" role="switch" aria-checked="false" aria-label="Avisar por e-mail" data-name="email"></button>
+      <span class="he-switch" id="t-switch-span" role="switch" tabindex="0" aria-checked="true" aria-label="Modo foco" data-name="foco"></span>
+      <div class="t-box" id="t-stamp-target"></div>
+      <div class="he-panel" id="t-glow">Painel com brilho</div>
+      <time id="t-time" data-he-time></time>
+      <time id="t-time-rel" data-he-time="rel"></time>
+    </div>
+  </section>
+
+  <section class="t-sec" id="s-dnd">
+    <h2>Arrastar e soltar</h2>
+    <div class="t-board" id="t-board">
+      <div class="t-col" id="t-col-a" data-he-drop data-tone="blue" aria-label="A fazer">
+        <div class="t-item" id="t-item-1" data-he-drag tabindex="0">Item um</div>
+        <div class="t-item" id="t-item-2" data-he-drag tabindex="0">Item dois</div>
+      </div>
+      <div class="t-col" id="t-col-b" data-he-drop data-tone="green" aria-label="Feito">
+        <div class="t-item" id="t-item-3" data-he-drag tabindex="0">Item três</div>
+      </div>
+      <div class="t-col" id="t-col-c" data-he-drop data-he-drop-locked data-tone="neutral" aria-label="Travado"></div>
+    </div>
+  </section>
+
+  <section class="t-sec" id="s-composer">
+    <h2>Compositor fora do campo fixo</h2>
+    <form class="he-composer is-empty" id="t-composer" data-he-composer-enter novalidate>
+      <div class="he-composer__box" id="t-composer-box">
+        <textarea class="he-composer__input" id="t-composer-input" rows="1" placeholder="Escreva um comentário" aria-label="Comentário"></textarea>
+        <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><button class="he-composer__send" type="submit" aria-label="Enviar comentário"></button></span></div>
+      </div>
+    </form>
+  </section>
+
+  <div class="t-spacer" aria-hidden="true"></div>
+
+  <section class="t-sec" id="s-layer">
+    <h2>Camada de detalhe</h2>
+    <a class="he-btn" id="t-layer-link" href="#detalhe-42" data-he-layer="42">Abrir o detalhe 42</a>
+    <a class="he-btn" id="t-layer-plain" href="#sem-camada" data-he-layer="99">Link que ninguém assume</a>
+  </section>
+
+  <div class="t-spacer" aria-hidden="true"></div>
+</main>
+
+<div class="he-dock" id="he-dock" data-he-dock>
+  <div class="he-dock__sugs" data-he-sugs role="group" aria-label="Sugestões de pedido"></div>
+  <div class="he-dock__row">
+    <form class="he-composer is-empty" novalidate>
+      <div class="he-composer__box">
+        <button type="button" class="he-dock__orb" id="t-dock-orb" data-he-presence data-state="working" aria-haspopup="dialog" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span></button>
+        <div class="he-dock__ctx" data-he-ctx aria-label="Contexto do pedido"></div>
+        <textarea class="he-composer__input" id="t-dock-input" name="prompt" rows="1" maxlength="8000" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+        <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><kbd class="he-kbd" aria-hidden="true">/</kbd><button class="he-composer__send" id="t-dock-send" type="submit" aria-label="Enviar pedido à IA"></button></span></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../../src/js/hedesign.js"></script>
+<script>
+/* Liga a página de teste: guarda eventos e chamadas em window.T para o teste conferir. */
+(function () {
+  "use strict";
+  var $ = HE.util.$;
+  var T = window.T = { events: [], calls: {}, ready: false };
+  T.count = function (name) { return T.events.filter(function (e) { return e.name === name; }).length; };
+  T.last = function (name) { var list = T.events.filter(function (e) { return e.name === name; }); return list.length ? list[list.length - 1].detail : null; };
+  T.call = function (name, value) { (T.calls[name] = T.calls[name] || []).push(value === undefined ? true : value); };
+  ["he:theme", "he:ask", "he:asked", "he:presence", "he:presence-open", "he:view", "he:tab", "he:chips", "he:slide", "he:decide", "he:drop",
+    "he:switch", "he:sidebar", "he:new", "he:counts", "he:context", "he:layer-request", "he:layer-open", "he:layer-close", "he:drawer:close",
+    "he:undone", "he:palette-select", "he:pin:add"].forEach(function (name) {
+    document.addEventListener(name, function (e) { T.events.push({ name: name, detail: e.detail }); });
+  });
+
+  /* Datas relativas: amanhã às 18h e duas horas atrás */
+  var tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1); tomorrow.setHours(18, 0, 0, 0);
+  $("#t-time").setAttribute("datetime", tomorrow.toISOString());
+  $("#t-time-rel").setAttribute("datetime", new Date(Date.now() - 2 * 3600 * 1000).toISOString());
+
+  $("#t-open-drawer").addEventListener("click", function () {
+    T.drawer = HE.drawer.open({
+      title: "Detalhes", body: "<p class='he-panel__text'>Conteúdo da gaveta.</p><button type='button' class='he-btn' id='t-in-1'>Primeiro</button>",
+      foot: "<button type='button' class='he-btn' data-he-close id='t-in-2'>Fechar</button>",
+      onClose: function (reason) { T.call("drawerClose", reason); }
+    });
+  });
+  $("#t-open-sheet").addEventListener("click", function () {
+    T.sheet = HE.sheet({
+      title: "Trocar a data", body: "<div class='he-field'><label for='t-sheet-date'>Dia</label><input class='he-input' id='t-sheet-date' type='text'></div>",
+      foot: "<button type='button' class='he-btn he-btn--primary' data-he-close>Guardar</button>", focus: "#t-sheet-date",
+      onClose: function (reason) { T.call("sheetClose", reason); }
+    });
+  });
+  $("#t-menu-btn").addEventListener("click", function () {
+    HE.menu.open(this, [
+      { label: "Duplicar", sub: "Cria uma cópia", icon: "copy", onClick: function () { T.call("menu", "duplicar"); } },
+      { label: "Arquivar", icon: "archive", tone: "orange", onClick: function () { T.call("menu", "arquivar"); } },
+      { label: "Excluir", icon: "trash", onClick: function () { T.call("menu", "excluir"); } }
+    ], { label: "Mais ações" });
+  });
+  HE.newMenu.items = [
+    { key: "nota", label: "Nota", sub: "Texto livre", icon: "note", onClick: function () { T.call("new", "nota"); } },
+    { key: "tarefa", label: "Tarefa", sub: "Com prazo", icon: "check", onClick: function () { T.call("new", "tarefa"); } }
+  ];
+
+  HE.presence.onOpen = function (detail) { T.call("presenceOpen", detail.state); };
+
+  T.projects = [
+    { label: "Projeto Alfa", hint: "Projeto", icon: "folder", tone: "blue", keywords: "primeiro", onSelect: function () { T.call("palette", "alfa"); } },
+    { label: "Projeto Beta", hint: "Projeto", icon: "folder", onSelect: function () { T.call("palette", "beta"); } }
+  ];
+  HE.palette.register({
+    id: "projetos", group: "Projetos",
+    search: function (q) {
+      T.call("search", q);
+      var f = q.toLowerCase();
+      return new Promise(function (resolve) {
+        setTimeout(function () { resolve(T.projects.filter(function (p) { return p.label.toLowerCase().indexOf(f) >= 0; })); }, 40);
+      });
+    }
+  });
+  HE.palette.register({ id: "paginas", group: "Páginas", items: [{ label: "Painel geral", icon: "chart", onSelect: function () { T.call("palette", "painel"); } }] });
+
+  HE.decide($("#t-decide"), {
+    onApprove: function () { T.call("approve"); },
+    onAdjust: function (d) { T.call("adjust", d); },
+    onDeny: function (d) { T.call("deny", d); }
+  });
+
+  T.board = HE.dnd($("#t-board"), {
+    onDrop: function (ctx) { T.drop = ctx; T.call("drop", { id: ctx.item.id, from: ctx.from.id, to: ctx.to.id, index: ctx.index, pointer: ctx.pointer }); },
+    onCancel: function () { T.call("dropCancel"); }
+  });
+
+  T.pins = HE.pins($("#t-pinbox"), { onAdd: function (p) { T.call("pin", { n: p.n, x: p.x, y: p.y }); } });
+
+  $("#t-composer").addEventListener("submit", function (e) { e.preventDefault(); T.call("composerSubmit", $("#t-composer-input").value); });
+
+  /* A aplicação assume o link do detalhe 42 e entrega o conteúdo da camada */
+  document.addEventListener("he:layer-request", function (e) {
+    if (e.detail.id !== "42") return;
+    e.preventDefault();
+    T.layer = HE.layer.open({
+      title: "Detalhe 42", href: e.detail.href,
+      body: "<h1>Detalhe 42</h1><p>Conteúdo entregue pela aplicação.</p><div class='he-tabs' data-he-tabs id='t-layer-tabs'><button type='button' class='he-tab' aria-controls='t-lp1'>Um</button><button type='button' class='he-tab' aria-controls='t-lp2'>Dois</button></div><div class='he-tabpanel' id='t-lp1'>Um</div><div class='he-tabpanel' id='t-lp2' hidden>Dois</div>",
+      onClose: function (reason) { T.call("layerClose", reason); }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () { T.ready = true; });
+})();
+</script>
+</body>
+</html>

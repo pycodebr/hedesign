@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt-BR" class="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Painel do dia · exemplo do hedesign</title>
+<meta name="theme-color" content="#f4f2ee">
+<link rel="stylesheet" href="../../dist/hedesign-fonts.css">
+<link rel="stylesheet" href="../../dist/hedesign.css">
+<link rel="stylesheet" href="assets/example.css">
+<script src="../../dist/hedesign-theme.js"></script>
+</head>
+<body class="he-tips">
+<aside class="he-sidebar" id="he-sidebar">
+  <div class="he-sidebar__head">
+    <a class="he-brand" href="painel.html" aria-label="Estúdio Norte, início"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span><span class="he-brand__sub">Conteúdo e campanhas</span></span></a>
+  </div>
+  <nav class="he-side" aria-label="Seções do sistema">
+<div class="he-side__section">
+<a class="he-side__item is-active" aria-current="page" href="painel.html" data-he-tip="Painel"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-compass"/></svg></span><span class="he-side__text">Painel</span></a>
+<a class="he-side__item" href="conversa.html" data-he-tip="Conversa com a IA"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg></span><span class="he-side__text">Conversa com a IA</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Conteúdo</div>
+<a class="he-side__item" href="planejamento.html" data-he-tip="Planejamento"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg></span><span class="he-side__text">Planejamento</span></a>
+<a class="he-side__item" href="fila.html" data-he-tip="Fila de revisão"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-inbox"/></svg></span><span class="he-side__text">Fila de revisão</span><span class="he-count" data-he-count="fila" data-he-count-hide="fila">3</span></a>
+<a class="he-side__item" href="referencias.html" data-he-tip="Referências"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg></span><span class="he-side__text">Referências</span></a>
+<a class="he-side__item" href="resultados.html" data-he-tip="Resultados"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg></span><span class="he-side__text">Resultados</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Sistema</div>
+<a class="he-side__item" href="ajustes.html" data-he-tip="Ajustes"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-gear"/></svg></span><span class="he-side__text">Ajustes</span></a>
+</div>
+<div class="he-side__section"><div class="he-side__label">Fora do aplicativo</div>
+<a class="he-side__item" href="entrar.html" data-he-tip="Entrar"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-lock"/></svg></span><span class="he-side__text">Entrar</span></a>
+<a class="he-side__item" href="pagina.html" data-he-tip="Página de apresentação"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-star"/></svg></span><span class="he-side__text">Página de apresentação</span></a>
+<a class="he-side__item" href="leitura.html" data-he-tip="Leitura"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-file"/></svg></span><span class="he-side__text">Leitura</span></a>
+</div>
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Recolher menu"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></span><span class="he-side__text">Recolher menu</span></button>
+    <div class="he-sidebar__note"><a href="../index.html">Documentação do hedesign</a></div>
+  </div>
+</aside>
+<header class="he-topbar">
+  <button type="button" class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu" aria-controls="he-sidebar"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></button>
+  <nav class="he-crumbs" aria-label="Você está em"><a href="index.html">Exemplos</a><span class="he-crumbs__sep">/</span><a href="painel.html">Conteúdo</a><span class="he-crumbs__sep">/</span><span class="he-crumbs__current">Painel do dia</span></nav>
+  <div class="he-topbar__actions">
+    <span class="he-live"><span class="he-wide">Tempo real</span></span>
+    <button type="button" class="he-topbar__btn" aria-label="Conta de Ana"><span class="he-avatar">A</span><span class="he-wide">ana</span></button>
+  </div>
+</header>
+<div class="he-scrim-nav" aria-hidden="true"></div>
+<main class="he-main" id="conteudo">
+  <div class="he-top" data-he-top>
+    <a class="he-top__brand" href="painel.html" aria-label="Conteúdo, início"><span class="he-top__mark" aria-hidden="true"></span><span>Conteúdo</span></a>
+    <nav class="he-nav" aria-label="Áreas do conteúdo">
+<a class="he-nav__item is-active" aria-current="page" href="painel.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-sun"/></svg><span>Hoje</span><span class="he-count" data-he-count="fila">3</span></a>
+<a class="he-nav__item" href="referencias.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg><span>Referências</span></a>
+<a class="he-nav__item" href="planejamento.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg><span>Planejamento</span></a>
+<a class="he-nav__item" href="resultados.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg><span>Resultados</span></a>
+<a class="he-nav__item" href="conversa.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg><span>Conversa</span></a>
+    </nav>
+    <div class="he-top__actions">
+      <button type="button" class="he-new" data-he-new aria-haspopup="menu" aria-expanded="false" aria-label="Novo: criar ideia, item ou referência (tecla C)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-plus"/></svg><span class="he-new__label">Novo</span></button>
+      <a class="he-review" href="fila.html" data-he-count-hide="fila"><span>Revisar<span class="he-review__long"> agora</span></span><span class="he-review__n" data-he-count="fila">3</span></a>
+      <button type="button" class="he-presence" data-he-presence data-state="working" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span><span class="he-presence__label" data-he-presence-label>Trabalhando em 2</span></button>
+      <button type="button" class="he-iconbtn" data-he-palette-open aria-label="Buscar item, referência ou ação (Ctrl K)"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-search"/></svg></button>
+      <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-moon"/></svg></button>
+      <a class="he-iconbtn" href="ajustes.html" aria-label="Ajustes"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-gear"/></svg></a>
+    </div>
+  </div>
+  <div class="he-page ">
+<header class="he-head">
+  <div class="he-head__main"><h1>Bom dia, Ana</h1><p class="he-head__sub">Três itens esperam a sua decisão e um roteiro está pronto para gravar.</p></div>
+</header>
+
+<div class="he-hero" data-tone="orange">
+  <div class="he-fan" aria-hidden="true">
+    <span class="he-fan__card"><img src="media/s1.svg" alt=""></span>
+    <span class="he-fan__card"><img src="media/s10.svg" alt=""></span>
+    <span class="he-fan__card" data-tone="violet"><span>O prompt que mudou meu fluxo</span></span>
+  </div>
+  <div class="he-hero__main">
+    <div class="he-hero__count"><b data-he-count="fila">3</b>itens esperam a sua decisão</div>
+    <a class="he-btn he-btn--primary he-btn--lg" href="fila.html">Revisar agora <kbd class="he-kbd" aria-hidden="true">R</kbd></a>
+  </div>
+</div>
+
+<section class="he-sec">
+  <div class="he-sec__head"><h2>Para você decidir</h2><span class="he-sec__n" data-he-count="fila">3</span><a class="he-btn he-btn--ghost he-btn--sm" href="fila.html">Abrir a fila</a></div>
+  <div class="he-stack">
+    <div class="he-question">
+      <span class="he-orb" data-state="waiting" aria-hidden="true"></span>
+      <div><div class="he-question__who">A IA pergunta · Checklist de publicação sem susto</div><div class="he-question__text">A capa fica melhor com o número 7 ou com a palavra "checklist"?</div></div>
+      <div class="he-question__answers"><button type="button" class="he-btn he-btn--sm" data-ex-answer>Número 7</button><button type="button" class="he-btn he-btn--sm" data-ex-answer>Palavra checklist</button><button type="button" class="he-btn he-btn--sm" data-ex-answer>Faça as duas</button></div>
+    </div>
+    <div class="he-cards he-stagger">
+      <article class="he-card" data-tone="orange">
+        <div class="he-card__thumb"><img src="media/s1.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-carousel"/></svg>Carrossel</span></div>
+        <div class="he-card__body">
+          <h3 class="he-card__title"><a class="he-card__link" href="item.html">5 erros no seu primeiro agente</a></h3>
+          <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="orange">Aprovação</span><span class="he-card__date"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-clock"/></svg>qui 26/11 · 18h</span><span class="he-card__camp">lançamento</span></div>
+          <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+        </div>
+      </article>
+      <article class="he-card" data-tone="orange">
+        <div class="he-card__thumb"><img src="media/s10.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-reel"/></svg>Vídeo</span></div>
+        <div class="he-card__body">
+          <h3 class="he-card__title"><a class="he-card__link" href="item.html">3 ganchos que seguram a audiência</a></h3>
+          <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="orange">Aprovação</span><span class="he-card__date"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-clock"/></svg>dom 29/11 · 18h</span></div>
+          <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+        </div>
+      </article>
+      <article class="he-card he-glow" data-tone="violet" data-he-glow="IA trabalhando" aria-busy="true">
+        <div class="he-card__thumb"><div class="he-card__poster"><span>O prompt que mudou meu fluxo de trabalho com agentes</span></div><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-carousel"/></svg>Carrossel</span></div>
+        <div class="he-card__body">
+          <h3 class="he-card__title"><a class="he-card__link" href="item.html">O prompt que mudou meu fluxo</a></h3>
+          <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="violet">Texto</span><span class="he-card__date"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-clock"/></svg>sáb 28/11 · 12h</span></div>
+          <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+        </div>
+      </article>
+      <article class="he-card" data-tone="blue">
+        <div class="he-card__thumb"><div class="he-card__poster"><span>Mostrar a mesa, o roteiro impresso e o erro que ficou no vídeo</span></div><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-story"/></svg>Story</span></div>
+        <div class="he-card__body">
+          <h3 class="he-card__title"><a class="he-card__link" href="item.html">Bastidores da gravação da aula 3</a></h3>
+          <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="blue">Ideia</span></div>
+          <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="he-sec">
+  <div class="he-sec__head"><h2>Para gravar</h2><span class="he-sec__n">1</span></div>
+  <div class="he-cards he-cards--list">
+    <article class="he-card he-card--row" data-tone="pink">
+      <div class="he-card__thumb"><img src="media/s6.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-reel"/></svg>Vídeo</span></div>
+      <div class="he-card__body">
+        <h3 class="he-card__title"><a class="he-card__link" href="item.html">Python em 30 segundos: compreensão de lista</a></h3>
+        <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="pink">Produção</span><span class="he-card__date"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-clock"/></svg>sex 27/11 · 18h</span><span class="he-card__camp">curso</span></div>
+        <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="he-sec">
+  <div class="he-sec__head"><h2>Sai hoje</h2></div>
+  <div class="he-cards he-cards--list">
+    <article class="he-card he-card--row" data-tone="teal">
+      <div class="he-card__thumb"><img src="media/s11.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-story"/></svg>Story</span></div>
+      <div class="he-card__body">
+        <h3 class="he-card__title"><a class="he-card__link" href="item.html">Enquete: qual tema para a próxima aula ao vivo?</a></h3>
+        <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="teal">Agendado</span><span class="he-card__date"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-clock"/></svg>hoje · 20h</span></div>
+        <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+      </div>
+    </article>
+    <article class="he-card he-card--row" data-tone="teal">
+      <div class="he-card__thumb"><img src="media/s9.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-carousel"/></svg>Carrossel</span></div>
+      <div class="he-card__body">
+        <h3 class="he-card__title"><a class="he-card__link" href="item.html">Checklist de publicação sem susto</a></h3>
+        <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="teal">Agendado</span><span class="he-card__date"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-clock"/></svg>hoje · 12h</span><span class="he-card__camp">lançamento</span></div>
+        <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="he-sec">
+  <div class="he-sec__head"><h2>A IA está fazendo</h2><span class="he-sec__n">2</span></div>
+  <ul class="he-act__list">
+    <li class="he-job" data-status="running"><span class="he-orb he-orb--sm" data-state="working" aria-hidden="true"></span><div class="he-job__title"><a href="item.html">O prompt que mudou meu fluxo</a></div><div class="he-job__step"><span class="he-dots3" aria-hidden="true"><i></i><i></i><i></i></span><span>Escrevendo a lâmina 4 de 7</span></div><div class="he-job__meta">Texto · pedido há 2 min</div></li>
+    <li class="he-job" data-status="queued"><span class="he-orb he-orb--sm" data-state="working" aria-hidden="true"></span><div class="he-job__title">Pesquisa: o que mudou na distribuição de vídeos curtos</div><div class="he-job__step"><span>Na fila</span></div><div class="he-job__meta">Pesquisa</div></li>
+  </ul>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  HE.dock.setContext([{ key: "tela", label: "Hoje", value: "hoje" }]);
+  HE.dock.setSuggestions([
+    { label: "Montar a próxima semana", prompt: "Monte a próxima semana com base no que foi melhor neste mês." },
+    { label: "5 ideias de vídeo curto", prompt: "Sugira 5 ideias de vídeo curto para esta semana." },
+    { label: "Resumo do dia", prompt: "Resuma o que eu preciso decidir hoje.", send: true }
+  ]);
+  HE.shortcuts.add("Painel", ["R"], "Abrir a fila de revisão");
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "r" && !e.ctrlKey && !e.metaKey && !e.altKey && !HE.util.isTyping(e.target) && !HE.overlayOpen()) window.location.href = "fila.html";
+  });
+});
+</script>
+
+  </div>
+  <div class="he-dock" data-he-dock>
+    <div class="he-dock__sugs" data-he-sugs role="group" aria-label="Sugestões de pedido"></div>
+    <div class="he-dock__row">
+      <form class="he-composer is-empty" data-he-ask-form novalidate>
+        <div class="he-composer__box">
+          <button type="button" class="he-dock__orb" data-he-presence data-state="working" aria-haspopup="dialog" aria-expanded="false" aria-label="Atividade da IA"><span class="he-orb" data-state="working" aria-hidden="true"></span></button>
+          <div class="he-dock__ctx" data-he-ctx aria-label="Contexto do pedido"></div>
+          <textarea class="he-composer__input" name="prompt" rows="1" maxlength="4000" placeholder="Peça à IA" aria-label="Pedido à IA" enterkeyhint="send"></textarea>
+          <div class="he-composer__bar"><span class="he-composer__tools"></span><span class="he-composer__actions"><kbd class="he-kbd" aria-hidden="true" title="A tecla / traz o cursor para cá">/</kbd><button class="he-composer__send" type="submit" aria-label="Enviar pedido à IA"></button></span></div>
+        </div>
+      </form>
+      <a class="he-review he-review--dock" href="fila.html" data-he-count-hide="fila">Revisar <span class="he-review__n" data-he-count="fila">3</span></a>
+    </div>
+  </div>
+  <nav class="he-mnav" aria-label="Áreas do conteúdo">
+<a class="he-mnav__item is-active" aria-current="page" href="painel.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-sun"/></svg><span>Hoje</span><span class="he-count" data-he-count="fila">3</span></a>
+<a class="he-mnav__item" href="referencias.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-bulb"/></svg><span>Referências</span></a>
+<a class="he-mnav__item" href="planejamento.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-board"/></svg><span>Planejamento</span></a>
+<a class="he-mnav__item" href="resultados.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-chart"/></svg><span>Resultados</span></a>
+<a class="he-mnav__item" href="conversa.html"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-comment"/></svg><span>Conversa</span></a>
+  </nav>
+</main>
+<script src="../../dist/hedesign.js"></script>
+<script src="assets/example.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!-- nav: Experiência | Regras de experiência -->
+<p>Os componentes resolvem a aparência. O que faz o sistema parecer fluido no primeiro uso são estas regras, que valem para qualquer tela nova.</p>
+<h3>A tela inicial responde "o que precisa de mim agora?"</h3>
+<ul>
+  <li>O topo traz uma saudação e uma frase com a situação do dia. Abaixo vêm, nesta ordem, o que espera decisão, o que a IA perguntou, o que está pronto para a próxima etapa e o que está agendado.</li>
+  <li>Cada bloco tem um contador e um caminho para a lista completa. Bloco vazio some; se todos sumirem, entra o estado de dia livre.</li>
+  <li>A ação principal com contador ("Revisar agora 3") fica na barra da área em todas as telas enquanto houver fila.</li>
+</ul>
+<h3>Cinco destinos, sempre os mesmos</h3>
+<ul>
+  <li>A área tem no máximo cinco destinos, com nomes de uma palavra. Ajustes e telas raras ficam atrás de um ícone.</li>
+  <li>Abrir um item não troca de tela: ele sobe em camada, e fechar devolve a rolagem e o foco ao mesmo ponto.</li>
+  <li>A mesma lista pode ser vista como quadro, calendário ou grade. A escolha fica guardada.</li>
+</ul>
+<h3>Ação direta, com volta</h3>
+<ul>
+  <li>Arrastar muda a etapa ou a data. Soltar já salva, e o aviso traz o Desfazer por dez segundos.</li>
+  <li>Nada que possa ser desfeito pede confirmação. A caixa de confirmação fica para o que é irreversível, e nesse caso o botão diz o que vai acontecer ("Apagar 3 arquivos").</li>
+  <li>Enquanto a resposta do servidor não chega, a tela já mostra o resultado. Se falhar, volta ao estado anterior e explica.</li>
+</ul>
+<h3>A IA trabalha à vista</h3>
+<ul>
+  <li>Todo pedido tem três sinais: o orbe muda de estado, o item ganha o brilho e a atividade lista o passo atual.</li>
+  <li>A IA nunca troca o conteúdo sem deixar rastro. Cada entrega vira uma versão, com o que mudou marcado e um botão para restaurar a anterior.</li>
+  <li>Quando ela precisa de você, pergunta com respostas prontas. Quando vai fazer algo com efeito fora do sistema, pede permissão mostrando exatamente a ação.</li>
+  <li>Sugestão da IA é sempre tracejada até alguém aceitar.</li>
+</ul>
+<h3>Texto de interface</h3>
+<ul>
+  <li>Frases completas e curtas, em português claro, no tom de um colega: "Três itens esperam a sua decisão".</li>
+  <li>Botão diz a ação com verbo ("Aprovar e agendar"), nunca "OK" ou "Confirmar".</li>
+  <li>Erro diz o que aconteceu, o que ficou salvo e o que fazer. Sem código, sem culpa e sem ponto de exclamação.</li>
+  <li>Datas próximas são relativas ("hoje · 18h", "amanhã", "qui 26/11"). Números usam o formato do país.</li>
+</ul>
+<h3>Celular</h3>
+<ul>
+  <li>Os destinos descem para a barra inferior, o campo de pedido fica logo acima dela e as camadas sobem de baixo, com alça para arrastar.</li>
+  <li>Alvos de 40 px no mínimo, 52 px na barra de decisão. Campos com 16 px para o navegador não ampliar a página.</li>
+  <li>O quadro rola de lado com encaixe, o calendário vira agenda e a moldura do aparelho some.</li>
+  <li>Nada depende do ponteiro parado: o que aparece no hover também aparece no foco e fica sempre visível no toque.</li>
+</ul>
+<h3>Acessibilidade</h3>
+<ul>
+  <li>Contraste de 4,5:1 no texto e de 3:1 nos elementos gráficos, nos dois temas, já garantido pelos tokens.</li>
+  <li>Tudo funciona pelo teclado: Tab em ordem, setas dentro de abas, menus e carrossel, Esc fecha, <kbd class="he-kbd he-kbd--always">?</kbd> lista os atalhos.</li>
+  <li>O foco é sempre visível: contorno de 2 px em azul, ou na cor da IA dentro do campo de pedido.</li>
+  <li>Estado não depende só de cor: selo tem texto, conferência tem ícone, o orbe tem rótulo.</li>
+  <li>Avisos usam <code>aria-live</code>, camadas usam <code>role="dialog"</code> com foco preso, e o que está carregando leva <code>aria-busy</code>.</li>
+  <li>Movimento reduzido desliga as animações sem esconder nenhum estado.</li>
+</ul>

@@ -1,0 +1,46 @@
+# hedesign
+
+> Design system de CSS e JavaScript puros para sistemas web com IA presente: estúdio calmo, seis tons que dizem o
+> estado, uma cor só da IA, tema claro e escuro. Sem dependências e sem build. MIT. Feito pela PycodeBR.
+
+Instalar: `curl -fsSL https://raw.githubusercontent.com/pycodebr/hedesign/main/install.sh | bash`
+CDN: `https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.0/dist/` (`hedesign-fonts.css`, `hedesign.min.css`,
+`hedesign-theme.js` no head; `hedesign.min.js` antes de `</body>`).
+
+Regras centrais: só tokens `--he-*` e classes `he-*`; nenhuma cor fixa; cor de estado por `data-tone` no contêiner; um
+botão principal por tela; a cor da IA só para a IA; ação reversível com Desfazer no lugar de confirmação; toda lista com
+vazio, esqueleto e erro; tema em `html[data-he-theme]`.
+
+## Para começar
+
+- [README.md](README.md): seção "Para agentes de IA", com o que instalar, a ordem de leitura e como conferir o resultado
+- [DESIGN.md](DESIGN.md): a especificação completa (princípios, cores, tipografia, forma, movimento, IA)
+
+## Aplicar em um projeto
+
+- [skills/hedesign/SKILL.md](skills/hedesign/SKILL.md): procedimento de instalação e migração
+- [componentes.md](skills/hedesign/references/componentes.md): todas as classes com marcação mínima
+- [tokens.md](skills/hedesign/references/tokens.md): mapa de tokens e adaptação de marca
+- [stacks.md](skills/hedesign/references/stacks.md): HTML, Django, Rails, Laravel, React, Next, Vue, Svelte, Tailwind
+- [docs/api-js.md](docs/api-js.md): API de `window.HE` (tema, avisos, camadas, paleta, campo de pedido, arrasto)
+
+## Desenhar telas
+
+- [skills/hedesign-telas/SKILL.md](skills/hedesign-telas/SKILL.md): procedimento e regras de experiência
+- [receitas-de-tela.md](skills/hedesign-telas/references/receitas-de-tela.md): painel, quadro, fila, detalhe, mural, resultados, ajustes, conversa, entrar, página, leitura
+- [ia-presente.md](skills/hedesign-telas/references/ia-presente.md): onde e como a IA aparece
+- [texto-de-interface.md](skills/hedesign-telas/references/texto-de-interface.md): títulos, botões, vazios e erros
+
+## Conferir
+
+- [skills/hedesign-auditoria/SKILL.md](skills/hedesign-auditoria/SKILL.md): auditoria estática, capturas e roteiro
+- [roteiro.md](skills/hedesign-auditoria/references/roteiro.md): lista de conferência
+
+## Código e exemplos
+
+- [dist/hedesign.css](dist/hedesign.css): tokens, base, casca e componentes
+- [dist/hedesign.js](dist/hedesign.js): comportamentos
+- [tokens/tokens.json](tokens/tokens.json): tokens em JSON (DTCG), com o tema escuro em `$extensions.dark`
+- [docs/src/sections/](docs/src/sections/): marcação completa de cada componente
+- [docs/src/examples/](docs/src/examples/): telas completas para adaptar
+- Documentação viva: https://pycodebr.github.io/hedesign/docs/

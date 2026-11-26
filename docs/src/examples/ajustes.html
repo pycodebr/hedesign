@@ -1,0 +1,206 @@
+<!-- example: Ajustes | active: ajustes | shell: app -->
+<header class="he-head">
+  <div class="he-head__main"><h1>Ajustes</h1><p class="he-head__sub">Interruptores valem na hora e podem ser desfeitos. Campos ficam por salvar no rodapé de cada seção.</p></div>
+</header>
+
+<div class="he-settings">
+  <nav class="he-sidenav" aria-label="Seções dos ajustes" data-ex-nav>
+    <a class="he-sidenav__item is-active" href="#agenda" aria-current="true">{i:calendar}Agenda</a>
+    <a class="he-sidenav__item" href="#metas">{i:target}Metas</a>
+    <a class="he-sidenav__item" href="#pessoas">{i:user}Pessoas</a>
+    <a class="he-sidenav__item" href="#ia">{i:sparkles}IA</a>
+    <a class="he-sidenav__item" href="#aparencia">{i:sun}Aparência</a>
+  </nav>
+
+  <div class="he-formsecs">
+    <section class="he-formsec" id="agenda" aria-labelledby="ex-aj-agenda" data-ex-sec="Agenda">
+      <div class="he-formsec__head"><h2 class="he-h3" id="ex-aj-agenda">Agenda de publicação</h2><p>Os horários em que um item aprovado pode entrar.</p></div>
+      <div class="he-formsec__body">
+        <div class="he-field"><label for="ex-aj-hora">Horário padrão</label><input class="he-input" id="ex-aj-hora" name="hora" value="18:00" inputmode="numeric" autocomplete="off" aria-describedby="ex-aj-hora-msg"><span class="he-help" id="ex-aj-hora-msg" data-ex-help="Itens aprovados sem horário entram aqui.">Itens aprovados sem horário entram aqui.</span></div>
+        <div class="he-field"><label for="ex-aj-fuso">Fuso horário</label><select class="he-input he-select" id="ex-aj-fuso" name="fuso"><option selected>Brasília · UTC-3</option><option>Manaus · UTC-4</option><option>Lisboa · UTC+0</option></select></div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Publicar sozinho depois de aprovado</b><small>O item entra no próximo horário livre da agenda.</small></div><button type="button" class="he-switch" role="switch" aria-checked="true" aria-label="Publicar sozinho depois de aprovado" data-name="publicar-sozinho"><span class="he-switch__knob"></span></button></div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Publicar no fim de semana</b><small>Sábado e domingo entram na agenda.</small></div><button type="button" class="he-switch" role="switch" aria-checked="false" aria-label="Publicar no fim de semana" data-name="fim-de-semana"><span class="he-switch__knob"></span></button></div>
+      </div>
+      <div class="he-formsec__foot"><span class="he-help he-grow" data-ex-state>Tudo salvo.</span><button type="button" class="he-btn he-btn--ghost" data-ex-discard disabled>Descartar</button><button type="button" class="he-btn" data-ex-save disabled aria-label="Salvar a agenda">Salvar</button></div>
+    </section>
+
+    <section class="he-formsec" id="metas" aria-labelledby="ex-aj-metas" data-ex-sec="Metas">
+      <div class="he-formsec__head"><h2 class="he-h3" id="ex-aj-metas">Metas</h2><p>O que o Estúdio Norte quer publicar e alcançar. As metas aparecem no planejamento e nos resultados.</p></div>
+      <div class="he-formsec__body">
+        <div class="he-field"><label for="ex-aj-semana">Meta por semana</label><div class="he-suffix"><input class="he-input" id="ex-aj-semana" name="semana" value="5" inputmode="numeric" autocomplete="off"><span>itens</span></div><span class="he-help">Conta só o que foi publicado.</span></div>
+        <div class="he-field"><label for="ex-aj-alcance">Meta de alcance no mês</label><div class="he-suffix"><input class="he-input" id="ex-aj-alcance" name="alcance" value="50" inputmode="numeric" autocomplete="off"><span>mil</span></div><span class="he-help">Em milhares de pessoas alcançadas.</span></div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Avisar quando a meta estiver em risco</b><small>A IA avisa na quarta se faltarem itens para fechar a semana.</small></div><button type="button" class="he-switch" role="switch" aria-checked="true" aria-label="Avisar quando a meta estiver em risco" data-name="meta-em-risco"><span class="he-switch__knob"></span></button></div>
+      </div>
+      <div class="he-formsec__foot"><span class="he-help he-grow" data-ex-state>Tudo salvo.</span><button type="button" class="he-btn he-btn--ghost" data-ex-discard disabled>Descartar</button><button type="button" class="he-btn" data-ex-save disabled aria-label="Salvar as metas">Salvar</button></div>
+    </section>
+
+    <section class="he-formsec" id="pessoas" aria-labelledby="ex-aj-pessoas" data-ex-sec="Pessoas">
+      <div class="he-formsec__head"><h2 class="he-h3" id="ex-aj-pessoas">Pessoas</h2><p>Quem decide o que sai e quem só acompanha. Ana é a dona da conta e sempre pode aprovar.</p></div>
+      <div class="he-formsec__body">
+        <div class="he-toggle"><div class="he-toggle__text"><b>Bruno pode aprovar itens</b><small>Edita os vídeos. Hoje só acompanha a fila.</small></div><button type="button" class="he-switch" role="switch" aria-checked="false" aria-label="Bruno pode aprovar itens" data-name="aprova-bruno"><span class="he-switch__knob"></span></button></div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Carla pode aprovar itens</b><small>Revisa os textos. Decide quando Ana está fora.</small></div><button type="button" class="he-switch" role="switch" aria-checked="true" aria-label="Carla pode aprovar itens" data-name="aprova-carla"><span class="he-switch__knob"></span></button></div>
+        <div class="he-field"><label for="ex-aj-resumo">E-mail do resumo diário</label><input class="he-input" id="ex-aj-resumo" name="resumo" type="email" value="ana@exemplo.com" autocomplete="off" aria-describedby="ex-aj-resumo-msg"><span class="he-help" id="ex-aj-resumo-msg" data-ex-help="Um resumo por dia, às 9h, com o que espera decisão.">Um resumo por dia, às 9h, com o que espera decisão.</span></div>
+      </div>
+      <div class="he-formsec__foot"><span class="he-help he-grow" data-ex-state>Tudo salvo.</span><button type="button" class="he-btn he-btn--ghost" data-ex-discard disabled>Descartar</button><button type="button" class="he-btn" data-ex-save disabled aria-label="Salvar o e-mail do resumo">Salvar</button></div>
+    </section>
+
+    <section class="he-formsec" id="ia" aria-labelledby="ex-aj-ia" data-ex-sec="IA">
+      <div class="he-formsec__head"><h2 class="he-h3" id="ex-aj-ia">IA</h2><p>O que a IA pode fazer sem perguntar e como ela escreve em nome do estúdio.</p></div>
+      <div class="he-formsec__body">
+        <div class="he-stack he-stack--sm" role="radiogroup" aria-labelledby="ex-aj-perm">
+          <span class="he-label" id="ex-aj-perm">Ações fora do sistema: publicar, enviar e apagar</span>
+          <label class="he-toggle"><span class="he-toggle__text"><b>Perguntar sempre</b><small>Cada ação mostra exatamente o que vai acontecer e espera o seu permitir.</small></span><span class="he-checkbox"><input type="radio" name="permissao" value="sempre" checked></span></label>
+          <label class="he-toggle"><span class="he-toggle__text"><b>Permitir as já aprovadas</b><small>Uma ação igual a outra que você já permitiu roda sem perguntar. As novas continuam perguntando.</small></span><span class="he-checkbox"><input type="radio" name="permissao" value="aprovadas"></span></label>
+        </div>
+        <div class="he-field"><label for="ex-aj-tom">Tom de voz</label><textarea class="he-textarea" id="ex-aj-tom" name="tom" rows="3">Direto e sem jargão. Frases curtas, exemplos de código que cabem em uma tela e nenhuma promessa de resultado.</textarea><span class="he-help">A IA lê este texto antes de escrever qualquer item.</span></div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Sugerir itens no calendário</b><small>As sugestões aparecem tracejadas até alguém aceitar.</small></div><button type="button" class="he-switch" role="switch" aria-checked="true" aria-label="Sugerir itens no calendário" data-name="sugerir"><span class="he-switch__knob"></span></button></div>
+      </div>
+      <div class="he-formsec__foot"><span class="he-help he-grow" data-ex-state>Tudo salvo.</span><button type="button" class="he-btn he-btn--ghost" data-ex-discard disabled>Descartar</button><button type="button" class="he-btn" data-ex-save disabled aria-label="Salvar os ajustes da IA">Salvar</button></div>
+    </section>
+
+    <section class="he-formsec" id="aparencia" aria-labelledby="ex-aj-aparencia" data-ex-sec="Aparência">
+      <div class="he-formsec__head"><h2 class="he-h3" id="ex-aj-aparencia">Aparência</h2><p>O tema vale na hora e fica guardado neste navegador.</p></div>
+      <div class="he-formsec__body">
+        <div class="he-stack he-stack--sm">
+          <span class="he-label" id="ex-aj-tema">Tema</span>
+          <div class="he-row"><div class="he-views" data-he-views data-ex-theme aria-labelledby="ex-aj-tema">
+            <button type="button" class="he-views__item is-active" data-view="light" aria-pressed="true">{i:sun}<span>Claro</span></button>
+            <button type="button" class="he-views__item" data-view="dark" aria-pressed="false">{i:moon}<span>Escuro</span></button>
+            <button type="button" class="he-views__item" data-view="auto" aria-pressed="false">{i:smartphone}<span>Do sistema</span></button>
+          </div></div>
+          <span class="he-help" data-ex-theme-note>Em uso: tema claro.</span>
+        </div>
+        <div class="he-toggle"><div class="he-toggle__text"><b>Menu lateral recolhido</b><small>Mostra só os ícones no computador. No celular o menu continua em gaveta.</small></div><button type="button" class="he-switch" role="switch" aria-checked="false" aria-label="Menu lateral recolhido" data-name="menu-recolhido" data-ex-sidebar><span class="he-switch__knob"></span></button></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var $ = HE.util.$, $$ = HE.util.$$;
+
+  HE.dock.setContext([{ key: "tela", label: "Ajustes", value: "ajustes" }]);
+  HE.dock.setSuggestions([
+    { label: "Sugerir horários melhores", prompt: "Sugira os melhores horários de publicação com base nos resultados." },
+    { label: "Explicar as permissões da IA", prompt: "Explique o que muda entre perguntar sempre e permitir as ações já aprovadas." },
+    { label: "Revisar o tom de voz", prompt: "Revise o texto do tom de voz e aponte o que está vago." }
+  ]);
+
+  /* ── Índice: marca a seção que está à vista ── */
+  var nav = $("[data-ex-nav]"), links = $$(".he-sidenav__item", nav), secs = $$(".he-formsec"), hold = 0;
+  function mark(id) {
+    links.forEach(function (a) {
+      var on = a.getAttribute("href") === "#" + id;
+      a.classList.toggle("is-active", on);
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      if (on && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a.offsetLeft - nav.clientWidth / 2 + a.offsetWidth / 2, behavior: HE.util.reduced() ? "auto" : "smooth" });
+    });
+  }
+  function spy() {
+    if (Date.now() < hold) return;
+    var line = window.innerHeight * 0.45, id = secs[0].id, page = document.documentElement;
+    secs.forEach(function (sec) { if (sec.getBoundingClientRect().top <= line) id = sec.id; });
+    if (window.innerHeight + window.scrollY >= page.scrollHeight - 4) id = secs[secs.length - 1].id;
+    mark(id);
+  }
+  var tick = 0;
+  window.addEventListener("scroll", function () {
+    if (tick) return;
+    tick = window.requestAnimationFrame(function () { tick = 0; spy(); });
+  }, { passive: true });
+  nav.addEventListener("click", function (e) {
+    var a = e.target.closest(".he-sidenav__item");
+    if (!a) return;
+    e.preventDefault();
+    var sec = $(a.getAttribute("href"));
+    hold = Date.now() + 900;
+    mark(sec.id);
+    sec.scrollIntoView({ block: "start", behavior: HE.util.reduced() ? "auto" : "smooth" });
+    window.setTimeout(spy, 950);
+  });
+
+  /* ── Interruptores: valem na hora, e o Desfazer devolve o estado anterior ── */
+  var quiet = false;
+  document.addEventListener("he:switch", function (e) {
+    var d = e.detail;
+    if (d.name === "menu-recolhido") HE.sidebar.collapse(d.checked);
+    if (quiet) return;
+    HE.toast({
+      text: d.el.getAttribute("aria-label") + ": " + (d.checked ? "ligado." : "desligado."),
+      onUndo: function () { quiet = true; HE.switch.set(d.el, !d.checked); quiet = false; }
+    });
+  });
+  var sideSwitch = $("[data-ex-sidebar]");
+  quiet = true;
+  HE.switch.set(sideSwitch, HE.sidebar.state().collapsed);
+  quiet = false;
+  document.addEventListener("he:sidebar", function (e) {
+    if ((sideSwitch.getAttribute("aria-checked") === "true") === e.detail.collapsed) return;
+    quiet = true; HE.switch.set(sideSwitch, e.detail.collapsed); quiet = false;
+  });
+
+  /* ── Campos: a seção fica com mudança por salvar até Salvar ou Descartar ── */
+  function fieldsOf(sec) { return $$("input, select, textarea", sec); }
+  function read(sec) { return fieldsOf(sec).map(function (f) { return f.type === "radio" ? f.checked : f.value; }); }
+  function write(sec, values) { fieldsOf(sec).forEach(function (f, i) { if (f.type === "radio") f.checked = values[i]; else f.value = values[i]; }); }
+  function setError(field, message) {
+    var help = $("#" + field.getAttribute("aria-describedby"));
+    if (message) field.setAttribute("aria-invalid", "true"); else field.removeAttribute("aria-invalid");
+    help.className = message ? "he-field__error" : "he-help";
+    help.textContent = message || help.getAttribute("data-ex-help");
+  }
+  function check(sec) {
+    var bad = null;
+    $$("[aria-describedby]", sec).forEach(function (f) {
+      var message = "";
+      if (f.name === "hora" && !/^([01]\d|2[0-3]):[0-5]\d$/.test(f.value.trim())) message = "Escreva a hora com quatro algarismos, como 18:00.";
+      if (f.name === "resumo" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim())) message = "O endereço precisa de um arroba e de um domínio, como ana@exemplo.com.";
+      setError(f, message);
+      if (message && !bad) bad = f;
+    });
+    return bad;
+  }
+  secs.forEach(function (sec) {
+    var save = $("[data-ex-save]", sec), discard = $("[data-ex-discard]", sec), state = $("[data-ex-state]", sec);
+    if (!save) return;
+    var saved = read(sec);
+    function paint() {
+      var dirty = read(sec).join("\u0001") !== saved.join("\u0001");
+      sec.classList.toggle("is-dirty", dirty);
+      save.disabled = discard.disabled = !dirty;
+      save.classList.toggle("he-btn--primary", dirty);
+      state.textContent = dirty ? "Mudança por salvar." : "Tudo salvo.";
+      return dirty;
+    }
+    sec.addEventListener("input", paint);
+    sec.addEventListener("change", paint);
+    save.addEventListener("click", function () {
+      var bad = check(sec);
+      if (bad) { bad.focus(); return; }
+      saved = read(sec);
+      paint();
+      HE.toast({ kind: "ok", text: sec.getAttribute("data-ex-sec") + ": mudanças salvas." });
+    });
+    discard.addEventListener("click", function () {
+      var dropped = read(sec);
+      write(sec, saved);
+      check(sec);
+      paint();
+      HE.toast({ text: sec.getAttribute("data-ex-sec") + ": mudanças descartadas.", onUndo: function () { write(sec, dropped); paint(); } });
+    });
+  });
+
+  /* ── Aparência: claro, escuro ou o do sistema ── */
+  var themes = HE.views($("[data-ex-theme]")), note = $("[data-ex-theme-note]");
+  function paintTheme() {
+    var pref = HE.theme.pref(), name = HE.theme.get() === "dark" ? "escuro" : "claro";
+    if (themes.get() !== pref) themes.set(pref, true);
+    note.textContent = pref === "auto" ? "Em uso: tema " + name + ", o mesmo do sistema." : "Em uso: tema " + name + ".";
+  }
+  $("[data-ex-theme]").addEventListener("he:view", function (e) { HE.theme.set(e.detail.view); });
+  document.addEventListener("he:theme", paintTheme);
+  paintTheme();
+  spy();
+});
+</script>

@@ -1,0 +1,54 @@
+<!-- nav: Componentes | Passos, conferências e avisos na página -->
+<h3>Linha de passos</h3>
+<p>Mostra onde o item está no fluxo. Cada passo pode ter o seu tom; os que já passaram ficam preenchidos e o atual ganha um anel. Com pouco espaço, só o rótulo do passo atual aparece.</p>
+<!--demo both-->
+<div class="he-stack he-stack--lg">
+  <ol class="he-steps" aria-label="Etapas">
+    <li class="he-steps__step is-done" data-tone="blue"><span>Ideia</span></li>
+    <li class="he-steps__step is-done" data-tone="violet"><span>Texto</span></li>
+    <li class="he-steps__step is-current" data-tone="pink" aria-current="step"><span>Produção</span></li>
+    <li class="he-steps__step" data-tone="orange"><span>Aprovação</span></li>
+    <li class="he-steps__step" data-tone="teal"><span>Agendado</span></li>
+    <li class="he-steps__step" data-tone="green"><span>Publicado</span></li>
+  </ol>
+  <ol class="he-steps" aria-label="Cadastro">
+    <li class="he-steps__step is-done"><span>Conta</span></li>
+    <li class="he-steps__step is-current" aria-current="step"><span>Equipe</span></li>
+    <li class="he-steps__step"><span>Pagamento</span></li>
+  </ol>
+  <ol class="he-steps he-steps--bar" aria-label="Etapas, versão compacta">
+    <li class="he-steps__step is-done" data-tone="blue"><span>Ideia</span></li>
+    <li class="he-steps__step is-done" data-tone="violet"><span>Texto</span></li>
+    <li class="he-steps__step is-current" data-tone="pink"><span>Produção</span></li>
+    <li class="he-steps__step" data-tone="orange"><span>Aprovação</span></li>
+    <li class="he-steps__step" data-tone="teal"><span>Agendado</span></li>
+    <li class="he-steps__step" data-tone="green"><span>Publicado</span></li>
+  </ol>
+</div>
+<!--/demo-->
+<!--code-->
+HE.steps(document.querySelector(".he-steps"), 3);   // marca os três primeiros como feitos e o quarto como atual
+<!--/code-->
+<h3>O que mudou</h3>
+<p>Quando a IA devolve uma versão nova, a diferença aparece no próprio texto.</p>
+<!--demo both-->
+<p class="he-diff">O primeiro resultado é <del>a resposta final</del> <ins>um rascunho</ins>. Leia, aponte o que errou e peça de novo<ins>, com um pedido por vez</ins>.</p>
+<!--/demo-->
+<h3>Aviso na página e erro com saída</h3>
+<p>O erro diz o que aconteceu, o que ficou preservado e qual é o próximo passo, sempre com um botão.</p>
+<!--demo both-->
+<div class="he-stack">
+  <div class="he-callout">{i:info}<div class="he-callout__main"><div class="he-callout__title">A agenda desta semana está completa</div><div class="he-callout__text">Novos itens aprovados entram a partir de segunda.</div></div></div>
+  <div class="he-callout" data-tone="orange">{i:alert}<div class="he-callout__main"><div class="he-callout__title">A conexão com a conta expira em 3 dias</div><div class="he-callout__text">Renove a autorização para a publicação automática continuar.</div></div></div>
+  <div class="he-error" role="alert">{i:alert}<div class="he-error__main"><div class="he-error__title">Não consegui salvar a legenda</div><div class="he-error__text">A conexão caiu no meio do envio. O texto continua aqui; tente de novo.</div><div class="he-error__actions"><button type="button" class="he-btn he-btn--sm">Tentar de novo</button></div></div></div>
+  <div class="he-hint"><span>Faltam 2 itens para fechar a semana</span><button type="button" class="he-btn he-btn--sm">Ver sugestões</button></div>
+</div>
+<!--/demo-->
+<h3>Lista de linhas</h3>
+<!--demo both-->
+<ul class="he-list">
+  <li><a class="he-list__row" href="#passos"><span class="he-list__ico" data-tone="blue">{i:file}</span><span class="he-list__main"><span class="he-list__title">Roteiro da aula 3</span><span class="he-list__sub">Atualizado ontem por Ana</span></span><span class="he-list__end">3 páginas{i:chevron_right}</span></a></li>
+  <li><a class="he-list__row" href="#passos"><span class="he-list__ico" data-tone="pink">{i:video}</span><span class="he-list__main"><span class="he-list__title">Gravação bruta</span><span class="he-list__sub">12 min · enviada na terça</span></span><span class="he-list__end">{i:chevron_right}</span></a></li>
+  <li><a class="he-list__row" href="#passos"><span class="he-list__ico" data-tone="ai">{i:sparkles}</span><span class="he-list__main"><span class="he-list__title">Pesquisa de ganchos</span><span class="he-list__sub">Feita pela IA · 4 fontes</span></span><span class="he-list__end">{i:chevron_right}</span></a></li>
+</ul>
+<!--/demo-->

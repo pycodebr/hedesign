@@ -1,0 +1,118 @@
+<!-- example: Leitura | active: leitura | shell: plain | page: he-page--narrow -->
+<style>
+.ex-leitura { padding-bottom: 64px; }
+.ex-leitura-fim { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; }
+</style>
+<div class="he-settings ex-leitura">
+  <nav class="he-sidenav" id="ex-leitura-sumario" aria-label="Neste artigo">
+    <a class="he-sidenav__item is-active" href="#abrir" aria-current="true">Abrir a fila</a>
+    <a class="he-sidenav__item" href="#previa">Ler a prévia</a>
+    <a class="he-sidenav__item" href="#mudancas">Ver o que mudou</a>
+    <a class="he-sidenav__item" href="#decidir">Decidir</a>
+    <a class="he-sidenav__item" href="#ajuste">Pedir um ajuste</a>
+    <a class="he-sidenav__item" href="#fim">Zerar a fila</a>
+  </nav>
+
+  <article class="he-prose" id="ex-leitura-artigo">
+    <p class="he-small">Ajuda · Fila de revisão · leitura de 4 minutos</p>
+    <h1>Como revisar um item na fila</h1>
+    <p class="he-lead">A fila mostra um item por vez, do tamanho que o público vai ver. Você lê, confere o que a IA mudou e decide em um gesto.</p>
+
+    <h2 id="abrir">Abra a fila</h2>
+    <p>O contador ao lado de Fila de revisão, no menu, diz quantos itens esperam a sua decisão. Clique em <strong>Fila de revisão</strong> ou aperte <code>R</code> no painel. A fila abre no item com a data mais próxima.</p>
+    <ul>
+      <li>Só entram na fila os itens em <strong>Aprovação</strong> e com o selo "com você".</li>
+      <li>O contador no topo mostra a posição, como "1 de 3".</li>
+      <li>As setas do teclado passam para o item anterior e para o próximo sem decidir nada.</li>
+    </ul>
+
+    <h2 id="previa">Leia a prévia do tamanho real</h2>
+    <p>A prévia fica na moldura do aparelho, com a legenda e as lâminas no lugar. Deslize o carrossel até o fim antes de decidir. Em um vídeo, assista até o último segundo.</p>
+    <div class="he-callout">{i:info}<div class="he-callout__main"><div class="he-callout__title">As conferências rodam sozinhas</div><div class="he-callout__text">Tamanho da legenda, proporção da imagem e horário livre na agenda aparecem ao lado da prévia. Uma conferência que falhou não impede a decisão, mas vale a leitura.</div></div></div>
+
+    <h2 id="mudancas">Veja o que mudou</h2>
+    <p>Cada entrega da IA vira uma versão. O painel ao lado marca a diferença no próprio texto: o que entrou fica realçado e o que saiu fica riscado.</p>
+    <p class="he-diff">O primeiro resultado é <del>a resposta final</del> <ins>um rascunho</ins>. Leia, aponte o que errou e peça de novo<ins>, com um pedido por vez</ins>.</p>
+    <p>Se a versão anterior era melhor, use <strong>Restaurar</strong>. A versão nova continua guardada.</p>
+
+    <h2 id="decidir">Decida em um gesto</h2>
+    <p>A barra de decisão fica fixa embaixo da tela, com três botões e uma tecla para cada um.</p>
+    <ol>
+      <li><strong>Aprovar</strong>, tecla <code>A</code>: o item entra no próximo horário livre da agenda e passa para Agendado.</li>
+      <li><strong>Pedir ajuste</strong>, tecla <code>J</code>: o item volta para a IA com os seus comentários.</li>
+      <li><strong>Negar</strong>, tecla <code>N</code>: o item sai da fila e vai para Arquivado, com o motivo em uma linha.</li>
+    </ol>
+    <div class="he-callout" data-tone="orange">{i:undo}<div class="he-callout__main"><div class="he-callout__title">Toda decisão tem volta por dez segundos</div><div class="he-callout__text">Nenhuma delas pede confirmação. O aviso que aparece depois traz o botão Desfazer, e o item volta para o mesmo lugar da fila.</div></div></div>
+
+    <h2 id="ajuste">Peça um ajuste que a IA entende</h2>
+    <p>Um bom pedido aponta o lugar, diz o que mudar e dá o limite. Clique no ponto da imagem para prender um marcador numerado e escreva uma linha.</p>
+    <pre><code>Lâmina 3: deixe o título mais direto,
+com no máximo seis palavras.
+Mantenha o exemplo do segundo parágrafo.</code></pre>
+    <p>Os ajustes prontos, como "Mais curto" e "Mais direto", valem para o item inteiro. Use o campo livre quando o pedido for sobre um trecho.</p>
+    <blockquote>Uma boa revisão responde a uma pergunta só: eu publicaria isto hoje, com o nome do estúdio?</blockquote>
+
+    <h2 id="fim">Quando a fila zera</h2>
+    <p>Depois do último item, a tela avisa que você decidiu tudo e aponta o próximo passo, que costuma ser o planejamento da semana seguinte. Os itens que voltaram para a IA entram de novo na fila quando a versão nova fica pronta.</p>
+    <p><a class="he-btn he-btn--primary" href="fila.html">Abrir a fila de revisão</a></p>
+
+    <hr>
+    <div class="he-panel he-panel--soft ex-leitura-fim" id="ex-leitura-fim">
+      <div class="he-stack he-stack--sm">
+        <div class="he-title" id="ex-leitura-fim-titulo">Isto ajudou?</div>
+        <div class="he-small" id="ex-leitura-fim-texto">A sua resposta melhora os artigos de ajuda.</div>
+        <div id="ex-leitura-fim-ia" hidden><a class="he-btn he-btn--ai he-btn--sm" href="conversa.html"><span class="he-orb he-orb--sm" aria-hidden="true"></span>Perguntar à IA</a></div>
+      </div>
+      <div class="he-row" role="group" aria-labelledby="ex-leitura-fim-titulo">
+        <button type="button" class="he-btn" data-ex-voto="sim" aria-pressed="false">{i:check}Resolveu a dúvida</button>
+        <button type="button" class="he-btn" data-ex-voto="nao" aria-pressed="false">Ainda tenho dúvida</button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var $ = HE.util.$, $$ = HE.util.$$;
+  var nav = $("#ex-leitura-sumario"), links = $$("a", nav), heads = links.map(function (a) { return $(a.getAttribute("href")); });
+
+  /* Sumário: marca a seção que está sob a barra do topo. No fim da página vale a última. */
+  function mark(index) {
+    links.forEach(function (a, i) {
+      var on = i === index;
+      if (a.classList.contains("is-active") === on) return;
+      a.classList.toggle("is-active", on);
+      if (on) { a.setAttribute("aria-current", "true"); nav.scrollLeft = a.offsetLeft - nav.offsetLeft - 16; }   /* na fileira do celular, o item marcado fica à vista */
+      else a.removeAttribute("aria-current");
+    });
+  }
+  function spy() {
+    var line = 140, index = 0;
+    heads.forEach(function (h, i) { if (h.getBoundingClientRect().top <= line) index = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) index = heads.length - 1;
+    mark(index);
+  }
+  var queued = false;
+  window.addEventListener("scroll", function () {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(function () { queued = false; spy(); });
+  }, { passive: true });
+  spy();
+
+  /* Isto ajudou: a resposta vale na hora, troca o texto do bloco e o aviso traz a volta. */
+  var texto = $("#ex-leitura-fim-texto"), ia = $("#ex-leitura-fim-ia"), votos = $$("[data-ex-voto]"), padrao = texto.textContent;
+  function vote(value) {
+    votos.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-ex-voto") === value ? "true" : "false"); b.disabled = !!value; });
+    texto.textContent = value === "sim" ? "Você marcou que o artigo resolveu a dúvida." : value === "nao" ? "Você marcou que ainda tem dúvida. A IA pode explicar o passo que faltou." : padrao;
+    ia.hidden = value !== "nao";
+  }
+  votos.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var value = b.getAttribute("data-ex-voto");
+      vote(value);
+      HE.toast({ kind: value === "sim" ? "ok" : undefined, text: "Resposta registrada.", sub: value === "sim" ? "O artigo resolveu a dúvida" : "Ainda há dúvida", onUndo: function () { vote(""); } });
+    });
+  });
+});
+</script>

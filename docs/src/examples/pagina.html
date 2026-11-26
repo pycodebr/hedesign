@@ -1,0 +1,167 @@
+<!-- example: Página de apresentação | active: pagina | shell: bare -->
+<style>
+/* Ilha de tema escuro: o elemento recebe os tokens do tema escuro e pinta o próprio fundo e a própria tinta. */
+.ex-pagina-island { background: var(--he-bg); color: var(--he-ink); }
+.ex-pagina-step { display: grid; align-content: start; gap: 10px; padding: 22px; }
+.ex-pagina-step p { font: var(--he-text-body); color: var(--he-muted); }
+.ex-pagina-faq { max-width: 760px; }
+.ex-pagina-foot { border-top: 1px solid var(--he-line); padding-top: 24px; padding-bottom: 32px; }
+</style>
+<header class="ex-topline" id="topo">
+  <a class="he-brand" href="#topo" aria-label="Estúdio Norte, começo da página"><span class="he-brand__mark">N</span><span class="he-brand__text"><span class="he-brand__name">Estúdio Norte</span></span></a>
+  <nav aria-label="Seções da página">
+    <a class="he-btn he-btn--ghost he-btn--sm" href="#previa">Prévia</a>
+    <a class="he-btn he-btn--ghost he-btn--sm" href="#como">Como funciona</a>
+    <a class="he-btn he-btn--ghost he-btn--sm" href="#perguntas">Perguntas</a>
+    <button type="button" class="he-iconbtn" data-he-theme-toggle aria-pressed="false" aria-label="Usar tema escuro">{i:moon}</button>
+    <a class="he-btn he-btn--sm" href="entrar.html">Entrar na conta</a>
+  </nav>
+</header>
+
+<main>
+  <section class="ex-hero">
+    <h1 class="he-display">A IA escreve. Você decide o que sai.</h1>
+    <p class="he-lead">O Estúdio Norte é um sistema de conteúdo com IA. Ideias, textos, prévias e agenda ficam em um só lugar, e nada é publicado sem a sua aprovação.</p>
+    <div class="he-row" style="justify-content:center">
+      <a class="he-btn he-btn--primary he-btn--lg" href="painel.html">Abrir o estúdio</a>
+      <a class="he-btn he-btn--ghost he-btn--lg" href="#como">Ver como funciona</a>
+    </div>
+  </section>
+
+  <section class="ex-band" id="previa" aria-labelledby="ex-pagina-previa">
+    <div class="he-split" style="align-items:center">
+      <div class="he-stack he-stack--lg">
+        <div class="he-stack">
+          <h2 class="he-h1" id="ex-pagina-previa">Você revisa do tamanho que o público vai ver</h2>
+          <p class="he-lead">A prévia aparece na moldura do aparelho, com a legenda e as lâminas no lugar. Enquanto a IA trabalha em um item, ele fica marcado, e você sabe o que ainda vai mudar.</p>
+        </div>
+        <div class="he-cards">
+          <article class="he-card he-glow" data-tone="violet" data-he-glow="IA escrevendo" aria-busy="true">
+            <div class="he-card__thumb"><img src="media/s8.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+            <div class="he-card__body">
+              <h3 class="he-card__title"><a class="he-card__link" href="item.html">O prompt que mudou meu fluxo</a></h3>
+              <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="violet">Texto</span><span class="he-card__date">{i:clock}sáb 28/11 · 12h</span></div>
+              <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+            </div>
+          </article>
+          <article class="he-card" data-tone="orange">
+            <div class="he-card__thumb"><img src="media/s1.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+            <div class="he-card__body">
+              <h3 class="he-card__title"><a class="he-card__link" href="fila.html">5 erros no seu primeiro agente</a></h3>
+              <div class="he-card__meta"><span class="he-badge he-badge--sm" data-tone="orange">Aprovação</span><span class="he-card__date">{i:clock}qui 26/11 · 18h</span></div>
+              <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="he-studio" data-tone="orange">
+        <div class="he-phone">
+          <div class="he-phone__screen">
+            <div class="he-phone__status" aria-hidden="true"><span>9:41</span></div>
+            <div class="he-post__head"><span class="he-avatar he-avatar--ring"><span>N</span></span><span class="he-post__who"><span class="he-post__account">estudionorte</span><span class="he-post__sub">Publicação</span></span><span class="he-post__more" aria-hidden="true">{i:more}</span></div>
+            <div class="he-post__media he-carousel" data-ratio="4x5" data-he-carousel aria-label="Lâminas do carrossel">
+              <div class="he-carousel__track">
+                <div class="he-slide"><img src="media/s1.svg" alt="Lâmina 1: 5 erros no seu primeiro agente" draggable="false"></div>
+                <div class="he-slide"><img src="media/s2.svg" alt="Lâmina 2: pedir tudo de uma vez" draggable="false" loading="lazy"></div>
+                <div class="he-slide"><img src="media/s3.svg" alt="Lâmina 3: não dar contexto" draggable="false" loading="lazy"></div>
+                <div class="he-slide"><img src="media/s4.svg" alt="Lâmina 4: ignorar o retorno" draggable="false" loading="lazy"></div>
+                <div class="he-slide"><img src="media/s5.svg" alt="Lâmina 5: salve para consultar depois" draggable="false" loading="lazy"></div>
+              </div>
+            </div>
+            <div class="he-post__actions"><span class="he-post__act" aria-hidden="true">{i:heart}</span><span class="he-post__act" aria-hidden="true">{i:comment}</span><span class="he-post__act" aria-hidden="true">{i:share}</span><div class="he-dots" data-he-dots></div><span class="he-post__act he-post__act--save" aria-hidden="true">{i:bookmark}</span></div>
+            <div class="he-post__caption"><span class="he-post__captext"><b>estudionorte</b>Seu primeiro agente não saiu como você queria? Quase sempre é um destes cinco erros, e nenhum deles é técnico. <span class="he-post__tags">#agentes #ia</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band" id="como" aria-labelledby="ex-pagina-como">
+    <div class="he-stack he-stack--lg">
+      <h2 class="he-h1" id="ex-pagina-como">Como funciona</h2>
+      <div class="he-grid he-grid--3 he-stagger">
+        <div class="he-panel ex-pagina-step">
+          <span class="he-list__ico" data-tone="blue">{i:bulb}</span>
+          <div class="he-h3" role="heading" aria-level="3">Guarde a ideia em uma linha</div>
+          <p>Um link, uma nota ou uma frase solta entram em Ideia. O campo de pedido está em todas as telas e já sabe onde você está.</p>
+        </div>
+        <div class="he-panel ex-pagina-step">
+          <span class="he-list__ico" data-tone="violet">{i:sparkles}</span>
+          <div class="he-h3" role="heading" aria-level="3">A IA escreve o rascunho</div>
+          <p>Ela pesquisa, escreve as lâminas e monta a prévia. Cada entrega vira uma versão, com a diferença marcada e o botão de restaurar.</p>
+        </div>
+        <div class="he-panel ex-pagina-step">
+          <span class="he-list__ico" data-tone="orange">{i:check}</span>
+          <div class="he-h3" role="heading" aria-level="3">Você aprova em um gesto</div>
+          <p>Aprovar, pedir ajuste ou negar cabem em uma barra. O item aprovado entra na agenda, e o aviso traz o Desfazer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band ex-pagina-island" data-he-theme="dark" aria-labelledby="ex-pagina-numeros">
+    <div class="he-stack he-stack--lg">
+      <div class="he-stack">
+        <h2 class="he-h1" id="ex-pagina-numeros">O que você encontra ao abrir</h2>
+        <p class="he-lead">Estes números descrevem o sistema. Os resultados do seu conteúdo aparecem na tela de resultados, depois da primeira publicação.</p>
+      </div>
+      <div class="he-stats">
+        <div class="he-stat"><span class="he-stat__label">Etapas</span><span class="he-stat__value">6</span><span class="he-stat__hint">de Ideia a Publicado, cada uma com a sua cor</span></div>
+        <div class="he-stat"><span class="he-stat__label">Visões da mesma lista</span><span class="he-stat__value">3</span><span class="he-stat__hint">quadro, calendário e grade</span></div>
+        <div class="he-stat"><span class="he-stat__label">Gestos por decisão</span><span class="he-stat__value">1</span><span class="he-stat__hint">aprovar, pedir ajuste ou negar</span></div>
+        <div class="he-stat"><span class="he-stat__label">Tempo para desfazer</span><span class="he-stat__value">10 s</span><span class="he-stat__hint">em toda ação que tem volta</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band" id="perguntas" aria-labelledby="ex-pagina-perguntas">
+    <div class="he-disclosures ex-pagina-faq">
+      <h2 class="he-h1" id="ex-pagina-perguntas" style="margin-bottom:12px">Perguntas frequentes</h2>
+      <details class="he-disclosure" open>
+        <summary>A IA publica alguma coisa sozinha?{i:chevron_down}</summary>
+        <p>Não. Antes de qualquer ação que sai do estúdio, como publicar ou enviar, a IA mostra exatamente o que vai fazer e espera você permitir ou negar.</p>
+      </details>
+      <details class="he-disclosure">
+        <summary>Posso voltar para uma versão anterior do texto?{i:chevron_down}</summary>
+        <p>Sim. Cada entrega da IA fica guardada como uma versão, com o que mudou marcado no próprio texto. Restaurar leva um toque.</p>
+      </details>
+      <details class="he-disclosure">
+        <summary>Como eu sei o que a IA está fazendo agora?{i:chevron_down}</summary>
+        <p>O orbe no topo mostra se ela está livre, trabalhando ou esperando você. Clicar nele abre a lista de tarefas, com o passo atual de cada uma.</p>
+      </details>
+      <details class="he-disclosure">
+        <summary>Funciona no celular?{i:chevron_down}</summary>
+        <p>Sim. Os destinos descem para uma barra inferior, as camadas sobem de baixo e a barra de decisão tem alvos de toque grandes.</p>
+      </details>
+      <details class="he-disclosure">
+        <summary>O Estúdio Norte existe de verdade?{i:chevron_down}</summary>
+        <p>Não. É um produto fictício, criado para mostrar o hedesign em uso. Todas as telas e todos os dados são de demonstração.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="ex-hero" aria-labelledby="ex-pagina-fecho">
+    <h2 class="he-display" id="ex-pagina-fecho">Comece pelo que espera você hoje</h2>
+    <p class="he-lead">O painel abre com a fila de decisões, a pergunta da IA e o que sai no dia.</p>
+    <a class="he-btn he-btn--primary he-btn--lg" href="painel.html">Abrir o estúdio</a>
+  </section>
+</main>
+
+<footer class="ex-band ex-pagina-foot">
+  <div class="he-row he-row--between">
+    <span class="he-small">Estúdio Norte é um produto fictício, feito para demonstrar o hedesign.</span>
+    <span class="he-row"><a class="he-btn he-btn--ghost he-btn--sm" href="index.html">Ver todos os exemplos</a><a class="he-btn he-btn--ghost he-btn--sm" href="../index.html">Ler a documentação</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* Perguntas: abrir uma fecha as outras, para a lista não crescer sem controle. */
+  var faq = HE.util.$$(".ex-pagina-faq details");
+  faq.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (item.open) faq.forEach(function (other) { if (other !== item) other.open = false; });
+    });
+  });
+});
+</script>

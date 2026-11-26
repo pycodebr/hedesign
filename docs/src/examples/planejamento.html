@@ -1,0 +1,618 @@
+<!-- example: Planejamento | active: planejamento | shell: app | page: he-page--full -->
+<header class="he-head">
+  <div class="he-head__main"><h1>Planejamento</h1><p class="he-head__sub">Doze itens nesta semana, três deles na sua fila de revisão. Arraste um cartão para mudar a etapa ou a data.</p></div>
+  <div class="he-head__actions">
+    <div class="he-views" data-he-views data-param="visao" data-storage="exemplo.planejamento.visao" aria-label="Visão">
+      <button type="button" class="he-views__item is-active" data-view="quadro" aria-pressed="true">{i:board}<span>Quadro</span></button>
+      <button type="button" class="he-views__item" data-view="calendario" aria-pressed="false">{i:calendar}<span>Calendário</span></button>
+      <button type="button" class="he-views__item" data-view="grade" aria-pressed="false">{i:grid}<span>Grade</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="he-toolbar">
+  <div class="he-chips he-chips--scroll" data-he-chips="multi" data-name="filtro" data-ex-filters>
+    <span class="he-chips__label">Tipo</span>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="carrossel">{i:carousel}Carrossel <span class="he-chip__n" data-ex-kind-n="carrossel">6</span></button>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="video">{i:reel}Vídeo <span class="he-chip__n" data-ex-kind-n="video">2</span></button>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="story">{i:story}Story <span class="he-chip__n" data-ex-kind-n="story">4</span></button>
+    <span class="he-chips__sep" aria-hidden="true"></span>
+    <span class="he-chips__label">Dono</span>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="you">Com você</button>
+    <button type="button" class="he-chip" aria-pressed="false" data-value="ai">Com a IA</button>
+    <button type="button" class="he-chip he-chip--clear" data-he-chip-clear aria-pressed="false" hidden>Limpar</button>
+  </div>
+  <div class="he-goals" role="group" aria-label="Metas da semana">
+    <span class="he-goal" data-ex-goal="carrossel" data-icon="carousel" data-target="3" data-he-tip="Meta da semana: 3 carrosséis agendados ou publicados">{i:carousel}Carrosséis <b>2 de 3</b></span>
+    <span class="he-goal" data-ex-goal="video" data-icon="reel" data-target="2" data-he-tip="Meta da semana: 2 vídeos agendados ou publicados">{i:reel}Vídeos <b>0 de 2</b></span>
+    <span class="he-goal is-done" data-ex-goal="story" data-icon="story" data-target="2" data-he-tip="Meta da semana: 2 stories agendados ou publicados">{i:check}Stories <b>2 de 2</b></span>
+  </div>
+</div>
+
+<section data-ex-view="quadro" aria-label="Quadro por etapa">
+  <div class="he-board" data-ex-board>
+    <section class="he-col" data-tone="blue">
+      <div class="he-col__head"><h2 class="he-col__title">Ideia</h2><span class="he-col__n">2</span></div>
+      <div class="he-col__top"><label class="he-quick">{i:plus}<input type="text" placeholder="Ideia rápida, Enter guarda" aria-label="Ideia rápida" maxlength="90" enterkeyhint="done" data-ex-quick></label></div>
+      <div class="he-col__list" data-he-drop aria-label="Ideia">
+        <article class="he-card he-card--board" data-tone="blue" data-id="bastidores3" data-kind="story" data-owner="you" data-he-drag>
+          <div class="he-card__thumb"><div class="he-card__poster"><span>Mostrar a mesa, o roteiro impresso e o erro que ficou no vídeo</span></div><span class="he-card__kind">{i:story}Story</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="bastidores3">Bastidores da gravação da aula 3</a></h3>
+            <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+          </div>
+        </article>
+        <article class="he-card he-card--board is-suggestion" data-tone="blue" data-id="processo" data-kind="carrossel" data-owner="ai" data-he-drag>
+          <div class="he-card__thumb"><div class="he-card__poster"><span>Agentes não substituem processo. Eles aceleram o que já funciona.</span></div><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="processo">Agentes não substituem processo</a></h3>
+            <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="he-col" data-tone="violet">
+      <div class="he-col__head"><h2 class="he-col__title">Texto</h2><span class="he-col__n">2</span></div>
+      <div class="he-col__list" data-he-drop aria-label="Texto">
+        <article class="he-card he-card--board he-glow" data-tone="violet" data-id="prompt" data-kind="carrossel" data-owner="ai" data-he-drag data-he-glow="IA trabalhando" aria-busy="true">
+          <div class="he-card__thumb"><div class="he-card__poster"><span>O prompt que mudou meu fluxo de trabalho com agentes</span></div><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="prompt">O prompt que mudou meu fluxo</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}sáb 28/11 · 12h</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+          </div>
+        </article>
+        <article class="he-card he-card--board" data-tone="violet" data-id="sinais" data-kind="carrossel" data-owner="you" data-he-drag>
+          <div class="he-card__thumb"><div class="he-card__poster"><span>4 sinais de que o seu agente precisa de memória</span></div><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="sinais">4 sinais de que o seu agente precisa de memória</a></h3>
+            <div class="he-card__meta"><span class="he-card__camp">curso</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="he-col" data-tone="pink">
+      <div class="he-col__head"><h2 class="he-col__title">Produção</h2><span class="he-col__n">2</span></div>
+      <div class="he-col__list" data-he-drop aria-label="Produção">
+        <article class="he-card he-card--board" data-tone="pink" data-id="python" data-kind="video" data-owner="you" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s6.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:reel}Vídeo</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="python">Python em 30 segundos: compreensão de lista</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}sex 27/11 · 18h</span><span class="he-card__camp">curso</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+          </div>
+        </article>
+        <article class="he-card he-card--board" data-tone="pink" data-id="contagem" data-kind="story" data-owner="ai" data-he-drag>
+          <div class="he-card__thumb"><div class="he-card__poster"><span>Faltam três dias para a turma abrir. Três stories, um por dia.</span></div><span class="he-card__kind">{i:story}Story</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="contagem">Contagem para a abertura da turma</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}qui 26/11 · 9h</span><span class="he-card__camp">lançamento</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="he-col" data-tone="orange">
+      <div class="he-col__head"><h2 class="he-col__title">Aprovação</h2><span class="he-col__n">2</span></div>
+      <div class="he-col__list" data-he-drop aria-label="Aprovação">
+        <article class="he-card he-card--board" data-tone="orange" data-id="erros" data-kind="carrossel" data-owner="you" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s1.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="erros">5 erros no seu primeiro agente</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}qui 26/11 · 18h</span><span class="he-card__camp">lançamento</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+          </div>
+        </article>
+        <article class="he-card he-card--board" data-tone="orange" data-id="ganchos" data-kind="video" data-owner="you" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s10.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:reel}Vídeo</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="ganchos">3 ganchos que seguram a audiência</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}dom 29/11 · 18h</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="he-col" data-tone="teal">
+      <div class="he-col__head"><h2 class="he-col__title">Agendado</h2><span class="he-col__n">2</span></div>
+      <div class="he-col__list" data-he-drop aria-label="Agendado">
+        <article class="he-card he-card--board" data-tone="teal" data-id="checklist" data-kind="carrossel" data-owner="ai" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s9.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="checklist">Checklist de publicação sem susto</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}hoje · 12h</span><span class="he-card__camp">lançamento</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="ai">com a IA</span></div>
+          </div>
+        </article>
+        <article class="he-card he-card--board" data-tone="teal" data-id="enquete" data-kind="story" data-owner="you" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s11.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:story}Story</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="enquete">Enquete: qual tema para a próxima aula ao vivo?</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:clock}hoje · 20h</span></div>
+            <div class="he-card__foot"><span class="he-who" data-who="you">com você</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="he-col is-locked" data-tone="green">
+      <div class="he-col__head"><h2 class="he-col__title">Publicado</h2><span class="he-col__n">2</span></div>
+      <div class="he-col__top"><p class="he-small">{i:lock|he-i--sm} O item entra aqui sozinho quando a publicação sai.</p></div>
+      <div class="he-col__list" data-he-drop data-he-drop-locked aria-label="Publicado">
+        <article class="he-card he-card--board" data-tone="green" data-id="bastidores2" data-kind="story" data-owner="" data-he-nodrag>
+          <div class="he-card__thumb"><img src="media/s7.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:story}Story</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="bastidores2">Bastidores da gravação da aula 2</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:check}ter 24/11</span></div>
+          </div>
+        </article>
+        <article class="he-card he-card--board" data-tone="green" data-id="repositorio" data-kind="carrossel" data-owner="" data-he-nodrag>
+          <div class="he-card__thumb"><img src="media/s12.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}Carrossel</span></div>
+          <div class="he-card__body">
+            <h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="repositorio">Como eu organizo um repositório</a></h3>
+            <div class="he-card__meta"><span class="he-card__date">{i:check}seg 23/11</span><span class="he-card__camp">curso</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section data-ex-view="calendario" aria-label="Calendário dos próximos sete dias" hidden>
+  <!-- No calendário o título do cartão é um div com role="heading": com h3, a regra geral do cartão vence a do cartão compacto e o texto fica grande demais para a coluna. -->
+  <div class="he-cal" data-ex-cal>
+    <div class="he-cal__day is-today" data-day="hoje">
+      <div class="he-cal__head"><span class="he-cal__num">25</span>qua</div>
+      <div class="he-cal__list" data-he-drop aria-label="hoje, quarta 25/11">
+        <article class="he-card he-card--cal" data-tone="teal" data-id="checklist" data-kind="carrossel" data-owner="ai" data-time="12h" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s9.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="checklist">Checklist de publicação sem susto</a></div><div class="he-card__meta"><span class="he-card__date">12h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="ai" title="com a IA">com a IA</span></div></div>
+        </article>
+        <article class="he-card he-card--cal" data-tone="teal" data-id="enquete" data-kind="story" data-owner="you" data-time="20h" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s11.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:story}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="enquete">Enquete: qual tema para a próxima aula ao vivo?</a></div><div class="he-card__meta"><span class="he-card__date">20h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="you" title="com você">com você</span></div></div>
+        </article>
+      </div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+    <div class="he-cal__day" data-day="qui 26/11">
+      <div class="he-cal__head"><span class="he-cal__num">26</span>qui</div>
+      <div class="he-cal__list" data-he-drop aria-label="quinta 26/11">
+        <article class="he-card he-card--cal" data-tone="pink" data-id="contagem" data-kind="story" data-owner="ai" data-time="9h" data-he-drag>
+          <div class="he-card__thumb"><span class="he-card__kind">{i:story}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="contagem">Contagem para a abertura da turma</a></div><div class="he-card__meta"><span class="he-card__date">9h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="ai" title="com a IA">com a IA</span></div></div>
+        </article>
+        <article class="he-card he-card--cal" data-tone="orange" data-id="erros" data-kind="carrossel" data-owner="you" data-time="18h" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s1.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="erros">5 erros no seu primeiro agente</a></div><div class="he-card__meta"><span class="he-card__date">18h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="you" title="com você">com você</span></div></div>
+        </article>
+      </div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+    <div class="he-cal__day" data-day="sex 27/11">
+      <div class="he-cal__head"><span class="he-cal__num">27</span>sex</div>
+      <div class="he-cal__list" data-he-drop aria-label="sexta 27/11">
+        <article class="he-card he-card--cal" data-tone="pink" data-id="python" data-kind="video" data-owner="you" data-time="18h" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s6.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:reel}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="python">Python em 30 segundos: compreensão de lista</a></div><div class="he-card__meta"><span class="he-card__date">18h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="you" title="com você">com você</span></div></div>
+        </article>
+      </div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+    <div class="he-cal__day" data-day="sáb 28/11">
+      <div class="he-cal__head"><span class="he-cal__num">28</span>sáb</div>
+      <div class="he-cal__list" data-he-drop aria-label="sábado 28/11">
+        <article class="he-card he-card--cal he-glow he-glow--soft" data-tone="violet" data-id="prompt" data-kind="carrossel" data-owner="ai" data-time="12h" data-he-drag aria-busy="true">
+          <div class="he-card__thumb"><span class="he-card__kind">{i:carousel}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="prompt">O prompt que mudou meu fluxo</a></div><div class="he-card__meta"><span class="he-card__date">12h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="ai" title="com a IA">com a IA</span></div></div>
+        </article>
+      </div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+    <div class="he-cal__day" data-day="dom 29/11">
+      <div class="he-cal__head"><span class="he-cal__num">29</span>dom</div>
+      <div class="he-cal__list" data-he-drop aria-label="domingo 29/11">
+        <article class="he-card he-card--cal" data-tone="orange" data-id="ganchos" data-kind="video" data-owner="you" data-time="18h" data-he-drag>
+          <div class="he-card__thumb"><img src="media/s10.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:reel}</span></div>
+          <div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3"><a class="he-card__link" href="item.html" data-he-layer="ganchos">3 ganchos que seguram a audiência</a></div><div class="he-card__meta"><span class="he-card__date">18h</span></div><div class="he-card__foot"><span class="he-who he-who--mini" data-who="you" title="com você">com você</span></div></div>
+        </article>
+      </div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+    <div class="he-cal__day is-empty" data-day="seg 30/11">
+      <div class="he-cal__head"><span class="he-cal__num">30</span>seg</div>
+      <div class="he-cal__list" data-he-drop aria-label="segunda 30/11"></div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+    <div class="he-cal__day is-empty" data-day="ter 01/12">
+      <div class="he-cal__head"><span class="he-cal__num">1</span>ter</div>
+      <div class="he-cal__list" data-he-drop aria-label="terça 01/12"></div>
+      <button type="button" class="he-cal__add" data-ex-suggest>{i:sparkles}Sugerir</button>
+    </div>
+  </div>
+</section>
+
+<section data-ex-view="grade" aria-label="Grade de miniaturas" hidden>
+  <div class="he-grid3" data-ex-grid data-he-drop aria-label="Por vir">
+    <article class="he-card he-card--tile" data-tone="violet" data-id="sinais" data-kind="carrossel" data-owner="you" data-he-drag>
+      <div class="he-card__thumb"><div class="he-card__poster"><span>4 sinais de que o seu agente precisa de memória</span></div><span class="he-card__kind">{i:carousel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="sinais">4 sinais de que o seu agente precisa de memória</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="violet">Texto</span><span class="he-card__date">sem data</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="blue" data-id="bastidores3" data-kind="story" data-owner="you" data-he-drag>
+      <div class="he-card__thumb"><div class="he-card__poster"><span>Mostrar a mesa, o roteiro impresso e o erro que ficou no vídeo</span></div><span class="he-card__kind">{i:story}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="bastidores3">Bastidores da gravação da aula 3</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="blue">Ideia</span><span class="he-card__date">sem data</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="orange" data-id="ganchos" data-kind="video" data-owner="you" data-he-drag>
+      <div class="he-card__thumb"><img src="media/s10.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:reel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="ganchos">3 ganchos que seguram a audiência</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="orange">Aprovação</span><span class="he-card__date">dom 29/11 · 18h</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="violet" data-id="prompt" data-kind="carrossel" data-owner="ai" data-he-drag>
+      <div class="he-card__thumb"><div class="he-card__poster"><span>O prompt que mudou meu fluxo de trabalho com agentes</span></div><span class="he-card__kind">{i:carousel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="prompt">O prompt que mudou meu fluxo</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="violet">Texto</span><span class="he-card__date">sáb 28/11 · 12h</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="pink" data-id="python" data-kind="video" data-owner="you" data-he-drag>
+      <div class="he-card__thumb"><img src="media/s6.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:reel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="python">Python em 30 segundos: compreensão de lista</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="pink">Produção</span><span class="he-card__date">sex 27/11 · 18h</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="orange" data-id="erros" data-kind="carrossel" data-owner="you" data-he-drag>
+      <div class="he-card__thumb"><img src="media/s1.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="erros">5 erros no seu primeiro agente</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="orange">Aprovação</span><span class="he-card__date">qui 26/11 · 18h</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="pink" data-id="contagem" data-kind="story" data-owner="ai" data-he-drag>
+      <div class="he-card__thumb"><div class="he-card__poster"><span>Faltam três dias para a turma abrir</span></div><span class="he-card__kind">{i:story}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="contagem">Contagem para a abertura da turma</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="pink">Produção</span><span class="he-card__date">qui 26/11 · 9h</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="teal" data-id="enquete" data-kind="story" data-owner="you" data-he-drag>
+      <div class="he-card__thumb"><img src="media/s11.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:story}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="enquete">Enquete: qual tema para a próxima aula ao vivo?</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="teal">Agendado</span><span class="he-card__date">hoje · 20h</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="teal" data-id="checklist" data-kind="carrossel" data-owner="ai" data-he-drag>
+      <div class="he-card__thumb"><img src="media/s9.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="checklist">Checklist de publicação sem susto</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="teal">Agendado</span><span class="he-card__date">hoje · 12h</span></div></div>
+    </article>
+  </div>
+  <div class="he-grid3">
+    <div class="he-grid3__sep">Já publicado</div>
+    <article class="he-card he-card--tile" data-tone="green" data-id="bastidores2" data-kind="story" data-owner="">
+      <div class="he-card__thumb"><img src="media/s7.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:story}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="bastidores2">Bastidores da gravação da aula 2</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="green">Publicado</span><span class="he-card__date">ter 24/11</span></div></div>
+    </article>
+    <article class="he-card he-card--tile" data-tone="green" data-id="repositorio" data-kind="carrossel" data-owner="">
+      <div class="he-card__thumb"><img src="media/s12.svg" alt="" loading="lazy" draggable="false"><span class="he-card__kind">{i:carousel}</span></div>
+      <div class="he-card__body"><h3 class="he-card__title"><a class="he-card__link" href="item.html" data-he-layer="repositorio">Como eu organizo um repositório</a></h3><div class="he-card__meta"><span class="he-badge" data-tone="green">Publicado</span><span class="he-card__date">seg 23/11</span></div></div>
+    </article>
+  </div>
+</section>
+
+<div class="he-empty he-empty--boxed he-in-fade" data-ex-none hidden>
+  <svg class="he-empty__art" viewBox="0 0 132 96" aria-hidden="true" focusable="false"><circle class="a" cx="60" cy="44" r="28"/><path class="l" stroke-width="5" d="m82 66 20 18"/><path class="l" d="M48 44h24M48 52h14"/><circle class="k" cx="100" cy="24" r="10"/></svg>
+  <div class="he-empty__title">Nenhum item com estes filtros</div>
+  <div class="he-empty__text">Tire um filtro para ver os itens de novo ou peça ideias à IA.</div>
+  <div class="he-empty__actions"><button type="button" class="he-btn" data-ex-clear>Limpar os filtros</button><button type="button" class="he-btn he-btn--ai" data-ex-ask="Sugira 5 ideias de story para esta semana."><span class="he-orb he-orb--sm" aria-hidden="true"></span>Pedir ideias</button></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var $ = HE.util.$, $$ = HE.util.$$, esc = HE.esc;
+  var STAGES = [
+    { tone: "blue", name: "Ideia" }, { tone: "violet", name: "Texto" }, { tone: "pink", name: "Produção" },
+    { tone: "orange", name: "Aprovação" }, { tone: "teal", name: "Agendado" }, { tone: "green", name: "Publicado" }
+  ];
+  var KINDS = {
+    carrossel: { label: "Carrossel", icon: "carousel" }, video: { label: "Vídeo", icon: "reel" },
+    story: { label: "Story", icon: "story" }, "": { label: "Ideia", icon: "bulb" }
+  };
+  /* Resumo de cada item, mostrado na camada. Em um sistema de verdade isto vem do servidor. */
+  var INFO = {
+    bastidores3: { resumo: "Ideia de story: mostrar a mesa, o roteiro impresso e o erro que ficou no vídeo.", passo: "Arraste para Texto quando quiser que a IA escreva o roteiro.", pedido: "Escreva o roteiro do story Bastidores da gravação da aula 3." },
+    processo: { resumo: "A IA sugeriu este carrossel a partir das três referências guardadas nesta semana.", passo: "Aceite para virar uma ideia sua ou dispense a sugestão.", pedido: "Explique por que você sugeriu o carrossel Agentes não substituem processo." },
+    prompt: { resumo: "Carrossel com sete lâminas. A IA está escrevendo a lâmina 4 de 7.", passo: "Quando o texto ficar pronto, ele volta para você com o que mudou marcado.", pedido: "Deixe a lâmina 4 de O prompt que mudou meu fluxo mais direta." },
+    sinais: { resumo: "Carrossel só de texto, com seis lâminas. A arte começa depois da aprovação do texto.", passo: "O texto espera a sua aprovação na fila de revisão.", pedido: "Sugira uma data para 4 sinais de que o seu agente precisa de memória.", fila: true },
+    python: { resumo: "Vídeo curto do curso. O roteiro está aprovado e falta gravar.", passo: "Grave e envie o arquivo. A IA corta e põe a legenda.", pedido: "Monte uma lista de tomadas para gravar Python em 30 segundos." },
+    contagem: { resumo: "Três stories para a véspera do lançamento. A IA está montando as artes.", passo: "As artes chegam para a sua aprovação amanhã cedo.", pedido: "Mostre o texto dos três stories da contagem." },
+    erros: { resumo: "Carrossel com cinco lâminas. A arte ficou pronta ontem, com a capa refeita.", passo: "Espera a sua decisão na fila de revisão. Aprovado, sai na quinta às 18h.", pedido: "Encurte a legenda de 5 erros no seu primeiro agente.", fila: true },
+    ganchos: { resumo: "Vídeo de 40 segundos com três aberturas testadas neste mês.", passo: "Espera a sua decisão na fila de revisão.", pedido: "Sugira outro horário para 3 ganchos que seguram a audiência.", fila: true },
+    checklist: { resumo: "Carrossel aprovado na segunda. A publicação é automática.", passo: "Sai hoje às 12h. Para mudar a data, arraste no calendário.", pedido: "Prepare a resposta para os primeiros comentários do Checklist de publicação." },
+    enquete: { resumo: "Story com enquete de quatro temas para a próxima aula ao vivo.", passo: "Sai hoje às 20h. O resultado aparece em Resultados amanhã.", pedido: "Sugira quatro temas para a enquete da próxima aula ao vivo." },
+    bastidores2: { resumo: "Story publicado ontem. Seis em cada dez pessoas viram até o fim.", passo: "Os números completos estão em Resultados.", pedido: "Resuma o resultado de Bastidores da gravação da aula 2." },
+    repositorio: { resumo: "Publicado na segunda. Foi o carrossel mais salvo do mês.", passo: "Os números completos estão em Resultados.", pedido: "Sugira uma continuação para Como eu organizo um repositório." }
+  };
+  var POOL = [
+    { title: "3 perguntas antes de automatizar uma tarefa", kind: "carrossel" },
+    { title: "Agente ou script: como escolher", kind: "video" },
+    { title: "O erro de dar contexto demais ao agente", kind: "carrossel" }
+  ];
+  var page = $(".he-page"), board = $("[data-ex-board]"), cal = $("[data-ex-cal]"), grid = $("[data-ex-grid]"), none = $("[data-ex-none]");
+  var clearChip = $("[data-he-chip-clear]"), current = "quadro", filters = [], seq = 0, turn = 0;
+
+  function node(html) { var box = document.createElement("div"); box.innerHTML = html; return box.firstElementChild; }
+  function stageOf(tone) { return STAGES.filter(function (s) { return s.tone === tone; })[0] || STAGES[0]; }
+  function twins(id) { return $$('.he-card[data-id="' + id + '"]', page); }
+  function master(id) { return $('.he-card[data-id="' + id + '"]', board) || twins(id)[0]; }
+  function titleOf(card) { return $(".he-card__link", card).textContent.trim(); }
+  function who(owner, mini) {
+    if (!owner) return "";
+    var text = owner === "ai" ? "com a IA" : "com você";
+    return '<span class="he-who' + (mini ? ' he-who--mini" title="' + text : "") + '" data-who="' + owner + '">' + text + "</span>";
+  }
+  /* Tira os nós da página e devolve a função que põe cada um de volta no mesmo lugar */
+  function detach(list) {
+    var marks = list.map(function (n) { return { n: n, parent: n.parentNode, next: n.nextSibling }; });
+    list.forEach(function (n) { n.parentNode.removeChild(n); });
+    return function () {
+      marks.slice().reverse().forEach(function (m) { m.parent.insertBefore(m.n, m.next && m.next.parentNode === m.parent ? m.next : null); });
+    };
+  }
+
+  /* Marcação dos cartões criados na tela: a mesma dos cartões que já vêm no HTML */
+  function attrs(o) { return ' data-tone="' + o.tone + '" data-id="' + o.id + '" data-kind="' + o.kind + '" data-owner="' + o.owner + '" data-he-drag'; }
+  function link(o) { return '<a class="he-card__link" href="item.html" data-he-layer="' + o.id + '">' + esc(o.title) + "</a>"; }
+  function heading(o) { return '<h3 class="he-card__title">' + link(o) + "</h3>"; }
+  function boardCard(o) {
+    var k = KINDS[o.kind];
+    return '<article class="he-card he-card--board' + (o.sug ? " is-suggestion" : "") + '"' + attrs(o) + ">" +
+      '<div class="he-card__thumb"><div class="he-card__poster"><span>' + esc(o.title) + '</span></div><span class="he-card__kind">' + HE.icon(k.icon) + k.label + "</span></div>" +
+      '<div class="he-card__body">' + heading(o) +
+      (o.when ? '<div class="he-card__meta"><span class="he-card__date">' + HE.icon("clock") + esc(o.when) + "</span></div>" : "") +
+      '<div class="he-card__foot">' + who(o.owner) + "</div></div></article>";
+  }
+  function calCard(o) {
+    return '<article class="he-card he-card--cal' + (o.sug ? " is-suggestion" : "") + '"' + attrs(o) + ' data-time="' + o.time + '">' +
+      '<div class="he-card__thumb"><span class="he-card__kind">' + HE.icon(KINDS[o.kind].icon) + "</span></div>" +
+      '<div class="he-card__body"><div class="he-card__title" role="heading" aria-level="3">' + link(o) + '</div><div class="he-card__meta"><span class="he-card__date">' + o.time + "</span></div>" +
+      '<div class="he-card__foot">' + who(o.owner, true) + "</div></div></article>";
+  }
+  function tileCard(o) {
+    return '<article class="he-card he-card--tile"' + attrs(o) + ">" +
+      '<div class="he-card__thumb"><div class="he-card__poster"><span>' + esc(o.title) + '</span></div><span class="he-card__kind">' + HE.icon(KINDS[o.kind].icon) + "</span></div>" +
+      '<div class="he-card__body">' + heading(o) + '<div class="he-card__meta"><span class="he-badge" data-tone="' + o.tone + '">' + stageOf(o.tone).name +
+      '</span><span class="he-card__date">' + esc(o.when || "sem data") + "</span></div></div></article>";
+  }
+
+  /* Contadores das colunas, números dos chips, metas, dias vazios e estado sem resultado */
+  function refresh() {
+    $$(".he-col", board).forEach(function (col) {
+      $(".he-col__n", col).textContent = $$(".he-card", col).filter(function (c) { return !c.hidden; }).length;
+    });
+    $$("[data-ex-kind-n]").forEach(function (n) {
+      n.textContent = $$('.he-card[data-kind="' + n.getAttribute("data-ex-kind-n") + '"]', board).length;
+    });
+    $$("[data-ex-goal]").forEach(function (goal) {
+      var kind = goal.getAttribute("data-ex-goal"), target = +goal.getAttribute("data-target");
+      var sel = '.he-col[data-tone="teal"] .he-card[data-kind="' + kind + '"], .he-col[data-tone="green"] .he-card[data-kind="' + kind + '"]';
+      var have = $$(sel, board).length, done = have >= target;
+      $("b", goal).textContent = have + " de " + target;
+      goal.classList.toggle("is-done", done);
+      $("use", goal).setAttribute("href", "#he-i-" + (done ? "check" : goal.getAttribute("data-icon")));
+    });
+    $$(".he-cal__day", cal).forEach(function (day) { day.classList.toggle("is-empty", !$(".he-card", day)); });
+    var view = $('[data-ex-view="' + current + '"]');
+    var empty = filters.length > 0 && !$$(".he-card", view).some(function (c) { return !c.hidden; });
+    $$("[data-ex-view]").forEach(function (s) { s.hidden = s !== view || empty; });
+    none.hidden = !empty;
+  }
+  function applyFilters() {
+    var kinds = filters.filter(function (v) { return v !== "you" && v !== "ai"; });
+    var owners = filters.filter(function (v) { return v === "you" || v === "ai"; });
+    twinsAll().forEach(function (c) {
+      var kind = c.getAttribute("data-kind"), owner = c.getAttribute("data-owner");
+      c.hidden = !((!kinds.length || !kind || kinds.indexOf(kind) >= 0) && (!owners.length || owners.indexOf(owner) >= 0));
+    });
+    clearChip.hidden = !filters.length;
+    refresh();
+  }
+  function twinsAll() { return $$(".he-card[data-id]", page); }
+
+  /* A etapa é o tom: o mesmo data-tone vale para o cartão no quadro, no calendário e na grade */
+  function setTone(id, tone) {
+    twins(id).forEach(function (c) {
+      c.setAttribute("data-tone", tone);
+      var badge = $(".he-badge", c);
+      if (badge) { badge.setAttribute("data-tone", tone); badge.textContent = stageOf(tone).name; }
+    });
+  }
+  function setWhen(id, when) {
+    twins(id).forEach(function (c) {
+      var date = $(".he-card__date", c);
+      if (date && !c.classList.contains("he-card--cal")) date.lastChild.nodeValue = when;
+    });
+  }
+  function setOwner(id, owner) {
+    twins(id).forEach(function (c) {
+      c.setAttribute("data-owner", owner);
+      var pill = $(".he-who", c), text = owner === "ai" ? "com a IA" : "com você";
+      if (!pill) return;
+      pill.setAttribute("data-who", owner);
+      pill.textContent = text;
+      if (pill.hasAttribute("title")) pill.setAttribute("title", text);
+    });
+  }
+  /* Sugestão aceita: deixa de ser tracejada, passa para a pessoa e entra na grade. Devolve o desfazer. */
+  function accept(id) {
+    var card = master(id), list = twins(id);
+    list.forEach(function (c) { c.classList.remove("is-suggestion"); });
+    setOwner(id, "you");
+    var date = $(".he-card__date", card);
+    var tile = node(tileCard({ id: id, tone: card.getAttribute("data-tone"), kind: card.getAttribute("data-kind"), owner: "you", title: titleOf(card), when: date ? date.textContent.trim() : "" }));
+    grid.insertBefore(tile, grid.firstChild);
+    return function () {
+      if (tile.parentNode) tile.parentNode.removeChild(tile);
+      list.forEach(function (c) { c.classList.add("is-suggestion"); });
+      setOwner(id, "ai");
+    };
+  }
+
+  /* Visões: uma por vez, com a escolha guardada pelo próprio HE.views (data-storage) */
+  function show(view) { current = view; refresh(); }
+  HE.views($("[data-he-views]"), { onChange: show });
+
+  /* Filtros */
+  $("[data-ex-filters]").addEventListener("he:chips", function (e) { filters = e.detail.values; applyFilters(); });
+
+  /* Quadro: soltar muda a etapa na hora, atualiza os contadores e avisa com Desfazer */
+  HE.dnd(board, {
+    onDrop: function (ctx) {
+      var card = ctx.item, id = card.getAttribute("data-id"), title = titleOf(card);
+      var from = ctx.from.closest(".he-col"), to = ctx.to.closest(".he-col");
+      if (from === to) {
+        HE.toast({ text: "Ordem atualizada em " + stageOf(to.getAttribute("data-tone")).name + ".", sub: title, onUndo: function () { ctx.revert(); } });
+        return;
+      }
+      var before = card.getAttribute("data-tone"), tone = to.getAttribute("data-tone");
+      var undoAccept = card.classList.contains("is-suggestion") ? accept(id) : null;
+      setTone(id, tone);
+      refresh();
+      HE.toast({
+        text: "Movido para " + stageOf(tone).name + ".", sub: title,
+        onUndo: function () {
+          ctx.revert();
+          setTone(id, before);
+          if (undoAccept) undoAccept();
+          refresh();
+        }
+      });
+    }
+  });
+
+  /* Calendário: soltar em outro dia troca a data nas três visões */
+  HE.dnd(cal, {
+    onDrop: function (ctx) {
+      var card = ctx.item, id = card.getAttribute("data-id"), time = card.getAttribute("data-time");
+      var day = ctx.to.closest(".he-cal__day").getAttribute("data-day"), old = ctx.from.closest(".he-cal__day").getAttribute("data-day");
+      setWhen(id, day + " · " + time);
+      refresh();
+      HE.toast({
+        text: ctx.to === ctx.from ? "Ordem do dia atualizada." : "Movido para " + day + " · " + time + ".", sub: titleOf(card),
+        onUndo: function () { ctx.revert(); setWhen(id, old + " · " + time); refresh(); }
+      });
+    }
+  });
+
+  /* Grade: arrastar reordena o que ainda vai sair */
+  HE.dnd(grid, {
+    axis: "grid",
+    onDrop: function (ctx) {
+      HE.toast({ text: "Ordem da grade atualizada.", sub: titleOf(ctx.item), onUndo: function () { ctx.revert(); } });
+    }
+  });
+
+  /* Captura rápida: Enter cria o cartão em Ideia e a miniatura na grade */
+  $("[data-ex-quick]").addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    var text = this.value.trim();
+    if (!text) return;
+    var o = { id: "nova-" + (++seq), tone: "blue", kind: "", owner: "you", title: text };
+    var card = node(boardCard(o)), tile = node(tileCard(o)), list = $(".he-col__list", board);
+    INFO[o.id] = { resumo: "Ideia guardada agora, ainda sem tipo e sem data.", passo: "Peça um primeiro texto à IA ou arraste para Texto quando decidir o formato.", pedido: "Escreva um primeiro texto para a ideia: " + text };
+    list.insertBefore(card, list.firstChild);
+    grid.insertBefore(tile, grid.firstChild);
+    this.value = "";
+    applyFilters();
+    HE.toast({ text: "Ideia guardada.", sub: text, onUndo: function () { detach([card, tile]); refresh(); } });
+  });
+
+  /* Dia vazio: a IA propõe um item, que nasce tracejado no calendário e em Ideia */
+  page.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-ex-suggest]");
+    if (!btn) return;
+    var dayEl = btn.closest(".he-cal__day"), day = dayEl.getAttribute("data-day"), pick = POOL[turn++ % POOL.length];
+    var o = { id: "sugestao-" + (++seq), tone: "blue", kind: pick.kind, owner: "ai", title: pick.title, when: day + " · 12h", time: "12h", sug: true };
+    var card = node(boardCard(o)), mini = node(calCard(o)), list = $(".he-col__list", board);
+    INFO[o.id] = { resumo: "A IA sugeriu este item para " + day + ", um dia sem nada agendado.", passo: "Aceite para virar uma ideia sua ou dispense a sugestão.", pedido: "Explique por que você sugeriu " + pick.title + "." };
+    list.appendChild(card);
+    $(".he-cal__list", dayEl).appendChild(mini);
+    applyFilters();
+    HE.toast({
+      kind: "ai", text: "A IA sugeriu um " + KINDS[o.kind].label.toLowerCase() + " para " + day + ".", sub: o.title,
+      onUndo: function () { detach([card, mini]); refresh(); }
+    });
+  });
+
+  /* Abrir um item não troca de tela: o resumo sobe em camada */
+  function openItem(id) {
+    var card = master(id);
+    if (!card) return;
+    var tone = card.getAttribute("data-tone"), stage = stageOf(tone), kind = KINDS[card.getAttribute("data-kind")] || KINDS[""];
+    var title = titleOf(card), info = INFO[id], sug = card.classList.contains("is-suggestion");
+    var date = $(".he-card__date", card), img = $(".he-card__thumb img", card), primary = "he-btn he-btn--primary";
+    var slide = img
+      ? '<div class="he-slide"><img src="' + img.getAttribute("src") + '" alt="Capa de ' + esc(title) + '" draggable="false"></div>'
+      : '<div class="he-slide he-slide--text"><span class="he-slide__n"><b>1</b>Capa</span><p class="he-slide__text">' + esc(title) + "</p></div>";
+    var actions;
+    if (sug) {
+      actions = '<button type="button" class="' + primary + '" data-ex-accept="' + id + '">Aceitar a sugestão</button>' +
+        '<button type="button" class="he-btn" data-ex-dismiss="' + id + '">Dispensar a sugestão</button>';
+    } else if (info.fila) {
+      actions = '<a class="' + primary + '" href="fila.html">Revisar na fila</a><a class="he-btn" href="item.html">Abrir o item</a>';
+    } else {
+      actions = '<a class="' + primary + '" href="item.html">Abrir o item</a>';
+    }
+    var body = '<div class="he-split">' +
+      '<div class="he-stack he-stack--lg">' +
+        '<div class="he-stack he-stack--sm">' +
+          '<div class="he-row"><span class="he-tag">' + HE.icon(kind.icon) + kind.label + "</span>" +
+            '<span class="he-tag">' + HE.icon("clock") + (date ? esc(date.textContent.trim()) : "sem data") + "</span>" +
+            '<span class="he-badge" data-tone="' + tone + '">' + stage.name + "</span>" + who(card.getAttribute("data-owner")) + "</div>" +
+          '<h2 class="he-h2">' + esc(title) + "</h2>" +
+          '<p class="he-muted">' + esc(info.resumo) + "</p>" +
+        "</div>" +
+        '<ol class="he-steps" data-he-steps="' + STAGES.indexOf(stage) + '" aria-label="Etapas do item">' +
+          STAGES.map(function (s) { return '<li class="he-steps__step" data-tone="' + s.tone + '"><span>' + s.name + "</span></li>"; }).join("") + "</ol>" +
+        '<div class="he-panel he-panel--soft"><h3 class="he-panel__title">Próximo passo</h3><div class="he-panel__text">' + esc(info.passo) + "</div></div>" +
+        '<div class="he-row">' + actions +
+          '<button type="button" class="he-btn he-btn--ai" data-ex-ask="' + esc(info.pedido) + '"><span class="he-orb he-orb--sm" aria-hidden="true"></span>Pedir à IA</button></div>' +
+      "</div>" +
+      '<div class="he-studio" data-tone="' + tone + '"><div class="he-phone he-phone--sm he-phone--keep"><div class="he-phone__screen">' +
+        '<div class="he-phone__status" aria-hidden="true"><span>9:41</span></div>' +
+        '<div class="he-post__media he-carousel" data-ratio="4x5" data-he-carousel><div class="he-carousel__track">' + slide + "</div></div>" +
+      "</div></div></div>" +
+    "</div>";
+    HE.layer.open({ title: title, body: body, href: "item.html", onClose: function () { HE.dock.removeContext("item"); } });
+    HE.dock.addContext({ key: "item", label: title, value: id, kind: "Item" });
+  }
+  document.addEventListener("he:layer-request", function (e) {
+    var card = e.detail.el.closest(".he-card[data-id]");
+    if (!card) return;
+    e.preventDefault();
+    openItem(card.getAttribute("data-id"));
+  });
+  /* Na miniatura o link fica só para o teclado: o clique na imagem abre o mesmo resumo */
+  grid.parentNode.addEventListener("click", function (e) {
+    var tile = e.target.closest(".he-card--tile");
+    if (tile && !e.target.closest("a, button")) $(".he-card__link", tile).click();
+  });
+
+  /* Ações da camada e do estado sem resultado */
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-ex-accept], [data-ex-dismiss], [data-ex-clear]");
+    if (!btn) return;
+    if (btn.hasAttribute("data-ex-clear")) { clearChip.click(); return; }
+    var id = btn.getAttribute("data-ex-accept") || btn.getAttribute("data-ex-dismiss"), title = titleOf(master(id)), back;
+    if (btn.hasAttribute("data-ex-accept")) {
+      back = accept(id);
+      HE.layer.close();
+      applyFilters();
+      HE.toast({ text: "Sugestão aceita. O item entrou em Ideia.", sub: title, onUndo: function () { back(); applyFilters(); } });
+    } else {
+      back = detach(twins(id));
+      HE.layer.close();
+      refresh();
+      HE.toast({ text: "Sugestão dispensada.", sub: title, onUndo: function () { back(); refresh(); } });
+    }
+  });
+
+  /* Campo de pedido: contexto e sugestões desta tela */
+  HE.dock.setContext([
+    { key: "tela", label: "Planejamento", value: "planejamento" },
+    { key: "periodo", label: "25/11 a 01/12", value: "2026-11-25/2026-12-01", kind: "Período" }
+  ]);
+  HE.dock.setSuggestions([
+    { label: "Montar a próxima semana", prompt: "Monte a próxima semana com base no que foi melhor neste mês." },
+    { label: "Preencher os dias vazios", prompt: "Sugira um item para cada dia vazio dos próximos sete dias." },
+    { label: "Equilibrar os tipos", prompt: "Compare os tipos de item desta semana com as metas e diga o que falta." },
+    { label: "Listar o que está parado", prompt: "Liste os itens que não mudam de etapa há mais de três dias.", send: true }
+  ]);
+  refresh();
+});
+</script>
