@@ -109,9 +109,17 @@
 </svg>
 
 <aside class="he-sidebar" id="t-sidebar" aria-label="Menu lateral">
-  <a class="he-btn he-btn--ghost" href="#inicio" id="t-side-first">Início</a>
-  <a class="he-btn he-btn--ghost" href="#tarefas">Tarefas</a>
-  <a class="he-btn he-btn--ghost" href="#ajustes">Ajustes</a>
+  <nav class="he-side" id="t-side" aria-label="Seções">
+    <div class="he-side__section">
+      <a class="he-side__item" href="#inicio" id="t-side-first" data-he-tip="Início"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-compass"/></svg></span><span class="he-side__text">Início</span></a>
+      <a class="he-side__item" href="#tarefas" id="t-side-plain"><span class="he-side__text">tarefas</span></a>
+      <a class="he-side__item" href="#ajustes" id="t-side-gear" data-he-tip="Ajustes"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-gear"/></svg></span><span class="he-side__text">Ajustes</span></a>
+    </div>
+    <div class="he-side__section" id="t-side-many"></div>
+  </nav>
+  <div class="he-sidebar__foot">
+    <button type="button" class="he-side__item" id="t-side-foot" data-he-sidebar-toggle data-he-tip="Expandir menu"><span class="he-side__icon"><svg class="he-i" aria-hidden="true" focusable="false"><use href="#he-i-list"/></svg></span><span class="he-side__text">Recolher menu</span></button>
+  </div>
 </aside>
 <div class="he-scrim-nav"></div>
 

@@ -721,6 +721,7 @@ HE.sidebar.breakpoint = 1023;   // até esta largura o menu é gaveta
 - **Computador** (acima de `breakpoint`): `toggle` recolhe e expande com `html.he-nav-collapsed`, guardado em `localStorage["he.nav.collapsed"]` e reaplicado antes da primeira pintura pelo `hedesign-theme.js`.
 - **Celular:** `toggle` abre e fecha a gaveta com `html.he-nav-open`. O foco entra no menu, `Esc` e o clique em `.he-scrim-nav` fecham, e o foco volta ao botão.
 - Botões `[data-he-sidebar-toggle]` recebem `aria-expanded`. Evento `he:sidebar` no `document`: `{open, collapsed}`.
+- **Menu recolhido:** a lista `.he-side` continua rolando e o `.he-sidebar__foot` fica à vista. A dica de cada `.he-side__item[data-he-tip]` é fixa na janela, ao lado do menu; a altura dela vem de `--he-tip-y`, que o script escreve no item quando o ponteiro passa, o foco chega ou a lista rola. Com o menu aberto, a dica dos itens não aparece.
 
 ## `HE.stamp`
 

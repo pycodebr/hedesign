@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Abre a documentação e todos os exemplos nos dois temas e em duas larguras e confere o que dá para medir:
 rolagem horizontal, erros de console, imagens quebradas, tema aplicado e fontes do sistema carregadas.
+Nas páginas com menu lateral, recolhe o menu numa janela baixa e confere que nenhum item some e que dá para expandir de novo.
 
     python3 tests/pages.py [--shots pasta] [nome ...]      # nomes: docs, galeria, painel, fila etc.; sem nomes, confere tudo
 """
@@ -23,6 +24,51 @@ def key(path: Path) -> str:
 def targets(names: list) -> list:
     pages = [ROOT / "docs" / "index.html"] + sorted((ROOT / "docs" / "examples").glob("*.html"))
     return [p for p in pages if not names or key(p) in names]
+
+
+COLLAPSED = """() => {
+    const items = [...document.querySelectorAll('.he-sidebar .he-side__item')];
+    const seen = (n) => { if (!n) return false; const r = n.getBoundingClientRect(); return r.width > 4 && r.height > 4; };
+    const toggle = document.querySelector('.he-sidebar [data-he-sidebar-toggle]');
+    const r = toggle.getBoundingClientRect();
+    const side = document.querySelector('.he-side');
+    return {
+        collapsed: document.documentElement.classList.contains('he-nav-collapsed'),
+        blank: items.filter((i) => !seen(i.querySelector('.he-side__icon')) && !seen(i.querySelector('.he-side__text'))).length,
+        unnamed: items.filter((i) => !i.getAttribute('data-he-tip')).length,
+        inside: r.top >= 0 && r.bottom <= innerHeight,
+        reachable: toggle.contains(document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)),
+        sideways: side.scrollWidth - side.clientWidth
+    };
+}"""
+
+
+def collapsed_menu(page) -> list:
+    """Menu lateral recolhido em uma janela baixa: todo item mostra ícone ou inicial e tem nome na dica, o botão do
+    rodapé cabe na janela e o menu volta a abrir. Devolve a lista de achados."""
+    toggle = ".he-sidebar [data-he-sidebar-toggle]"
+    if not page.locator(toggle).count():
+        return []
+    page.set_viewport_size({"width": 1440, "height": 560})
+    page.click(toggle)
+    page.wait_for_timeout(300)
+    info = page.evaluate(COLLAPSED)
+    bad = []
+    if not info["collapsed"]:
+        bad.append("o menu não recolheu")
+    if info["blank"]:
+        bad.append(f"{info['blank']} item(ns) em branco no menu recolhido")
+    if info["unnamed"]:
+        bad.append(f"{info['unnamed']} item(ns) do menu sem data-he-tip")
+    if not info["inside"] or not info["reachable"]:
+        bad.append("botão de expandir fora da janela com o menu recolhido")
+    if info["sideways"] > 0:
+        bad.append("o menu recolhido rola de lado")
+    if not bad:
+        page.click(toggle)
+        if page.evaluate("() => document.documentElement.classList.contains('he-nav-collapsed')"):
+            bad.append("o menu não expandiu de volta")
+    return bad
 
 
 def main() -> int:
@@ -71,6 +117,8 @@ def main() -> int:
                         bad.append(f"fundo {info['bg']}")
                     if shots:
                         page.screenshot(path=str(shots / f"{key(path)}-{width}-{theme}.png"))
+                    if width >= 1024 and theme == "light":
+                        bad += collapsed_menu(page)
                     count += 1
                     if bad:
                         failures.append(f"FALHA {label}: " + "; ".join(bad))

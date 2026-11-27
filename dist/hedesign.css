@@ -1,4 +1,4 @@
-/*! hedesign 1.0.1 · MIT · https://github.com/pycodebr/hedesign */
+/*! hedesign 1.0.2 · MIT · https://github.com/pycodebr/hedesign */
 /* hedesign · 00 · tokens
    Tudo o que o sistema decide em um lugar: cor, tipo, espaço, forma, sombra e movimento.
    Tema claro por padrão; tema escuro em [data-he-theme="dark"], no <html> ou em qualquer elemento (ilha de tema:
@@ -368,16 +368,27 @@ html.he-nav-collapsed:has(.he-sidebar) { --he-sidebar-w: 64px; }
 .he-sidebar__note { padding: 6px 8px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .he-sidebar__note a { color: var(--he-muted) !important; }
 
-/* Menu recolhido (computador): só os ícones, com o nome na dica */
+/* Com o menu aberto o nome já está escrito ao lado do ícone: a dica do item fica para o menu recolhido. */
+.he-sidebar .he-side__item[data-he-tip]:hover::after, .he-sidebar .he-side__item[data-he-tip]:focus-visible::after { content: none; }
+
+/* Menu recolhido (computador): só os ícones, com o nome na dica. A lista continua rolando dentro do menu,
+   e o rodapé, onde fica o botão de expandir, nunca sai da janela. */
 @media (min-width: 1024px) {
-  html.he-nav-collapsed .he-brand__text, html.he-nav-collapsed .he-side__text, html.he-nav-collapsed .he-side__label, html.he-nav-collapsed .he-sidebar__note, html.he-nav-collapsed .he-side__item .he-count { display: none; }
+  html.he-nav-collapsed .he-brand__text, html.he-nav-collapsed .he-side__label, html.he-nav-collapsed .he-sidebar__note, html.he-nav-collapsed .he-side__item .he-count { display: none; }
+  /* O nome sai da vista e continua valendo para o leitor de tela. */
+  html.he-nav-collapsed .he-side__item:has(.he-side__icon) .he-side__text { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  /* Item sem ícone mostra a inicial do nome, para nenhum destino ficar em branco. */
+  html.he-nav-collapsed .he-side__item:not(:has(.he-side__icon)) .he-side__text { flex: 0 0 auto; font-size: 0; }
+  html.he-nav-collapsed .he-side__item:not(:has(.he-side__icon)) .he-side__text::first-letter { font-size: 14px; font-weight: 600; text-transform: uppercase; }
   html.he-nav-collapsed .he-sidebar__head { padding: 0; justify-content: center; }
   html.he-nav-collapsed .he-brand { flex: 0 0 auto; padding: 5px; }
   html.he-nav-collapsed .he-side, html.he-nav-collapsed .he-sidebar__foot { padding-left: 10px; padding-right: 10px; }
   html.he-nav-collapsed .he-side__item { justify-content: center; min-height: 40px; padding: 0; }
   html.he-nav-collapsed .he-side__section + .he-side__section { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--he-line); }
-  html.he-nav-collapsed .he-side__item[data-he-tip]:hover::after, html.he-nav-collapsed .he-side__item[data-he-tip]:focus-visible::after { content: attr(data-he-tip); position: absolute; left: calc(100% + 10px); top: 50%; z-index: 2; translate: 0 -50%; padding: 6px 10px; border-radius: 8px; background: var(--he-toast-bg); color: var(--he-toast-ink); font: 600 12.5px/1.2 var(--he-font); white-space: nowrap; box-shadow: var(--he-shadow-2); pointer-events: none; }
-  html.he-nav-collapsed .he-sidebar, html.he-nav-collapsed .he-side { overflow: visible; }
+  html.he-nav-collapsed .he-side { scrollbar-width: none; }
+  html.he-nav-collapsed .he-side::-webkit-scrollbar { display: none; }
+  /* A dica é fixa na janela, para a lista que rola não cortá-la. hedesign.js informa a altura do item em --he-tip-y. */
+  html.he-nav-collapsed .he-side__item[data-he-tip]:hover::after, html.he-nav-collapsed .he-side__item[data-he-tip]:focus-visible::after { content: attr(data-he-tip); position: fixed; left: calc(var(--he-sidebar-w) + 4px); top: var(--he-tip-y); bottom: auto; z-index: 2; translate: 0 -50%; padding: 6px 10px; border-radius: 8px; background: var(--he-toast-bg); color: var(--he-toast-ink); font: 600 12.5px/1.2 var(--he-font); white-space: nowrap; box-shadow: var(--he-shadow-2); pointer-events: none; }
 }
 
 .he-topbar { position: sticky; top: 0; z-index: 8000; display: flex; align-items: center; gap: 10px; height: var(--he-topbar-h); padding: 0 20px; background: var(--he-topbar-bg); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--he-line); color: var(--he-muted); font: 400 14px/1.43 var(--he-font); }

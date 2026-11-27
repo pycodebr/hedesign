@@ -12,7 +12,7 @@ em `docs/index.html`. Ícone: `<svg class="he-i" aria-hidden="true"><use href="#
   <nav class="he-side"><div class="he-side__section"><div class="he-side__label">Grupo</div>
     <a class="he-side__item is-active" href="#" aria-current="page" data-he-tip="Painel">
       <span class="he-side__icon">{i:compass}</span><span class="he-side__text">Painel</span><span class="he-count">4</span></a></div></nav>
-  <div class="he-sidebar__foot"><button class="he-side__item" data-he-sidebar-toggle><span class="he-side__icon">{i:list}</span><span class="he-side__text">Recolher menu</span></button></div>
+  <div class="he-sidebar__foot"><button class="he-side__item" data-he-sidebar-toggle data-he-tip="Expandir menu"><span class="he-side__icon">{i:list}</span><span class="he-side__text">Recolher menu</span></button></div>
 </aside>
 <header class="he-topbar">
   <button class="he-topbar__menu" data-he-sidebar-toggle aria-label="Abrir menu">{i:list}</button>
@@ -37,6 +37,10 @@ em `docs/index.html`. Ícone: `<svg class="he-i" aria-hidden="true"><use href="#
   <nav class="he-mnav"><a class="he-mnav__item is-active" href="#">{i:sun}<span>Hoje</span></a></nav>   <!-- só no celular -->
 </main>
 ```
+
+Menu recolhido (computador, 64 px): todo `he-side__item` leva `he-side__icon` e `data-he-tip` com o nome, que aparece ao lado do ícone
+no hover e no foco. Item sem ícone mostra a inicial do nome. A lista rola dentro da faixa e o `he-sidebar__foot`, com o botão
+`data-he-sidebar-toggle`, fica sempre à vista; nele, `data-he-tip="Expandir menu"` diz a ação do menu recolhido.
 
 Cabeçalho de tela: `<header class="he-head"><div class="he-head__main"><h1>Título</h1><p class="he-head__sub">Frase.</p></div><div class="he-head__actions">…</div></header>`.
 Seção: `<section class="he-sec"><div class="he-sec__head"><h2>Título</h2><span class="he-sec__n">3</span><a class="he-btn he-btn--ghost he-btn--sm">Ver tudo</a></div>…</section>`.

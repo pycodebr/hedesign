@@ -4,7 +4,7 @@
 > estado, uma cor só da IA, tema claro e escuro. Sem dependências e sem build. MIT. Feito pela PycodeBR.
 
 Instalar: `curl -fsSL https://raw.githubusercontent.com/pycodebr/hedesign/main/install.sh | bash`
-CDN: `https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.1/dist/` (`hedesign-fonts.css`, `hedesign.min.css`,
+CDN: `https://cdn.jsdelivr.net/gh/pycodebr/hedesign@1.0.2/dist/` (`hedesign-fonts.css`, `hedesign.min.css`,
 `hedesign-theme.js` no head; `hedesign.min.js` antes de `</body>`).
 
 Regras centrais: só tokens `--he-*` e classes `he-*`; nenhuma cor fixa; cor de estado por `data-tone` no contêiner; um

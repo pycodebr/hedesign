@@ -2360,6 +2360,26 @@
     if (navState().open && navWide()) navOpen(false);
     else syncNavButtons();
   });
+  /* Menu recolhido: a dica do item é fixa na janela, para a lista poder rolar sem cortá-la.
+     A altura do item vai em --he-tip-y quando o ponteiro passa, o foco chega ou a lista rola. */
+  function navTipPlace(item) {
+    var r = item.getBoundingClientRect();
+    item.style.setProperty("--he-tip-y", Math.round(r.top + r.height / 2) + "px");
+  }
+  function navTip(e) {
+    if (!navState().collapsed || !e.target.closest) return;
+    var item = e.target.closest(".he-sidebar .he-side__item[data-he-tip]");
+    if (item) navTipPlace(item);
+  }
+  doc.addEventListener("pointerover", navTip);
+  doc.addEventListener("focusin", navTip);
+  doc.addEventListener("scroll", function (e) {
+    var list = e.target;
+    if (!navState().collapsed || !list.classList || !list.classList.contains("he-side")) return;
+    $$(".he-side__item[data-he-tip]", list).forEach(function (item) {
+      if (item.matches(":hover") || item === doc.activeElement) navTipPlace(item);
+    });
+  }, true);
 
   /* ===== Carimbo: aparece sobre o alvo e some sozinho ===== */
   var STAMP_ICON = { ok: "check", adjust: "edit", denied: "x" };

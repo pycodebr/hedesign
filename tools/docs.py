@@ -5,7 +5,7 @@
     python3 tools/docs.py --check   # falha se os arquivos gerados estiverem diferentes da fonte (CI)
 
 Fonte: docs/src/layout.html e docs/src/sections/NN-nome.html. Em cada seção:
-  <!-- nav: Grupo | Título -->                 primeira linha: grupo do menu e título da seção (o id vem do nome do arquivo)
+  <!-- nav: Grupo | Título | ícone -->         primeira linha: grupo do menu, título da seção e ícone do item no menu (o id vem do nome do arquivo)
   {i:nome} ou {i:nome|he-i--sm}                ícone do sprite
   <!--demo--> ... <!--/demo-->                 prévia + bloco "Ver o código" com o mesmo HTML
   <!--demo both--> ... <!--/demo-->            prévia repetida em duas ilhas de tema, clara e escura
@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 SRC = DOCS / "src"
 VERSION = (ROOT / "VERSION").read_text().strip()
+SPRITE = (ROOT / "src" / "icons" / "sprite.svg").read_text()
 PUBLIC = "https://pycodebr.github.io/hedesign/docs/"   # onde a documentação fica publicada (GitHub Pages)
 
 
@@ -68,18 +69,20 @@ def only_code(match: re.Match) -> str:
 
 def render_section(path: Path) -> dict:
     raw = path.read_text()
-    head = re.match(r"<!--\s*nav:\s*(.*?)\s*\|\s*(.*?)\s*-->\n", raw)
-    assert head, f"{path.name}: falta a linha <!-- nav: Grupo | Título -->"
+    head = re.match(r"<!--\s*nav:\s*(.*?)\s*\|\s*(.*?)\s*\|\s*([a-z0-9-]+)\s*-->\n", raw)
+    assert head, f"{path.name}: falta a linha <!-- nav: Grupo | Título | ícone -->"
+    assert f'id="he-i-{head.group(3)}"' in SPRITE, f"{path.name}: o ícone {head.group(3)} não existe no sprite"
     body = raw[head.end():]
     body = re.sub(r"<!--code-->(.*?)<!--/code-->", only_code, body, flags=re.S)
     body = re.sub(r"<!--demo([a-z ]*)-->(.*?)<!--/demo-->", demo, body, flags=re.S)
     body = expand_icons(body)
     sid = re.sub(r"^\d+-", "", path.stem)
-    return {"id": sid, "group": head.group(1), "title": head.group(2),
+    return {"id": sid, "group": head.group(1), "title": head.group(2), "icon": head.group(3),
             "html": f'<section class="doc-sec" id="{sid}" data-doc-sec>\n<h2 class="doc-sec__title"><a href="#{sid}">{head.group(2)}</a></h2>\n{body}\n</section>'}
 
 
 def build_nav(sections: list) -> str:
+    """Menu lateral da documentação. Todo item leva ícone e dica: é o que sobra à vista quando o menu é recolhido."""
     out, group = [], None
     for sec in sections:
         if sec["group"] != group:
@@ -87,7 +90,8 @@ def build_nav(sections: list) -> str:
                 out.append("</div>")
             group = sec["group"]
             out.append(f'<div class="he-side__section"><div class="he-side__label">{group}</div>')
-        out.append(f'<a class="he-side__item" href="#{sec["id"]}" data-doc-nav="{sec["id"]}"><span class="he-side__text">{sec["title"]}</span></a>')
+        out.append(f'<a class="he-side__item" href="#{sec["id"]}" data-doc-nav="{sec["id"]}" data-he-tip="{html.escape(sec["title"])}">'
+                   f'<span class="he-side__icon">{{i:{sec["icon"]}}}</span><span class="he-side__text">{sec["title"]}</span></a>')
     out.append("</div>")
     return "\n".join(out)
 

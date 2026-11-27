@@ -900,6 +900,67 @@ def t_sidebar(page, mobile):
     eq(ev(page, "[document.documentElement.classList.contains('he-nav-collapsed'), localStorage.getItem('he.nav.collapsed')]"), [False, "0"])
 
 
+SIDE_FILL = """void (function () {
+  var box = document.querySelector('#t-side-many'), html = '';
+  for (var i = 1; i <= 30; i++) html += '<a class="he-side__item" href="#s' + i + '" id="t-side-' + i + '" data-he-tip="Seção ' + i + '"><span class="he-side__icon"><svg class="he-i" aria-hidden="true"><use href="#he-i-star"/></svg></span><span class="he-side__text">Seção ' + i + '</span></a>';
+  box.innerHTML = html;
+})()"""
+SIDE_BOX = "(function (n) { var r = n.getBoundingClientRect(); return { top: r.top, bottom: r.bottom, w: r.width, h: r.height, cy: Math.round(r.top + r.height / 2) }; })(document.querySelector(arg))"
+SIDE_TIP = "(function (n) { var c = getComputedStyle(n, '::after'); return [c.content, c.position, c.top, c.left]; })(document.querySelector(arg))"
+
+
+def t_sidebar_collapsed(page, mobile):
+    """Menu recolhido com mais itens do que cabem na janela: nada some, a lista rola e o botão de expandir fica à vista."""
+    ev(page, SIDE_FILL)
+    page.evaluate("() => document.body.classList.add('he-tips')")
+    if mobile:
+        # na gaveta do celular o menu não recolhe: o nome de cada item continua escrito
+        ev(page, "void HE.sidebar.collapse(true)")
+        ev(page, "void HE.sidebar.open()")
+        eq(ev(page, SIDE_BOX, "#t-side-first .he-side__text")["w"] > 20, True, "nome visível na gaveta")
+        ev(page, "void HE.sidebar.close()")
+        return
+    # aberto: o nome está escrito e a dica do item não aparece, nem com he-tips no body
+    page.hover("#t-side-gear")
+    eq(ev(page, SIDE_TIP, "#t-side-gear")[0], "none", "dica com o menu aberto")
+    eq(ev(page, SIDE_BOX, "#t-side-first .he-side__text")["w"] > 20, True, "nome visível com o menu aberto")
+    page.mouse.move(700, 80)
+    click(page, "#t-side-foot")
+    eq(has_class(page, "he-nav-collapsed"), True)
+    # a lista rola dentro do menu e o rodapé fica dentro da janela, com o botão por cima de tudo
+    eq(ev(page, "(function (n) { return n.scrollHeight > n.clientHeight + 100 && n.scrollWidth <= n.clientWidth; })(document.querySelector('#t-side'))"), True, "a lista rola só na vertical")
+    foot = ev(page, SIDE_BOX, "#t-side-foot")
+    eq(foot["bottom"] <= ev(page, "innerHeight"), True, "botão de expandir dentro da janela")
+    eq(ev(page, "(function (n) { var r = n.getBoundingClientRect(); return n.contains(document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)); })(document.querySelector('#t-side-foot'))"), True, "botão de expandir alcançável")
+    # item com ícone: o ícone fica e o nome sai da vista sem sair da árvore de acessibilidade
+    eq(ev(page, SIDE_BOX, "#t-side-first .he-side__icon")["w"] > 16, True, "ícone visível")
+    eq(ev(page, SIDE_BOX, "#t-side-first .he-side__text")["w"] <= 1, True, "nome fora da vista")
+    eq(ev(page, "getComputedStyle(document.querySelector('#t-side-first .he-side__text')).display !== 'none'"), True, "nome continua para o leitor de tela")
+    # item sem ícone: sobra a inicial, em maiúscula
+    plain = ev(page, SIDE_BOX, "#t-side-plain .he-side__text")
+    eq(4 < plain["w"] < 20 and plain["h"] > 10, True, "inicial do item sem ícone")
+    eq(ev(page, "(function (c) { return [c.fontSize, c.textTransform]; })(getComputedStyle(document.querySelector('#t-side-plain .he-side__text'), '::first-letter'))"), ["14px", "uppercase"])
+    # a dica é fixa na janela, ao lado do menu e na altura do item, inclusive depois de rolar a lista
+    page.hover("#t-side-gear")
+    cy = ev(page, SIDE_BOX, "#t-side-gear")["cy"]
+    eq(ev(page, SIDE_TIP, "#t-side-gear"), ['"Ajustes"', "fixed", "%dpx" % cy, "68px"], "dica do item")
+    ev(page, "void (document.querySelector('#t-side').scrollTop = 10)")   # pouco, para o ponteiro continuar sobre o item
+    wait(page, "document.querySelector('#t-side-gear').style.getPropertyValue('--he-tip-y') === '%dpx'" % (cy - 10))
+    eq(ev(page, SIDE_TIP, "#t-side-gear")[2], "%dpx" % (cy - 10), "a dica acompanha a rolagem")
+    # pelo teclado: o foco no último item leva a lista até ele e a dica acompanha
+    page.mouse.move(700, 80)
+    page.evaluate("() => document.querySelector('#t-side-30').focus({ focusVisible: true })")
+    last = ev(page, SIDE_BOX, "#t-side-30")
+    eq(last["top"] >= 0 and last["bottom"] <= foot["top"] + 1, True, "item em foco dentro da lista")
+    eq(ev(page, "document.querySelector('#t-side-30').style.getPropertyValue('--he-tip-y')"), "%dpx" % last["cy"], "altura da dica no foco")
+    # o botão do rodapé tem a dica da ação e expande de volta
+    page.hover("#t-side-foot")
+    eq(ev(page, SIDE_TIP, "#t-side-foot")[0], '"Expandir menu"', "dica do botão")
+    page.click("#t-side-foot")
+    eq(ev(page, "[document.documentElement.classList.contains('he-nav-collapsed'), document.querySelector('#t-side-foot').getAttribute('aria-expanded')]"), [False, "true"], "expande de volta")
+    eq(ev(page, SIDE_BOX, "#t-side-first .he-side__text")["w"] > 20, True, "nome de volta")
+
+
 def t_shortcuts(page, mobile):
     ev(page, "void HE.shortcuts.add('Teste', ['T', 'X'], 'Atalho de teste')")
     blur(page)
@@ -1074,7 +1135,7 @@ TESTS = [
     ("api", t_api), ("tema", t_theme), ("toast", t_toast), ("counts", t_counts), ("drawer", t_drawer), ("sheet", t_sheet),
     ("paleta", t_palette), ("dock", t_dock), ("presenca", t_presence), ("views", t_views), ("tabs", t_tabs), ("chips", t_chips),
     ("carousel", t_carousel), ("pins", t_pins), ("player", t_player), ("decide", t_decide), ("dnd", t_dnd), ("layer", t_layer),
-    ("menu", t_menu), ("switch", t_switch), ("sidebar", t_sidebar), ("shortcuts", t_shortcuts), ("steps", t_steps), ("stamp", t_stamp),
+    ("menu", t_menu), ("switch", t_switch), ("sidebar", t_sidebar), ("menu_recolhido", t_sidebar_collapsed), ("shortcuts", t_shortcuts), ("steps", t_steps), ("stamp", t_stamp),
     ("composer", t_composer), ("datas", t_time), ("glow", t_glow), ("init", t_init),
 ]
 

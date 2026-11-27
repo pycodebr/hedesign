@@ -1,6 +1,9 @@
 /* Estilos só da documentação do hedesign (prefixo doc-). O sistema em si está em dist/hedesign.css. */
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--he-topbar-h) + 20px); }
 .doc-page { max-width: 1180px; padding-bottom: 48px; }
+/* Menu da documentação: aberto, só os nomes (são 28 seções e alguns nomes são longos); recolhido, o ícone de cada seção. */
+.he-side [data-doc-nav] .he-side__icon { display: none; }
+@media (min-width: 1024px) { html.he-nav-collapsed .he-side [data-doc-nav] .he-side__icon { display: grid; } }
 .doc-sec { padding: 8px 0 44px; min-width: 0; }
 .doc-sec + .doc-sec { border-top: 1px solid var(--he-line); padding-top: 40px; }
 .doc-sec__title { margin: 0 0 10px; font: var(--he-text-h2); letter-spacing: -.6px; }

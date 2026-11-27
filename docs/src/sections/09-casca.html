@@ -1,4 +1,4 @@
-<!-- nav: Estrutura | Casca da aplicação -->
+<!-- nav: Estrutura | Casca da aplicação | grid -->
 <p>A casca tem quatro peças, todas opcionais: o menu lateral do sistema, a barra do topo com o caminho, a barra da área com os destinos e, no rodapé, o campo de pedido à IA. No celular o menu lateral vira gaveta e os destinos da área descem para uma barra inferior.</p>
 <div class="doc-frame"><iframe src="examples/painel.html" title="Exemplo de casca completa" loading="lazy"></iframe></div>
 <p style="margin-top:12px">As medidas se ajustam sozinhas. <code>--he-sidebar-w</code>, <code>--he-topbar-h</code>, <code>--he-dock-h</code> e <code>--he-mnav-h</code> valem zero até o elemento existir na página, e tudo o que é fixo se posiciona a partir delas. Elemento seu que fique grudado embaixo usa <code>bottom: calc(var(--he-bottom) + 4px)</code>.</p>
@@ -24,7 +24,7 @@
       </div>
     </nav>
     <div class="he-sidebar__foot">
-      <button type="button" class="he-side__item" data-he-sidebar-toggle>
+      <button type="button" class="he-side__item" data-he-sidebar-toggle data-he-tip="Expandir menu">
         <span class="he-side__icon"><svg class="he-i"><use href="#he-i-list"/></svg></span>
         <span class="he-side__text">Recolher menu</span></button>
     </div>
@@ -50,6 +50,13 @@
   </main>
 </body>
 <!--/code-->
+<h3>Menu recolhido</h3>
+<p>No computador, o botão com <code>data-he-sidebar-toggle</code> recolhe o menu para uma faixa de 64 px que mostra só os ícones. A lista de itens continua rolando dentro da faixa, e o rodapé, onde fica o botão, permanece à vista para expandir o menu de novo. A escolha fica guardada e vale na próxima visita.</p>
+<ul>
+<li>Todo item leva <code>.he-side__icon</code> e <code>data-he-tip</code> com o nome. Com o menu recolhido, o nome aparece ao lado do ícone quando o ponteiro passa ou o foco chega, e continua valendo para o leitor de tela.</li>
+<li>Um item sem ícone mostra a inicial do nome, para nenhum destino ficar em branco.</li>
+<li>No botão do rodapé, <code>data-he-tip="Expandir menu"</code> diz o que ele faz com o menu recolhido. Com o menu aberto a dica dos itens não aparece, porque o nome já está escrito.</li>
+</ul>
 <h3>Barra da área</h3>
 <p>Fica grudada abaixo da barra do topo e leva, nesta ordem: a marca da área, os destinos (cinco no máximo), o botão Novo, a ação principal com contador, a presença da IA, a busca e o tema. Ela se aperta sozinha conforme a própria largura: primeiro some o nome, depois os ícones dos destinos, o rótulo da presença e o texto longo da ação.</p>
 <!--demo plain-->

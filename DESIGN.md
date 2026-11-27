@@ -388,6 +388,8 @@ tabulares.
 - Página com até 1320 px (860 px para leitura), 28 px de respiro no topo e 32 px nas laterais (16 px no celular).
 - **Casca:** menu lateral fixo de 256 px (64 px recolhido), barra do topo de 52 px com o caminho, barra da área de 56 px
   com até cinco destinos, e o campo de pedido fixo no rodapé, centralizado, com 760 px no máximo.
+- **Menu recolhido:** mostra só o ícone de cada item, com o nome na dica (`data-he-tip`); item sem ícone mostra a
+  inicial. A lista rola dentro do menu, e o rodapé com o botão de expandir fica sempre à vista.
 - **Celular (até 760 px):** o menu lateral vira gaveta, os destinos descem para uma barra inferior de 58 px, o campo de
   pedido fica logo acima dela, e gaveta, folha e camada sobem de baixo.
 - Pontos de quebra: 1023 px (menu vira gaveta), 900 px (colunas viram pilha), 760 px (modo celular), 480 px (a moldura

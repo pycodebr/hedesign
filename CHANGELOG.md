@@ -3,6 +3,28 @@
 Todas as mudanças publicadas do hedesign. O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/)
 e as versões seguem o [SemVer](https://semver.org/lang/pt-BR/).
 
+## 1.0.2 (2026-11-27)
+
+### Corrigido
+
+- Menu lateral recolhido: a lista de itens voltou a rolar dentro do menu e o rodapé, onde fica o botão de expandir,
+  não sai mais da janela. Antes, com mais itens do que cabiam na altura da janela, o rodapé era empurrado para fora e
+  não havia como expandir o menu de novo.
+- A dica com o nome do item no menu recolhido passou a ser fixa na janela, ao lado do menu, para não ser cortada pela
+  lista que rola. O `hedesign.js` informa a altura do item em `--he-tip-y`.
+- Com o menu aberto, a dica dos itens não aparece mais por cima do item vizinho repetindo o nome que já está escrito.
+- No menu recolhido, o nome do item continua disponível para o leitor de tela, e um item sem `he-side__icon` mostra a
+  inicial do nome no lugar de ficar em branco.
+- Documentação: cada seção do menu ganhou ícone e dica. Sem eles, o menu recolhido ficava vazio. O gerador
+  (`tools/docs.py`) agora exige o ícone na linha `<!-- nav: Grupo | Título | ícone -->`.
+- Documentação e exemplos: a dica do botão do rodapé diz "Expandir menu", a ação disponível com o menu recolhido.
+
+### Testes
+
+- `tests/js/test_js.py` confere o menu recolhido com mais itens do que cabem na janela: rolagem, botão de expandir
+  alcançável, ícone ou inicial em todo item e posição da dica com ponteiro, rolagem e teclado.
+- `tests/pages.py` recolhe e expande o menu da documentação e de cada exemplo em uma janela baixa.
+
 ## 1.0.1 (2026-11-26)
 
 ### Corrigido
